@@ -206,7 +206,7 @@ if authentication_status:
             jml_soal = pd.DataFrame(data_jml_soal)
 
             df = df[['LOKASI', 'RANK LOK.', 'RANK NAS.', 'NOMOR NF', 'NAMA SISWA', 'NAMA SEKOLAH',
-                    'KELAS', 'MAT. WJB.', 'IND', 'ENG', 'MAT. PIL.', 'JML', 'S_MAT. WJB', 'S_IND', 'S_ENG', 'S_MAT. PIL.', 'S_JML']]
+                    'KELAS', 'MAT_WJB', 'IND', 'ENG', 'MAT_PIL.', 'JML', 'S_MAT_WJB', 'S_IND', 'S_ENG', 'S_MAT_PIL.', 'S_JML']]
 
             # sort best 150
             grouped = df.groupby('LOKASI')
@@ -5976,7 +5976,7 @@ if authentication_status:
             jml_soal = pd.DataFrame(data_jml_soal)
 
             df = df[['LOKASI', 'RANK LOK.', 'RANK NAS.', 'NOMOR NF', 'NAMA SISWA', 'NAMA SEKOLAH',
-                    'KELAS', 'MAT. WJB.', 'IND', 'ENG', 'MAT. PIL.', 'JML', 'S_MAT. WJB', 'S_IND', 'S_ENG', 'S_MAT. PIL.', 'S_JML']]
+                    'KELAS', 'MAT_WJB', 'IND', 'ENG', 'MAT_PIL.', 'JML', 'S_MAT_WJB', 'S_IND', 'S_ENG', 'S_MAT_PIL.', 'S_JML']]
 
             # sort best 150
             grouped = df.groupby('LOKASI')
@@ -11739,7 +11739,7 @@ if authentication_status:
             jml_soal = pd.DataFrame(data_jml_soal)
 
             df = df[['LOKASI', 'RANK LOK.', 'RANK NAS.', 'NOMOR NF', 'NAMA SISWA', 'NAMA SEKOLAH',
-                    'KELAS', 'MAT. WJB.', 'IND', 'ENG', 'MAT. PIL.', 'JML', 'S_MAT. WJB', 'S_IND', 'S_ENG', 'S_MAT. PIL.', 'S_JML']]
+                    'KELAS', 'MAT_WJB', 'IND', 'ENG', 'MAT_PIL.', 'JML', 'S_MAT_WJB', 'S_IND', 'S_ENG', 'S_MAT_PIL.', 'S_JML']]
 
             # sort best 150
             grouped = df.groupby('LOKASI')
@@ -17580,7 +17580,7 @@ if authentication_status:
             jml_soal = pd.DataFrame(data_jml_soal)
 
             df = df[['LOKASI', 'RANK LOK.', 'RANK NAS.', 'NOMOR NF', 'NAMA SISWA', 'NAMA SEKOLAH',
-                    'KELAS', 'MAT. WJB.', 'IND', 'ENG', 'MAT. PIL.', 'JML', 'S_MAT. WJB', 'S_IND', 'S_ENG', 'S_MAT. PIL.', 'S_JML']]
+                    'KELAS', 'MAT_WJB', 'IND', 'ENG', 'MAT_PIL.', 'JML', 'S_MAT_WJB', 'S_IND', 'S_ENG', 'S_MAT_PIL.', 'S_JML']]
 
             # sort best 150
             grouped = df.groupby('LOKASI')
