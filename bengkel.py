@@ -1,4 +1,4 @@
-    if selected_file == "Lok. 11 KM PIL. SEJ.":
+    if selected_file == "Lok. 11 KM PIL. GEO.":
         # menghilangkan hamburger
         st.markdown("""
         <style>
@@ -15,14 +15,14 @@
 
         st.info("Jika melihat pesan error di paling bawah, silahkan refresh")
         st.title("Olahan untuk Lokasi")
-        st.header("11 KM PIL. SEJ.")
+        st.header("11 KM PIL. GEO.")
 
         col6 = st.container()
 
         with col6:
             KELAS = st.selectbox(
                 "KELAS",
-                ("--Pilih Kelas--", "11 KM PIL. SEJ."))
+                ("--Pilih Kelas--", "11 KM PIL. GEO."))
 
         col7 = st.container()
 
@@ -66,14 +66,14 @@
                 (15, 20, 25, 30, 35, 40, 45, 50))
 
         with col4:
-            SEJ = st.selectbox(
-                "JML. SOAL SEJ",
+            GEO = st.selectbox(
+                "JML. SOAL GEO",
                 (15, 20, 25, 30, 35, 40, 45, 50))
 
         JML_SOAL_MAT_WJB = MAT_WJB
         JML_SOAL_IND = IND
         JML_SOAL_ENG = ENG
-        JML_SOAL_SEJ = SEJ
+        JML_SOAL_GEO = GEO
 
         kelas = KELAS.replace(" ", "")
         semester = SEMESTER
@@ -101,55 +101,55 @@
             rata_mat_wjb = df.iloc[r, len_col-20]
             rata_ind = df.iloc[r, len_col-19]
             rata_eng = df.iloc[r, len_col-18]
-            rata_sej = df.iloc[r, len_col-17]
+            rata_geo = df.iloc[r, len_col-17]
             rata_jml = df.iloc[r, len_col-16]
 
             # rata-rata nilai standar
             rata_Smat_wjb = df.iloc[t, len_col-11]
             rata_Sind = df.iloc[t, len_col-10]
             rata_Seng = df.iloc[t, len_col-9]
-            rata_Ssej = df.iloc[t, len_col-8]
+            rata_Sgeo = df.iloc[t, len_col-8]
             rata_Sjml = df.iloc[t, len_col-7]
 
             # max jumlah benar
             max_mat_wjb = df.iloc[t, len_col-20]
             max_ind = df.iloc[t, len_col-19]
             max_eng = df.iloc[t, len_col-18]
-            max_sej = df.iloc[t, len_col-17]
+            max_geo = df.iloc[t, len_col-17]
             max_jml = df.iloc[t, len_col-16]
 
             # max nilai standar
             max_Smat_wjb = df.iloc[r, len_col-11]
             max_Sind = df.iloc[r, len_col-10]
             max_Seng = df.iloc[r, len_col-9]
-            max_Ssej = df.iloc[r, len_col-8]
+            max_Sgeo = df.iloc[r, len_col-8]
             max_Sjml = df.iloc[r, len_col-7]
 
             # min jumlah benar
             min_mat_wjb = df.iloc[u, len_col-20]
             min_ind = df.iloc[u, len_col-19]
             min_eng = df.iloc[u, len_col-18]
-            min_sej = df.iloc[u, len_col-17]
+            min_geo = df.iloc[u, len_col-17]
             min_jml = df.iloc[u, len_col-16]
 
             # min nilai standar
             min_Smat_wjb = df.iloc[s, len_col-11]
             min_Sind = df.iloc[s, len_col-10]
             min_Seng = df.iloc[s, len_col-9]
-            min_Ssej = df.iloc[s, len_col-8]
+            min_Sgeo = df.iloc[s, len_col-8]
             min_Sjml = df.iloc[s, len_col-7]
 
-            data_jml_benar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'SEJARAH (SEJ)', 'JUMLAH (JML)'],
-                              'TERENDAH': [min_mat_wjb, min_ind, min_eng, min_sej, min_jml],
-                              'RATA-RATA': [rata_mat_wjb, rata_ind, rata_eng, rata_sej, rata_jml],
-                              'TERTINGGI': [max_mat_wjb, max_ind, max_eng, max_sej, max_jml]}
+            data_jml_benar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'GEOGRAFI (GEO)', 'JUMLAH (JML)'],
+                              'TERENDAH': [min_mat_wjb, min_ind, min_eng, min_geo, min_jml],
+                              'RATA-RATA': [rata_mat_wjb, rata_ind, rata_eng, rata_geo, rata_jml],
+                              'TERTINGGI': [max_mat_wjb, max_ind, max_eng, max_geo, max_jml]}
 
             jml_benar = pd.DataFrame(data_jml_benar)
 
-            data_n_standar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'SEJARAH (SEJ)', 'JUMLAH (JML)'],
-                              'TERENDAH': [min_Smat_wjb, min_Sind, min_Seng, min_Ssej, min_Sjml],
-                              'RATA-RATA': [rata_Smat_wjb, rata_Sind, rata_Seng, rata_Ssej, rata_Sjml],
-                              'TERTINGGI': [max_Smat_wjb, max_Sind, max_Seng, max_Ssej, max_Sjml]}
+            data_n_standar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'GEOGRAFI (GEO)', 'JUMLAH (JML)'],
+                              'TERENDAH': [min_Smat_wjb, min_Sind, min_Seng, min_Sgeo, min_Sjml],
+                              'RATA-RATA': [rata_Smat_wjb, rata_Sind, rata_Seng, rata_Sgeo, rata_Sjml],
+                              'TERTINGGI': [max_Smat_wjb, max_Sind, max_Seng, max_Sgeo, max_Sjml]}
 
             n_standar = pd.DataFrame(data_n_standar)
 
@@ -157,13 +157,13 @@
 
             jml_peserta = pd.DataFrame(data_jml_peserta)
 
-            data_jml_soal = {'BIDANG STUDI': ['MAT. WJB.', 'IND', 'ENG', 'SEJ'],
-                             'JUMLAH': [JML_SOAL_MAT_WJB, JML_SOAL_IND, JML_SOAL_ENG, JML_SOAL_SEJ]}
+            data_jml_soal = {'BIDANG STUDI': ['MAT. WJB.', 'IND', 'ENG', 'GEO'],
+                             'JUMLAH': [JML_SOAL_MAT_WJB, JML_SOAL_IND, JML_SOAL_ENG, JML_SOAL_GEO]}
 
             jml_soal = pd.DataFrame(data_jml_soal)
 
             df = df[['LOKASI', 'RANK LOK.', 'RANK NAS.', 'NOMOR NF', 'NAMA SISWA', 'NAMA SEKOLAH',
-                    'KELAS', 'MAT_WJB', 'IND', 'ENG', 'SEJ', 'JML', 'S_MAT_WJB', 'S_IND', 'S_ENG', 'S_SEJ', 'S_JML']]
+                    'KELAS', 'MAT_WJB', 'IND', 'ENG', 'GEO', 'JML', 'S_MAT_WJB', 'S_IND', 'S_ENG', 'S_GEO', 'S_JML']]
 
             # sort best 150
             grouped = df.groupby('LOKASI')
@@ -2012,12 +2012,12 @@
             worksheetbest.write('F5', 'MAT. WJB.', body)
             worksheetbest.write('G5', 'IND', body)
             worksheetbest.write('H5', 'ENG', body)
-            worksheetbest.write('I5', 'SEJ', body)
+            worksheetbest.write('I5', 'GEO', body)
             worksheetbest.write('J5', 'JML', body)
             worksheetbest.write('K5', 'MAT. WJB.', body)
             worksheetbest.write('L5', 'IND', body)
             worksheetbest.write('M5', 'ENG', body)
-            worksheetbest.write('N5', 'SEJ', body)
+            worksheetbest.write('N5', 'GEO', body)
             worksheetbest.write('O5', 'JML', body)
 
             worksheetbest.conditional_format(5, 0, rowBest150_all+4, 14,
@@ -2049,12 +2049,12 @@
             worksheet101.write('G5', 'MAT. WJB.', body)
             worksheet101.write('H5', 'IND', body)
             worksheet101.write('I5', 'ENG', body)
-            worksheet101.write('J5', 'SEJ', body)
+            worksheet101.write('J5', 'GEO', body)
             worksheet101.write('K5', 'JML', body)
             worksheet101.write('L5', 'MAT. WJB.', body)
             worksheet101.write('M5', 'IND', body)
             worksheet101.write('N5', 'ENG', body)
-            worksheet101.write('O5', 'SEJ', body)
+            worksheet101.write('O5', 'GEO', body)
             worksheet101.write('P5', 'JML', body)
 
             worksheet101.conditional_format(5, 0, row101_10+4, 15,
@@ -2077,12 +2077,12 @@
             worksheet101.write('G22', 'MAT. WJB.', body)
             worksheet101.write('H22', 'IND', body)
             worksheet101.write('I22', 'ENG', body)
-            worksheet101.write('J22', 'SEJ', body)
+            worksheet101.write('J22', 'GEO', body)
             worksheet101.write('K22', 'JML', body)
             worksheet101.write('L22', 'MAT. WJB.', body)
             worksheet101.write('M22', 'IND', body)
             worksheet101.write('N22', 'ENG', body)
-            worksheet101.write('O22', 'SEJ', body)
+            worksheet101.write('O22', 'GEO', body)
             worksheet101.write('P22', 'JML', body)
 
             worksheet101.conditional_format(22, 0, row101+21, 15,
@@ -2114,12 +2114,12 @@
             worksheet102.write('G5', 'MAT. WJB.', body)
             worksheet102.write('H5', 'IND', body)
             worksheet102.write('I5', 'ENG', body)
-            worksheet102.write('J5', 'SEJ', body)
+            worksheet102.write('J5', 'GEO', body)
             worksheet102.write('K5', 'JML', body)
             worksheet102.write('L5', 'MAT. WJB.', body)
             worksheet102.write('M5', 'IND', body)
             worksheet102.write('N5', 'ENG', body)
-            worksheet102.write('O5', 'SEJ', body)
+            worksheet102.write('O5', 'GEO', body)
             worksheet102.write('P5', 'JML', body)
 
             worksheet102.conditional_format(5, 0, row102_10+4, 15,
@@ -2142,12 +2142,12 @@
             worksheet102.write('G22', 'MAT. WJB.', body)
             worksheet102.write('H22', 'IND', body)
             worksheet102.write('I22', 'ENG', body)
-            worksheet102.write('J22', 'SEJ', body)
+            worksheet102.write('J22', 'GEO', body)
             worksheet102.write('K22', 'JML', body)
             worksheet102.write('L22', 'MAT. WJB.', body)
             worksheet102.write('M22', 'IND', body)
             worksheet102.write('N22', 'ENG', body)
-            worksheet102.write('O22', 'SEJ', body)
+            worksheet102.write('O22', 'GEO', body)
             worksheet102.write('P22', 'JML', body)
 
             worksheet102.conditional_format(22, 0, row102+21, 15,
@@ -2179,12 +2179,12 @@
             worksheet103.write('G5', 'MAT. WJB.', body)
             worksheet103.write('H5', 'IND', body)
             worksheet103.write('I5', 'ENG', body)
-            worksheet103.write('J5', 'SEJ', body)
+            worksheet103.write('J5', 'GEO', body)
             worksheet103.write('K5', 'JML', body)
             worksheet103.write('L5', 'MAT. WJB.', body)
             worksheet103.write('M5', 'IND', body)
             worksheet103.write('N5', 'ENG', body)
-            worksheet103.write('O5', 'SEJ', body)
+            worksheet103.write('O5', 'GEO', body)
             worksheet103.write('P5', 'JML', body)
 
             worksheet103.conditional_format(5, 0, row103_10+4, 15,
@@ -2207,12 +2207,12 @@
             worksheet103.write('G22', 'MAT. WJB.', body)
             worksheet103.write('H22', 'IND', body)
             worksheet103.write('I22', 'ENG', body)
-            worksheet103.write('J22', 'SEJ', body)
+            worksheet103.write('J22', 'GEO', body)
             worksheet103.write('K22', 'JML', body)
             worksheet103.write('L22', 'MAT. WJB.', body)
             worksheet103.write('M22', 'IND', body)
             worksheet103.write('N22', 'ENG', body)
-            worksheet103.write('O22', 'SEJ', body)
+            worksheet103.write('O22', 'GEO', body)
             worksheet103.write('P22', 'JML', body)
 
             worksheet103.conditional_format(22, 0, row103+21, 15,
@@ -2241,12 +2241,12 @@
             # worksheet104.write('G5', 'MAT. WJB.', body)
             # worksheet104.write('H5', 'IND', body)
             # worksheet104.write('I5', 'ENG', body)
-            # worksheet104.write('J5', 'SEJ', body)
+            # worksheet104.write('J5', 'GEO', body)
             # worksheet104.write('K5', 'JML', body)
             # worksheet104.write('L5', 'MAT. WJB.', body)
             # worksheet104.write('M5', 'IND', body)
             # worksheet104.write('N5', 'ENG', body)
-            # worksheet104.write('O5', 'SEJ', body)
+            # worksheet104.write('O5', 'GEO', body)
             # worksheet104.write('P5', 'JML', body)
             #
 
@@ -2267,12 +2267,12 @@
             # worksheet104.write('G22', 'MAT. WJB.', body)
             # worksheet104.write('H22', 'IND', body)
             # worksheet104.write('I22', 'ENG', body)
-            # worksheet104.write('J22', 'SEJ', body)
+            # worksheet104.write('J22', 'GEO', body)
             # worksheet104.write('K22', 'JML', body)
             # worksheet104.write('L22', 'MAT. WJB.', body)
             # worksheet104.write('M22', 'IND', body)
             # worksheet104.write('N22', 'ENG', body)
-            # worksheet104.write('O22', 'SEJ', body)
+            # worksheet104.write('O22', 'GEO', body)
             # worksheet104.write('P22', 'JML', body)
             #
             # worksheet104.conditional_format(22,0,row104+21,15,
@@ -2304,12 +2304,12 @@
             worksheet105.write('G5', 'MAT. WJB.', body)
             worksheet105.write('H5', 'IND', body)
             worksheet105.write('I5', 'ENG', body)
-            worksheet105.write('J5', 'SEJ', body)
+            worksheet105.write('J5', 'GEO', body)
             worksheet105.write('K5', 'JML', body)
             worksheet105.write('L5', 'MAT. WJB.', body)
             worksheet105.write('M5', 'IND', body)
             worksheet105.write('N5', 'ENG', body)
-            worksheet105.write('O5', 'SEJ', body)
+            worksheet105.write('O5', 'GEO', body)
             worksheet105.write('P5', 'JML', body)
 
             worksheet105.conditional_format(5, 0, row105_10+4, 15,
@@ -2332,12 +2332,12 @@
             worksheet105.write('G22', 'MAT. WJB.', body)
             worksheet105.write('H22', 'IND', body)
             worksheet105.write('I22', 'ENG', body)
-            worksheet105.write('J22', 'SEJ', body)
+            worksheet105.write('J22', 'GEO', body)
             worksheet105.write('K22', 'JML', body)
             worksheet105.write('L22', 'MAT. WJB.', body)
             worksheet105.write('M22', 'IND', body)
             worksheet105.write('N22', 'ENG', body)
-            worksheet105.write('O22', 'SEJ', body)
+            worksheet105.write('O22', 'GEO', body)
             worksheet105.write('P22', 'JML', body)
 
             worksheet105.conditional_format(22, 0, row105+21, 15,
@@ -2369,12 +2369,12 @@
             worksheet106.write('G5', 'MAT. WJB.', body)
             worksheet106.write('H5', 'IND', body)
             worksheet106.write('I5', 'ENG', body)
-            worksheet106.write('J5', 'SEJ', body)
+            worksheet106.write('J5', 'GEO', body)
             worksheet106.write('K5', 'JML', body)
             worksheet106.write('L5', 'MAT. WJB.', body)
             worksheet106.write('M5', 'IND', body)
             worksheet106.write('N5', 'ENG', body)
-            worksheet106.write('O5', 'SEJ', body)
+            worksheet106.write('O5', 'GEO', body)
             worksheet106.write('P5', 'JML', body)
 
             worksheet106.conditional_format(5, 0, row106_10+4, 15,
@@ -2397,12 +2397,12 @@
             worksheet106.write('G22', 'MAT. WJB.', body)
             worksheet106.write('H22', 'IND', body)
             worksheet106.write('I22', 'ENG', body)
-            worksheet106.write('J22', 'SEJ', body)
+            worksheet106.write('J22', 'GEO', body)
             worksheet106.write('K22', 'JML', body)
             worksheet106.write('L22', 'MAT. WJB.', body)
             worksheet106.write('M22', 'IND', body)
             worksheet106.write('N22', 'ENG', body)
-            worksheet106.write('O22', 'SEJ', body)
+            worksheet106.write('O22', 'GEO', body)
             worksheet106.write('P22', 'JML', body)
 
             worksheet106.conditional_format(22, 0, row106+21, 15,
@@ -2434,12 +2434,12 @@
             worksheet107.write('G5', 'MAT. WJB.', body)
             worksheet107.write('H5', 'IND', body)
             worksheet107.write('I5', 'ENG', body)
-            worksheet107.write('J5', 'SEJ', body)
+            worksheet107.write('J5', 'GEO', body)
             worksheet107.write('K5', 'JML', body)
             worksheet107.write('L5', 'MAT. WJB.', body)
             worksheet107.write('M5', 'IND', body)
             worksheet107.write('N5', 'ENG', body)
-            worksheet107.write('O5', 'SEJ', body)
+            worksheet107.write('O5', 'GEO', body)
             worksheet107.write('P5', 'JML', body)
 
             worksheet107.conditional_format(5, 0, row107_10+4, 15,
@@ -2462,12 +2462,12 @@
             worksheet107.write('G22', 'MAT. WJB.', body)
             worksheet107.write('H22', 'IND', body)
             worksheet107.write('I22', 'ENG', body)
-            worksheet107.write('J22', 'SEJ', body)
+            worksheet107.write('J22', 'GEO', body)
             worksheet107.write('K22', 'JML', body)
             worksheet107.write('L22', 'MAT. WJB.', body)
             worksheet107.write('M22', 'IND', body)
             worksheet107.write('N22', 'ENG', body)
-            worksheet107.write('O22', 'SEJ', body)
+            worksheet107.write('O22', 'GEO', body)
             worksheet107.write('P22', 'JML', body)
 
             worksheet107.conditional_format(22, 0, row107+21, 15,
@@ -2499,12 +2499,12 @@
             worksheet108.write('G5', 'MAT. WJB.', body)
             worksheet108.write('H5', 'IND', body)
             worksheet108.write('I5', 'ENG', body)
-            worksheet108.write('J5', 'SEJ', body)
+            worksheet108.write('J5', 'GEO', body)
             worksheet108.write('K5', 'JML', body)
             worksheet108.write('L5', 'MAT. WJB.', body)
             worksheet108.write('M5', 'IND', body)
             worksheet108.write('N5', 'ENG', body)
-            worksheet108.write('O5', 'SEJ', body)
+            worksheet108.write('O5', 'GEO', body)
             worksheet108.write('P5', 'JML', body)
 
             worksheet108.conditional_format(5, 0, row108_10+4, 15,
@@ -2527,12 +2527,12 @@
             worksheet108.write('G22', 'MAT. WJB.', body)
             worksheet108.write('H22', 'IND', body)
             worksheet108.write('I22', 'ENG', body)
-            worksheet108.write('J22', 'SEJ', body)
+            worksheet108.write('J22', 'GEO', body)
             worksheet108.write('K22', 'JML', body)
             worksheet108.write('L22', 'MAT. WJB.', body)
             worksheet108.write('M22', 'IND', body)
             worksheet108.write('N22', 'ENG', body)
-            worksheet108.write('O22', 'SEJ', body)
+            worksheet108.write('O22', 'GEO', body)
             worksheet108.write('P22', 'JML', body)
 
             worksheet108.conditional_format(22, 0, row108+21, 15,
@@ -2564,12 +2564,12 @@
             worksheet109.write('G5', 'MAT. WJB.', body)
             worksheet109.write('H5', 'IND', body)
             worksheet109.write('I5', 'ENG', body)
-            worksheet109.write('J5', 'SEJ', body)
+            worksheet109.write('J5', 'GEO', body)
             worksheet109.write('K5', 'JML', body)
             worksheet109.write('L5', 'MAT. WJB.', body)
             worksheet109.write('M5', 'IND', body)
             worksheet109.write('N5', 'ENG', body)
-            worksheet109.write('O5', 'SEJ', body)
+            worksheet109.write('O5', 'GEO', body)
             worksheet109.write('P5', 'JML', body)
 
             worksheet109.conditional_format(5, 0, row109_10+4, 15,
@@ -2592,12 +2592,12 @@
             worksheet109.write('G22', 'MAT. WJB.', body)
             worksheet109.write('H22', 'IND', body)
             worksheet109.write('I22', 'ENG', body)
-            worksheet109.write('J22', 'SEJ', body)
+            worksheet109.write('J22', 'GEO', body)
             worksheet109.write('K22', 'JML', body)
             worksheet109.write('L22', 'MAT. WJB.', body)
             worksheet109.write('M22', 'IND', body)
             worksheet109.write('N22', 'ENG', body)
-            worksheet109.write('O22', 'SEJ', body)
+            worksheet109.write('O22', 'GEO', body)
             worksheet109.write('P22', 'JML', body)
 
             worksheet109.conditional_format(22, 0, row109+21, 15,
@@ -2629,12 +2629,12 @@
             worksheet110.write('G5', 'MAT. WJB.', body)
             worksheet110.write('H5', 'IND', body)
             worksheet110.write('I5', 'ENG', body)
-            worksheet110.write('J5', 'SEJ', body)
+            worksheet110.write('J5', 'GEO', body)
             worksheet110.write('K5', 'JML', body)
             worksheet110.write('L5', 'MAT. WJB.', body)
             worksheet110.write('M5', 'IND', body)
             worksheet110.write('N5', 'ENG', body)
-            worksheet110.write('O5', 'SEJ', body)
+            worksheet110.write('O5', 'GEO', body)
             worksheet110.write('P5', 'JML', body)
 
             worksheet110.conditional_format(5, 0, row110_10+4, 15,
@@ -2657,12 +2657,12 @@
             worksheet110.write('G22', 'MAT. WJB.', body)
             worksheet110.write('H22', 'IND', body)
             worksheet110.write('I22', 'ENG', body)
-            worksheet110.write('J22', 'SEJ', body)
+            worksheet110.write('J22', 'GEO', body)
             worksheet110.write('K22', 'JML', body)
             worksheet110.write('L22', 'MAT. WJB.', body)
             worksheet110.write('M22', 'IND', body)
             worksheet110.write('N22', 'ENG', body)
-            worksheet110.write('O22', 'SEJ', body)
+            worksheet110.write('O22', 'GEO', body)
             worksheet110.write('P22', 'JML', body)
 
             worksheet110.conditional_format(22, 0, row110+21, 15,
@@ -2694,12 +2694,12 @@
             worksheet111.write('G5', 'MAT. WJB.', body)
             worksheet111.write('H5', 'IND', body)
             worksheet111.write('I5', 'ENG', body)
-            worksheet111.write('J5', 'SEJ', body)
+            worksheet111.write('J5', 'GEO', body)
             worksheet111.write('K5', 'JML', body)
             worksheet111.write('L5', 'MAT. WJB.', body)
             worksheet111.write('M5', 'IND', body)
             worksheet111.write('N5', 'ENG', body)
-            worksheet111.write('O5', 'SEJ', body)
+            worksheet111.write('O5', 'GEO', body)
             worksheet111.write('P5', 'JML', body)
 
             worksheet111.conditional_format(5, 0, row111_10+4, 15,
@@ -2722,12 +2722,12 @@
             worksheet111.write('G22', 'MAT. WJB.', body)
             worksheet111.write('H22', 'IND', body)
             worksheet111.write('I22', 'ENG', body)
-            worksheet111.write('J22', 'SEJ', body)
+            worksheet111.write('J22', 'GEO', body)
             worksheet111.write('K22', 'JML', body)
             worksheet111.write('L22', 'MAT. WJB.', body)
             worksheet111.write('M22', 'IND', body)
             worksheet111.write('N22', 'ENG', body)
-            worksheet111.write('O22', 'SEJ', body)
+            worksheet111.write('O22', 'GEO', body)
             worksheet111.write('P22', 'JML', body)
 
             worksheet111.conditional_format(22, 0, row111+21, 15,
@@ -2759,12 +2759,12 @@
             worksheet112.write('G5', 'MAT. WJB.', body)
             worksheet112.write('H5', 'IND', body)
             worksheet112.write('I5', 'ENG', body)
-            worksheet112.write('J5', 'SEJ', body)
+            worksheet112.write('J5', 'GEO', body)
             worksheet112.write('K5', 'JML', body)
             worksheet112.write('L5', 'MAT. WJB.', body)
             worksheet112.write('M5', 'IND', body)
             worksheet112.write('N5', 'ENG', body)
-            worksheet112.write('O5', 'SEJ', body)
+            worksheet112.write('O5', 'GEO', body)
             worksheet112.write('P5', 'JML', body)
 
             worksheet112.conditional_format(5, 0, row112_10+4, 15,
@@ -2787,12 +2787,12 @@
             worksheet112.write('G22', 'MAT. WJB.', body)
             worksheet112.write('H22', 'IND', body)
             worksheet112.write('I22', 'ENG', body)
-            worksheet112.write('J22', 'SEJ', body)
+            worksheet112.write('J22', 'GEO', body)
             worksheet112.write('K22', 'JML', body)
             worksheet112.write('L22', 'MAT. WJB.', body)
             worksheet112.write('M22', 'IND', body)
             worksheet112.write('N22', 'ENG', body)
-            worksheet112.write('O22', 'SEJ', body)
+            worksheet112.write('O22', 'GEO', body)
             worksheet112.write('P22', 'JML', body)
 
             worksheet112.conditional_format(22, 0, row112+21, 15,
@@ -2824,12 +2824,12 @@
             worksheet113.write('G5', 'MAT. WJB.', body)
             worksheet113.write('H5', 'IND', body)
             worksheet113.write('I5', 'ENG', body)
-            worksheet113.write('J5', 'SEJ', body)
+            worksheet113.write('J5', 'GEO', body)
             worksheet113.write('K5', 'JML', body)
             worksheet113.write('L5', 'MAT. WJB.', body)
             worksheet113.write('M5', 'IND', body)
             worksheet113.write('N5', 'ENG', body)
-            worksheet113.write('O5', 'SEJ', body)
+            worksheet113.write('O5', 'GEO', body)
             worksheet113.write('P5', 'JML', body)
 
             worksheet113.conditional_format(5, 0, row113_10+4, 15,
@@ -2852,12 +2852,12 @@
             worksheet113.write('G22', 'MAT. WJB.', body)
             worksheet113.write('H22', 'IND', body)
             worksheet113.write('I22', 'ENG', body)
-            worksheet113.write('J22', 'SEJ', body)
+            worksheet113.write('J22', 'GEO', body)
             worksheet113.write('K22', 'JML', body)
             worksheet113.write('L22', 'MAT. WJB.', body)
             worksheet113.write('M22', 'IND', body)
             worksheet113.write('N22', 'ENG', body)
-            worksheet113.write('O22', 'SEJ', body)
+            worksheet113.write('O22', 'GEO', body)
             worksheet113.write('P22', 'JML', body)
 
             worksheet113.conditional_format(22, 0, row113+21, 15,
@@ -2886,12 +2886,12 @@
             # worksheet114.write('G5', 'MAT. WJB.', body)
             # worksheet114.write('H5', 'IND', body)
             # worksheet114.write('I5', 'ENG', body)
-            # worksheet114.write('J5', 'SEJ', body)
+            # worksheet114.write('J5', 'GEO', body)
             # worksheet114.write('K5', 'JML', body)
             # worksheet114.write('L5', 'MAT. WJB.', body)
             # worksheet114.write('M5', 'IND', body)
             # worksheet114.write('N5', 'ENG', body)
-            # worksheet114.write('O5', 'SEJ', body)
+            # worksheet114.write('O5', 'GEO', body)
             # worksheet114.write('P5', 'JML', body)
             #
 
@@ -2912,12 +2912,12 @@
             # worksheet114.write('G22', 'MAT. WJB.', body)
             # worksheet114.write('H22', 'IND', body)
             # worksheet114.write('I22', 'ENG', body)
-            # worksheet114.write('J22', 'SEJ', body)
+            # worksheet114.write('J22', 'GEO', body)
             # worksheet114.write('K22', 'JML', body)
             # worksheet114.write('L22', 'MAT. WJB.', body)
             # worksheet114.write('M22', 'IND', body)
             # worksheet114.write('N22', 'ENG', body)
-            # worksheet114.write('O22', 'SEJ', body)
+            # worksheet114.write('O22', 'GEO', body)
             # worksheet114.write('P22', 'JML', body)
             #
             # worksheet114.conditional_format(22,0,row114+21,15,
@@ -2948,12 +2948,12 @@
             worksheet115.write('G5', 'MAT. WJB.', body)
             worksheet115.write('H5', 'IND', body)
             worksheet115.write('I5', 'ENG', body)
-            worksheet115.write('J5', 'SEJ', body)
+            worksheet115.write('J5', 'GEO', body)
             worksheet115.write('K5', 'JML', body)
             worksheet115.write('L5', 'MAT. WJB.', body)
             worksheet115.write('M5', 'IND', body)
             worksheet115.write('N5', 'ENG', body)
-            worksheet115.write('O5', 'SEJ', body)
+            worksheet115.write('O5', 'GEO', body)
             worksheet115.write('P5', 'JML', body)
 
             worksheet115.conditional_format(5, 0, row115_10+4, 15,
@@ -2976,12 +2976,12 @@
             worksheet115.write('G22', 'MAT. WJB.', body)
             worksheet115.write('H22', 'IND', body)
             worksheet115.write('I22', 'ENG', body)
-            worksheet115.write('J22', 'SEJ', body)
+            worksheet115.write('J22', 'GEO', body)
             worksheet115.write('K22', 'JML', body)
             worksheet115.write('L22', 'MAT. WJB.', body)
             worksheet115.write('M22', 'IND', body)
             worksheet115.write('N22', 'ENG', body)
-            worksheet115.write('O22', 'SEJ', body)
+            worksheet115.write('O22', 'GEO', body)
             worksheet115.write('P22', 'JML', body)
 
             worksheet115.conditional_format(22, 0, row115+21, 15,
@@ -3013,12 +3013,12 @@
             worksheet116.write('G5', 'MAT. WJB.', body)
             worksheet116.write('H5', 'IND', body)
             worksheet116.write('I5', 'ENG', body)
-            worksheet116.write('J5', 'SEJ', body)
+            worksheet116.write('J5', 'GEO', body)
             worksheet116.write('K5', 'JML', body)
             worksheet116.write('L5', 'MAT. WJB.', body)
             worksheet116.write('M5', 'IND', body)
             worksheet116.write('N5', 'ENG', body)
-            worksheet116.write('O5', 'SEJ', body)
+            worksheet116.write('O5', 'GEO', body)
             worksheet116.write('P5', 'JML', body)
 
             worksheet116.conditional_format(5, 0, row116_10+4, 15,
@@ -3041,12 +3041,12 @@
             worksheet116.write('G22', 'MAT. WJB.', body)
             worksheet116.write('H22', 'IND', body)
             worksheet116.write('I22', 'ENG', body)
-            worksheet116.write('J22', 'SEJ', body)
+            worksheet116.write('J22', 'GEO', body)
             worksheet116.write('K22', 'JML', body)
             worksheet116.write('L22', 'MAT. WJB.', body)
             worksheet116.write('M22', 'IND', body)
             worksheet116.write('N22', 'ENG', body)
-            worksheet116.write('O22', 'SEJ', body)
+            worksheet116.write('O22', 'GEO', body)
             worksheet116.write('P22', 'JML', body)
 
             worksheet116.conditional_format(22, 0, row116+21, 15,
@@ -3078,12 +3078,12 @@
             worksheet117.write('G5', 'MAT. WJB.', body)
             worksheet117.write('H5', 'IND', body)
             worksheet117.write('I5', 'ENG', body)
-            worksheet117.write('J5', 'SEJ', body)
+            worksheet117.write('J5', 'GEO', body)
             worksheet117.write('K5', 'JML', body)
             worksheet117.write('L5', 'MAT. WJB.', body)
             worksheet117.write('M5', 'IND', body)
             worksheet117.write('N5', 'ENG', body)
-            worksheet117.write('O5', 'SEJ', body)
+            worksheet117.write('O5', 'GEO', body)
             worksheet117.write('P5', 'JML', body)
 
             worksheet117.conditional_format(5, 0, row117_10+4, 15,
@@ -3106,12 +3106,12 @@
             worksheet117.write('G22', 'MAT. WJB.', body)
             worksheet117.write('H22', 'IND', body)
             worksheet117.write('I22', 'ENG', body)
-            worksheet117.write('J22', 'SEJ', body)
+            worksheet117.write('J22', 'GEO', body)
             worksheet117.write('K22', 'JML', body)
             worksheet117.write('L22', 'MAT. WJB.', body)
             worksheet117.write('M22', 'IND', body)
             worksheet117.write('N22', 'ENG', body)
-            worksheet117.write('O22', 'SEJ', body)
+            worksheet117.write('O22', 'GEO', body)
             worksheet117.write('P22', 'JML', body)
 
             worksheet117.conditional_format(22, 0, row117+21, 15,
@@ -3143,12 +3143,12 @@
             worksheet118.write('G5', 'MAT. WJB.', body)
             worksheet118.write('H5', 'IND', body)
             worksheet118.write('I5', 'ENG', body)
-            worksheet118.write('J5', 'SEJ', body)
+            worksheet118.write('J5', 'GEO', body)
             worksheet118.write('K5', 'JML', body)
             worksheet118.write('L5', 'MAT. WJB.', body)
             worksheet118.write('M5', 'IND', body)
             worksheet118.write('N5', 'ENG', body)
-            worksheet118.write('O5', 'SEJ', body)
+            worksheet118.write('O5', 'GEO', body)
             worksheet118.write('P5', 'JML', body)
 
             worksheet118.conditional_format(5, 0, row118_10+4, 15,
@@ -3171,12 +3171,12 @@
             worksheet118.write('G22', 'MAT. WJB.', body)
             worksheet118.write('H22', 'IND', body)
             worksheet118.write('I22', 'ENG', body)
-            worksheet118.write('J22', 'SEJ', body)
+            worksheet118.write('J22', 'GEO', body)
             worksheet118.write('K22', 'JML', body)
             worksheet118.write('L22', 'MAT. WJB.', body)
             worksheet118.write('M22', 'IND', body)
             worksheet118.write('N22', 'ENG', body)
-            worksheet118.write('O22', 'SEJ', body)
+            worksheet118.write('O22', 'GEO', body)
             worksheet118.write('P22', 'JML', body)
 
             worksheet118.conditional_format(22, 0, row118+21, 15,
@@ -3208,12 +3208,12 @@
             worksheet119.write('G5', 'MAT. WJB.', body)
             worksheet119.write('H5', 'IND', body)
             worksheet119.write('I5', 'ENG', body)
-            worksheet119.write('J5', 'SEJ', body)
+            worksheet119.write('J5', 'GEO', body)
             worksheet119.write('K5', 'JML', body)
             worksheet119.write('L5', 'MAT. WJB.', body)
             worksheet119.write('M5', 'IND', body)
             worksheet119.write('N5', 'ENG', body)
-            worksheet119.write('O5', 'SEJ', body)
+            worksheet119.write('O5', 'GEO', body)
             worksheet119.write('P5', 'JML', body)
 
             worksheet119.conditional_format(5, 0, row119_10+4, 15,
@@ -3236,12 +3236,12 @@
             worksheet119.write('G22', 'MAT. WJB.', body)
             worksheet119.write('H22', 'IND', body)
             worksheet119.write('I22', 'ENG', body)
-            worksheet119.write('J22', 'SEJ', body)
+            worksheet119.write('J22', 'GEO', body)
             worksheet119.write('K22', 'JML', body)
             worksheet119.write('L22', 'MAT. WJB.', body)
             worksheet119.write('M22', 'IND', body)
             worksheet119.write('N22', 'ENG', body)
-            worksheet119.write('O22', 'SEJ', body)
+            worksheet119.write('O22', 'GEO', body)
             worksheet119.write('P22', 'JML', body)
 
             worksheet119.conditional_format(22, 0, row119+21, 15,
@@ -3273,12 +3273,12 @@
             worksheet120.write('G5', 'MAT. WJB.', body)
             worksheet120.write('H5', 'IND', body)
             worksheet120.write('I5', 'ENG', body)
-            worksheet120.write('J5', 'SEJ', body)
+            worksheet120.write('J5', 'GEO', body)
             worksheet120.write('K5', 'JML', body)
             worksheet120.write('L5', 'MAT. WJB.', body)
             worksheet120.write('M5', 'IND', body)
             worksheet120.write('N5', 'ENG', body)
-            worksheet120.write('O5', 'SEJ', body)
+            worksheet120.write('O5', 'GEO', body)
             worksheet120.write('P5', 'JML', body)
 
             worksheet120.conditional_format(5, 0, row120_10+4, 15,
@@ -3301,12 +3301,12 @@
             worksheet120.write('G22', 'MAT. WJB.', body)
             worksheet120.write('H22', 'IND', body)
             worksheet120.write('I22', 'ENG', body)
-            worksheet120.write('J22', 'SEJ', body)
+            worksheet120.write('J22', 'GEO', body)
             worksheet120.write('K22', 'JML', body)
             worksheet120.write('L22', 'MAT. WJB.', body)
             worksheet120.write('M22', 'IND', body)
             worksheet120.write('N22', 'ENG', body)
-            worksheet120.write('O22', 'SEJ', body)
+            worksheet120.write('O22', 'GEO', body)
             worksheet120.write('P22', 'JML', body)
 
             worksheet120.conditional_format(22, 0, row120+21, 15,
@@ -3338,12 +3338,12 @@
             worksheet121.write('G5', 'MAT. WJB.', body)
             worksheet121.write('H5', 'IND', body)
             worksheet121.write('I5', 'ENG', body)
-            worksheet121.write('J5', 'SEJ', body)
+            worksheet121.write('J5', 'GEO', body)
             worksheet121.write('K5', 'JML', body)
             worksheet121.write('L5', 'MAT. WJB.', body)
             worksheet121.write('M5', 'IND', body)
             worksheet121.write('N5', 'ENG', body)
-            worksheet121.write('O5', 'SEJ', body)
+            worksheet121.write('O5', 'GEO', body)
             worksheet121.write('P5', 'JML', body)
 
             worksheet121.conditional_format(5, 0, row121_10+4, 15,
@@ -3366,12 +3366,12 @@
             worksheet121.write('G22', 'MAT. WJB.', body)
             worksheet121.write('H22', 'IND', body)
             worksheet121.write('I22', 'ENG', body)
-            worksheet121.write('J22', 'SEJ', body)
+            worksheet121.write('J22', 'GEO', body)
             worksheet121.write('K22', 'JML', body)
             worksheet121.write('L22', 'MAT. WJB.', body)
             worksheet121.write('M22', 'IND', body)
             worksheet121.write('N22', 'ENG', body)
-            worksheet121.write('O22', 'SEJ', body)
+            worksheet121.write('O22', 'GEO', body)
             worksheet121.write('P22', 'JML', body)
 
             worksheet121.conditional_format(22, 0, row121+21, 15,
@@ -3403,12 +3403,12 @@
             worksheet122.write('G5', 'MAT. WJB.', body)
             worksheet122.write('H5', 'IND', body)
             worksheet122.write('I5', 'ENG', body)
-            worksheet122.write('J5', 'SEJ', body)
+            worksheet122.write('J5', 'GEO', body)
             worksheet122.write('K5', 'JML', body)
             worksheet122.write('L5', 'MAT. WJB.', body)
             worksheet122.write('M5', 'IND', body)
             worksheet122.write('N5', 'ENG', body)
-            worksheet122.write('O5', 'SEJ', body)
+            worksheet122.write('O5', 'GEO', body)
             worksheet122.write('P5', 'JML', body)
 
             worksheet122.conditional_format(5, 0, row122_10+4, 15,
@@ -3431,12 +3431,12 @@
             worksheet122.write('G22', 'MAT. WJB.', body)
             worksheet122.write('H22', 'IND', body)
             worksheet122.write('I22', 'ENG', body)
-            worksheet122.write('J22', 'SEJ', body)
+            worksheet122.write('J22', 'GEO', body)
             worksheet122.write('K22', 'JML', body)
             worksheet122.write('L22', 'MAT. WJB.', body)
             worksheet122.write('M22', 'IND', body)
             worksheet122.write('N22', 'ENG', body)
-            worksheet122.write('O22', 'SEJ', body)
+            worksheet122.write('O22', 'GEO', body)
             worksheet122.write('P22', 'JML', body)
 
             worksheet122.conditional_format(22, 0, row122+21, 15,
@@ -3468,12 +3468,12 @@
             worksheet123.write('G5', 'MAT. WJB.', body)
             worksheet123.write('H5', 'IND', body)
             worksheet123.write('I5', 'ENG', body)
-            worksheet123.write('J5', 'SEJ', body)
+            worksheet123.write('J5', 'GEO', body)
             worksheet123.write('K5', 'JML', body)
             worksheet123.write('L5', 'MAT. WJB.', body)
             worksheet123.write('M5', 'IND', body)
             worksheet123.write('N5', 'ENG', body)
-            worksheet123.write('O5', 'SEJ', body)
+            worksheet123.write('O5', 'GEO', body)
             worksheet123.write('P5', 'JML', body)
 
             worksheet123.conditional_format(5, 0, row123_10+4, 15,
@@ -3496,12 +3496,12 @@
             worksheet123.write('G22', 'MAT. WJB.', body)
             worksheet123.write('H22', 'IND', body)
             worksheet123.write('I22', 'ENG', body)
-            worksheet123.write('J22', 'SEJ', body)
+            worksheet123.write('J22', 'GEO', body)
             worksheet123.write('K22', 'JML', body)
             worksheet123.write('L22', 'MAT. WJB.', body)
             worksheet123.write('M22', 'IND', body)
             worksheet123.write('N22', 'ENG', body)
-            worksheet123.write('O22', 'SEJ', body)
+            worksheet123.write('O22', 'GEO', body)
             worksheet123.write('P22', 'JML', body)
 
             worksheet123.conditional_format(22, 0, row123+21, 15,
@@ -3533,12 +3533,12 @@
             worksheet124.write('G5', 'MAT. WJB.', body)
             worksheet124.write('H5', 'IND', body)
             worksheet124.write('I5', 'ENG', body)
-            worksheet124.write('J5', 'SEJ', body)
+            worksheet124.write('J5', 'GEO', body)
             worksheet124.write('K5', 'JML', body)
             worksheet124.write('L5', 'MAT. WJB.', body)
             worksheet124.write('M5', 'IND', body)
             worksheet124.write('N5', 'ENG', body)
-            worksheet124.write('O5', 'SEJ', body)
+            worksheet124.write('O5', 'GEO', body)
             worksheet124.write('P5', 'JML', body)
 
             worksheet124.conditional_format(5, 0, row124_10+4, 15,
@@ -3561,12 +3561,12 @@
             worksheet124.write('G22', 'MAT. WJB.', body)
             worksheet124.write('H22', 'IND', body)
             worksheet124.write('I22', 'ENG', body)
-            worksheet124.write('J22', 'SEJ', body)
+            worksheet124.write('J22', 'GEO', body)
             worksheet124.write('K22', 'JML', body)
             worksheet124.write('L22', 'MAT. WJB.', body)
             worksheet124.write('M22', 'IND', body)
             worksheet124.write('N22', 'ENG', body)
-            worksheet124.write('O22', 'SEJ', body)
+            worksheet124.write('O22', 'GEO', body)
             worksheet124.write('P22', 'JML', body)
 
             worksheet124.conditional_format(22, 0, row124+21, 15,
@@ -3598,12 +3598,12 @@
             worksheet125.write('G5', 'MAT. WJB.', body)
             worksheet125.write('H5', 'IND', body)
             worksheet125.write('I5', 'ENG', body)
-            worksheet125.write('J5', 'SEJ', body)
+            worksheet125.write('J5', 'GEO', body)
             worksheet125.write('K5', 'JML', body)
             worksheet125.write('L5', 'MAT. WJB.', body)
             worksheet125.write('M5', 'IND', body)
             worksheet125.write('N5', 'ENG', body)
-            worksheet125.write('O5', 'SEJ', body)
+            worksheet125.write('O5', 'GEO', body)
             worksheet125.write('P5', 'JML', body)
 
             worksheet125.conditional_format(5, 0, row125_10+4, 15,
@@ -3626,12 +3626,12 @@
             worksheet125.write('G22', 'MAT. WJB.', body)
             worksheet125.write('H22', 'IND', body)
             worksheet125.write('I22', 'ENG', body)
-            worksheet125.write('J22', 'SEJ', body)
+            worksheet125.write('J22', 'GEO', body)
             worksheet125.write('K22', 'JML', body)
             worksheet125.write('L22', 'MAT. WJB.', body)
             worksheet125.write('M22', 'IND', body)
             worksheet125.write('N22', 'ENG', body)
-            worksheet125.write('O22', 'SEJ', body)
+            worksheet125.write('O22', 'GEO', body)
             worksheet125.write('P22', 'JML', body)
 
             worksheet125.conditional_format(22, 0, row125+21, 15,
@@ -3663,12 +3663,12 @@
             worksheet126.write('G5', 'MAT. WJB.', body)
             worksheet126.write('H5', 'IND', body)
             worksheet126.write('I5', 'ENG', body)
-            worksheet126.write('J5', 'SEJ', body)
+            worksheet126.write('J5', 'GEO', body)
             worksheet126.write('K5', 'JML', body)
             worksheet126.write('L5', 'MAT. WJB.', body)
             worksheet126.write('M5', 'IND', body)
             worksheet126.write('N5', 'ENG', body)
-            worksheet126.write('O5', 'SEJ', body)
+            worksheet126.write('O5', 'GEO', body)
             worksheet126.write('P5', 'JML', body)
 
             worksheet126.conditional_format(5, 0, row126_10+4, 15,
@@ -3691,12 +3691,12 @@
             worksheet126.write('G22', 'MAT. WJB.', body)
             worksheet126.write('H22', 'IND', body)
             worksheet126.write('I22', 'ENG', body)
-            worksheet126.write('J22', 'SEJ', body)
+            worksheet126.write('J22', 'GEO', body)
             worksheet126.write('K22', 'JML', body)
             worksheet126.write('L22', 'MAT. WJB.', body)
             worksheet126.write('M22', 'IND', body)
             worksheet126.write('N22', 'ENG', body)
-            worksheet126.write('O22', 'SEJ', body)
+            worksheet126.write('O22', 'GEO', body)
             worksheet126.write('P22', 'JML', body)
 
             worksheet126.conditional_format(22, 0, row126+21, 15,
@@ -3728,12 +3728,12 @@
             worksheet127.write('G5', 'MAT. WJB.', body)
             worksheet127.write('H5', 'IND', body)
             worksheet127.write('I5', 'ENG', body)
-            worksheet127.write('J5', 'SEJ', body)
+            worksheet127.write('J5', 'GEO', body)
             worksheet127.write('K5', 'JML', body)
             worksheet127.write('L5', 'MAT. WJB.', body)
             worksheet127.write('M5', 'IND', body)
             worksheet127.write('N5', 'ENG', body)
-            worksheet127.write('O5', 'SEJ', body)
+            worksheet127.write('O5', 'GEO', body)
             worksheet127.write('P5', 'JML', body)
 
             worksheet127.conditional_format(5, 0, row127_10+4, 15,
@@ -3756,12 +3756,12 @@
             worksheet127.write('G22', 'MAT. WJB.', body)
             worksheet127.write('H22', 'IND', body)
             worksheet127.write('I22', 'ENG', body)
-            worksheet127.write('J22', 'SEJ', body)
+            worksheet127.write('J22', 'GEO', body)
             worksheet127.write('K22', 'JML', body)
             worksheet127.write('L22', 'MAT. WJB.', body)
             worksheet127.write('M22', 'IND', body)
             worksheet127.write('N22', 'ENG', body)
-            worksheet127.write('O22', 'SEJ', body)
+            worksheet127.write('O22', 'GEO', body)
             worksheet127.write('P22', 'JML', body)
 
             worksheet127.conditional_format(22, 0, row127+21, 15,
@@ -3793,12 +3793,12 @@
             worksheet128.write('G5', 'MAT. WJB.', body)
             worksheet128.write('H5', 'IND', body)
             worksheet128.write('I5', 'ENG', body)
-            worksheet128.write('J5', 'SEJ', body)
+            worksheet128.write('J5', 'GEO', body)
             worksheet128.write('K5', 'JML', body)
             worksheet128.write('L5', 'MAT. WJB.', body)
             worksheet128.write('M5', 'IND', body)
             worksheet128.write('N5', 'ENG', body)
-            worksheet128.write('O5', 'SEJ', body)
+            worksheet128.write('O5', 'GEO', body)
             worksheet128.write('P5', 'JML', body)
 
             worksheet128.conditional_format(5, 0, row128_10+4, 15,
@@ -3821,12 +3821,12 @@
             worksheet128.write('G22', 'MAT. WJB.', body)
             worksheet128.write('H22', 'IND', body)
             worksheet128.write('I22', 'ENG', body)
-            worksheet128.write('J22', 'SEJ', body)
+            worksheet128.write('J22', 'GEO', body)
             worksheet128.write('K22', 'JML', body)
             worksheet128.write('L22', 'MAT. WJB.', body)
             worksheet128.write('M22', 'IND', body)
             worksheet128.write('N22', 'ENG', body)
-            worksheet128.write('O22', 'SEJ', body)
+            worksheet128.write('O22', 'GEO', body)
             worksheet128.write('P22', 'JML', body)
 
             worksheet128.conditional_format(22, 0, row128+21, 15,
@@ -3858,12 +3858,12 @@
             worksheet129.write('G5', 'MAT. WJB.', body)
             worksheet129.write('H5', 'IND', body)
             worksheet129.write('I5', 'ENG', body)
-            worksheet129.write('J5', 'SEJ', body)
+            worksheet129.write('J5', 'GEO', body)
             worksheet129.write('K5', 'JML', body)
             worksheet129.write('L5', 'MAT. WJB.', body)
             worksheet129.write('M5', 'IND', body)
             worksheet129.write('N5', 'ENG', body)
-            worksheet129.write('O5', 'SEJ', body)
+            worksheet129.write('O5', 'GEO', body)
             worksheet129.write('P5', 'JML', body)
 
             worksheet129.conditional_format(5, 0, row129_10+4, 15,
@@ -3886,12 +3886,12 @@
             worksheet129.write('G22', 'MAT. WJB.', body)
             worksheet129.write('H22', 'IND', body)
             worksheet129.write('I22', 'ENG', body)
-            worksheet129.write('J22', 'SEJ', body)
+            worksheet129.write('J22', 'GEO', body)
             worksheet129.write('K22', 'JML', body)
             worksheet129.write('L22', 'MAT. WJB.', body)
             worksheet129.write('M22', 'IND', body)
             worksheet129.write('N22', 'ENG', body)
-            worksheet129.write('O22', 'SEJ', body)
+            worksheet129.write('O22', 'GEO', body)
             worksheet129.write('P22', 'JML', body)
 
             worksheet129.conditional_format(22, 0, row129+21, 15,
@@ -3923,12 +3923,12 @@
             worksheet130.write('G5', 'MAT. WJB.', body)
             worksheet130.write('H5', 'IND', body)
             worksheet130.write('I5', 'ENG', body)
-            worksheet130.write('J5', 'SEJ', body)
+            worksheet130.write('J5', 'GEO', body)
             worksheet130.write('K5', 'JML', body)
             worksheet130.write('L5', 'MAT. WJB.', body)
             worksheet130.write('M5', 'IND', body)
             worksheet130.write('N5', 'ENG', body)
-            worksheet130.write('O5', 'SEJ', body)
+            worksheet130.write('O5', 'GEO', body)
             worksheet130.write('P5', 'JML', body)
 
             worksheet130.conditional_format(5, 0, row130_10+4, 15,
@@ -3951,12 +3951,12 @@
             worksheet130.write('G22', 'MAT. WJB.', body)
             worksheet130.write('H22', 'IND', body)
             worksheet130.write('I22', 'ENG', body)
-            worksheet130.write('J22', 'SEJ', body)
+            worksheet130.write('J22', 'GEO', body)
             worksheet130.write('K22', 'JML', body)
             worksheet130.write('L22', 'MAT. WJB.', body)
             worksheet130.write('M22', 'IND', body)
             worksheet130.write('N22', 'ENG', body)
-            worksheet130.write('O22', 'SEJ', body)
+            worksheet130.write('O22', 'GEO', body)
             worksheet130.write('P22', 'JML', body)
 
             worksheet130.conditional_format(22, 0, row130+21, 15,
@@ -3988,12 +3988,12 @@
             worksheet131.write('G5', 'MAT. WJB.', body)
             worksheet131.write('H5', 'IND', body)
             worksheet131.write('I5', 'ENG', body)
-            worksheet131.write('J5', 'SEJ', body)
+            worksheet131.write('J5', 'GEO', body)
             worksheet131.write('K5', 'JML', body)
             worksheet131.write('L5', 'MAT. WJB.', body)
             worksheet131.write('M5', 'IND', body)
             worksheet131.write('N5', 'ENG', body)
-            worksheet131.write('O5', 'SEJ', body)
+            worksheet131.write('O5', 'GEO', body)
             worksheet131.write('P5', 'JML', body)
 
             worksheet131.conditional_format(5, 0, row131_10+4, 15,
@@ -4016,12 +4016,12 @@
             worksheet131.write('G22', 'MAT. WJB.', body)
             worksheet131.write('H22', 'IND', body)
             worksheet131.write('I22', 'ENG', body)
-            worksheet131.write('J22', 'SEJ', body)
+            worksheet131.write('J22', 'GEO', body)
             worksheet131.write('K22', 'JML', body)
             worksheet131.write('L22', 'MAT. WJB.', body)
             worksheet131.write('M22', 'IND', body)
             worksheet131.write('N22', 'ENG', body)
-            worksheet131.write('O22', 'SEJ', body)
+            worksheet131.write('O22', 'GEO', body)
             worksheet131.write('P22', 'JML', body)
 
             worksheet131.conditional_format(22, 0, row131+21, 15,
@@ -4053,12 +4053,12 @@
             worksheet132.write('G5', 'MAT. WJB.', body)
             worksheet132.write('H5', 'IND', body)
             worksheet132.write('I5', 'ENG', body)
-            worksheet132.write('J5', 'SEJ', body)
+            worksheet132.write('J5', 'GEO', body)
             worksheet132.write('K5', 'JML', body)
             worksheet132.write('L5', 'MAT. WJB.', body)
             worksheet132.write('M5', 'IND', body)
             worksheet132.write('N5', 'ENG', body)
-            worksheet132.write('O5', 'SEJ', body)
+            worksheet132.write('O5', 'GEO', body)
             worksheet132.write('P5', 'JML', body)
 
             worksheet132.conditional_format(5, 0, row132_10+4, 15,
@@ -4081,12 +4081,12 @@
             worksheet132.write('G22', 'MAT. WJB.', body)
             worksheet132.write('H22', 'IND', body)
             worksheet132.write('I22', 'ENG', body)
-            worksheet132.write('J22', 'SEJ', body)
+            worksheet132.write('J22', 'GEO', body)
             worksheet132.write('K22', 'JML', body)
             worksheet132.write('L22', 'MAT. WJB.', body)
             worksheet132.write('M22', 'IND', body)
             worksheet132.write('N22', 'ENG', body)
-            worksheet132.write('O22', 'SEJ', body)
+            worksheet132.write('O22', 'GEO', body)
             worksheet132.write('P22', 'JML', body)
 
             worksheet132.conditional_format(22, 0, row132+21, 15,
@@ -4118,12 +4118,12 @@
             worksheet133.write('G5', 'MAT. WJB.', body)
             worksheet133.write('H5', 'IND', body)
             worksheet133.write('I5', 'ENG', body)
-            worksheet133.write('J5', 'SEJ', body)
+            worksheet133.write('J5', 'GEO', body)
             worksheet133.write('K5', 'JML', body)
             worksheet133.write('L5', 'MAT. WJB.', body)
             worksheet133.write('M5', 'IND', body)
             worksheet133.write('N5', 'ENG', body)
-            worksheet133.write('O5', 'SEJ', body)
+            worksheet133.write('O5', 'GEO', body)
             worksheet133.write('P5', 'JML', body)
 
             worksheet133.conditional_format(5, 0, row133_10+4, 15,
@@ -4146,12 +4146,12 @@
             worksheet133.write('G22', 'MAT. WJB.', body)
             worksheet133.write('H22', 'IND', body)
             worksheet133.write('I22', 'ENG', body)
-            worksheet133.write('J22', 'SEJ', body)
+            worksheet133.write('J22', 'GEO', body)
             worksheet133.write('K22', 'JML', body)
             worksheet133.write('L22', 'MAT. WJB.', body)
             worksheet133.write('M22', 'IND', body)
             worksheet133.write('N22', 'ENG', body)
-            worksheet133.write('O22', 'SEJ', body)
+            worksheet133.write('O22', 'GEO', body)
             worksheet133.write('P22', 'JML', body)
 
             worksheet133.conditional_format(22, 0, row133+21, 15,
@@ -4183,12 +4183,12 @@
             worksheet134.write('G5', 'MAT. WJB.', body)
             worksheet134.write('H5', 'IND', body)
             worksheet134.write('I5', 'ENG', body)
-            worksheet134.write('J5', 'SEJ', body)
+            worksheet134.write('J5', 'GEO', body)
             worksheet134.write('K5', 'JML', body)
             worksheet134.write('L5', 'MAT. WJB.', body)
             worksheet134.write('M5', 'IND', body)
             worksheet134.write('N5', 'ENG', body)
-            worksheet134.write('O5', 'SEJ', body)
+            worksheet134.write('O5', 'GEO', body)
             worksheet134.write('P5', 'JML', body)
 
             worksheet134.conditional_format(5, 0, row134_10+4, 15,
@@ -4211,12 +4211,12 @@
             worksheet134.write('G22', 'MAT. WJB.', body)
             worksheet134.write('H22', 'IND', body)
             worksheet134.write('I22', 'ENG', body)
-            worksheet134.write('J22', 'SEJ', body)
+            worksheet134.write('J22', 'GEO', body)
             worksheet134.write('K22', 'JML', body)
             worksheet134.write('L22', 'MAT. WJB.', body)
             worksheet134.write('M22', 'IND', body)
             worksheet134.write('N22', 'ENG', body)
-            worksheet134.write('O22', 'SEJ', body)
+            worksheet134.write('O22', 'GEO', body)
             worksheet134.write('P22', 'JML', body)
 
             worksheet134.conditional_format(22, 0, row134+21, 15,
@@ -4248,12 +4248,12 @@
             worksheet135.write('G5', 'MAT. WJB.', body)
             worksheet135.write('H5', 'IND', body)
             worksheet135.write('I5', 'ENG', body)
-            worksheet135.write('J5', 'SEJ', body)
+            worksheet135.write('J5', 'GEO', body)
             worksheet135.write('K5', 'JML', body)
             worksheet135.write('L5', 'MAT. WJB.', body)
             worksheet135.write('M5', 'IND', body)
             worksheet135.write('N5', 'ENG', body)
-            worksheet135.write('O5', 'SEJ', body)
+            worksheet135.write('O5', 'GEO', body)
             worksheet135.write('P5', 'JML', body)
 
             worksheet135.conditional_format(5, 0, row135_10+4, 15,
@@ -4276,12 +4276,12 @@
             worksheet135.write('G22', 'MAT. WJB.', body)
             worksheet135.write('H22', 'IND', body)
             worksheet135.write('I22', 'ENG', body)
-            worksheet135.write('J22', 'SEJ', body)
+            worksheet135.write('J22', 'GEO', body)
             worksheet135.write('K22', 'JML', body)
             worksheet135.write('L22', 'MAT. WJB.', body)
             worksheet135.write('M22', 'IND', body)
             worksheet135.write('N22', 'ENG', body)
-            worksheet135.write('O22', 'SEJ', body)
+            worksheet135.write('O22', 'GEO', body)
             worksheet135.write('P22', 'JML', body)
 
             worksheet135.conditional_format(22, 0, row135+21, 15,
@@ -4313,12 +4313,12 @@
             worksheet136.write('G5', 'MAT. WJB.', body)
             worksheet136.write('H5', 'IND', body)
             worksheet136.write('I5', 'ENG', body)
-            worksheet136.write('J5', 'SEJ', body)
+            worksheet136.write('J5', 'GEO', body)
             worksheet136.write('K5', 'JML', body)
             worksheet136.write('L5', 'MAT. WJB.', body)
             worksheet136.write('M5', 'IND', body)
             worksheet136.write('N5', 'ENG', body)
-            worksheet136.write('O5', 'SEJ', body)
+            worksheet136.write('O5', 'GEO', body)
             worksheet136.write('P5', 'JML', body)
 
             worksheet136.conditional_format(5, 0, row136_10+4, 15,
@@ -4341,12 +4341,12 @@
             worksheet136.write('G22', 'MAT. WJB.', body)
             worksheet136.write('H22', 'IND', body)
             worksheet136.write('I22', 'ENG', body)
-            worksheet136.write('J22', 'SEJ', body)
+            worksheet136.write('J22', 'GEO', body)
             worksheet136.write('K22', 'JML', body)
             worksheet136.write('L22', 'MAT. WJB.', body)
             worksheet136.write('M22', 'IND', body)
             worksheet136.write('N22', 'ENG', body)
-            worksheet136.write('O22', 'SEJ', body)
+            worksheet136.write('O22', 'GEO', body)
             worksheet136.write('P22', 'JML', body)
 
             worksheet136.conditional_format(22, 0, row136+21, 15,
@@ -4378,12 +4378,12 @@
             worksheet137.write('G5', 'MAT. WJB.', body)
             worksheet137.write('H5', 'IND', body)
             worksheet137.write('I5', 'ENG', body)
-            worksheet137.write('J5', 'SEJ', body)
+            worksheet137.write('J5', 'GEO', body)
             worksheet137.write('K5', 'JML', body)
             worksheet137.write('L5', 'MAT. WJB.', body)
             worksheet137.write('M5', 'IND', body)
             worksheet137.write('N5', 'ENG', body)
-            worksheet137.write('O5', 'SEJ', body)
+            worksheet137.write('O5', 'GEO', body)
             worksheet137.write('P5', 'JML', body)
 
             worksheet137.conditional_format(5, 0, row137_10+4, 15,
@@ -4406,12 +4406,12 @@
             worksheet137.write('G22', 'MAT. WJB.', body)
             worksheet137.write('H22', 'IND', body)
             worksheet137.write('I22', 'ENG', body)
-            worksheet137.write('J22', 'SEJ', body)
+            worksheet137.write('J22', 'GEO', body)
             worksheet137.write('K22', 'JML', body)
             worksheet137.write('L22', 'MAT. WJB.', body)
             worksheet137.write('M22', 'IND', body)
             worksheet137.write('N22', 'ENG', body)
-            worksheet137.write('O22', 'SEJ', body)
+            worksheet137.write('O22', 'GEO', body)
             worksheet137.write('P22', 'JML', body)
 
             worksheet137.conditional_format(22, 0, row137+21, 15,
@@ -4443,12 +4443,12 @@
             worksheet138.write('G5', 'MAT. WJB.', body)
             worksheet138.write('H5', 'IND', body)
             worksheet138.write('I5', 'ENG', body)
-            worksheet138.write('J5', 'SEJ', body)
+            worksheet138.write('J5', 'GEO', body)
             worksheet138.write('K5', 'JML', body)
             worksheet138.write('L5', 'MAT. WJB.', body)
             worksheet138.write('M5', 'IND', body)
             worksheet138.write('N5', 'ENG', body)
-            worksheet138.write('O5', 'SEJ', body)
+            worksheet138.write('O5', 'GEO', body)
             worksheet138.write('P5', 'JML', body)
 
             worksheet138.conditional_format(5, 0, row138_10+4, 15,
@@ -4471,12 +4471,12 @@
             worksheet138.write('G22', 'MAT. WJB.', body)
             worksheet138.write('H22', 'IND', body)
             worksheet138.write('I22', 'ENG', body)
-            worksheet138.write('J22', 'SEJ', body)
+            worksheet138.write('J22', 'GEO', body)
             worksheet138.write('K22', 'JML', body)
             worksheet138.write('L22', 'MAT. WJB.', body)
             worksheet138.write('M22', 'IND', body)
             worksheet138.write('N22', 'ENG', body)
-            worksheet138.write('O22', 'SEJ', body)
+            worksheet138.write('O22', 'GEO', body)
             worksheet138.write('P22', 'JML', body)
 
             worksheet138.conditional_format(22, 0, row138+21, 15,
@@ -4505,12 +4505,12 @@
             # worksheet139.write('G5', 'MAT. WJB.', body)
             # worksheet139.write('H5', 'IND', body)
             # worksheet139.write('I5', 'ENG', body)
-            # worksheet139.write('J5', 'SEJ', body)
+            # worksheet139.write('J5', 'GEO', body)
             # worksheet139.write('K5', 'JML', body)
             # worksheet139.write('L5', 'MAT. WJB.', body)
             # worksheet139.write('M5', 'IND', body)
             # worksheet139.write('N5', 'ENG', body)
-            # worksheet139.write('O5', 'SEJ', body)
+            # worksheet139.write('O5', 'GEO', body)
             # worksheet139.write('P5', 'JML', body)
             #
 
@@ -4531,12 +4531,12 @@
             # worksheet139.write('G22', 'MAT. WJB.', body)
             # worksheet139.write('H22', 'IND', body)
             # worksheet139.write('I22', 'ENG', body)
-            # worksheet139.write('J22', 'SEJ', body)
+            # worksheet139.write('J22', 'GEO', body)
             # worksheet139.write('K22', 'JML', body)
             # worksheet139.write('L22', 'MAT. WJB.', body)
             # worksheet139.write('M22', 'IND', body)
             # worksheet139.write('N22', 'ENG', body)
-            # worksheet139.write('O22', 'SEJ', body)
+            # worksheet139.write('O22', 'GEO', body)
             # worksheet139.write('P22', 'JML', body)
             #
             # worksheet139.conditional_format(22,0,row139+21,15,
@@ -4568,12 +4568,12 @@
             worksheet140.write('G5', 'MAT. WJB.', body)
             worksheet140.write('H5', 'IND', body)
             worksheet140.write('I5', 'ENG', body)
-            worksheet140.write('J5', 'SEJ', body)
+            worksheet140.write('J5', 'GEO', body)
             worksheet140.write('K5', 'JML', body)
             worksheet140.write('L5', 'MAT. WJB.', body)
             worksheet140.write('M5', 'IND', body)
             worksheet140.write('N5', 'ENG', body)
-            worksheet140.write('O5', 'SEJ', body)
+            worksheet140.write('O5', 'GEO', body)
             worksheet140.write('P5', 'JML', body)
 
             worksheet140.conditional_format(5, 0, row140_10+4, 15,
@@ -4596,12 +4596,12 @@
             worksheet140.write('G22', 'MAT. WJB.', body)
             worksheet140.write('H22', 'IND', body)
             worksheet140.write('I22', 'ENG', body)
-            worksheet140.write('J22', 'SEJ', body)
+            worksheet140.write('J22', 'GEO', body)
             worksheet140.write('K22', 'JML', body)
             worksheet140.write('L22', 'MAT. WJB.', body)
             worksheet140.write('M22', 'IND', body)
             worksheet140.write('N22', 'ENG', body)
-            worksheet140.write('O22', 'SEJ', body)
+            worksheet140.write('O22', 'GEO', body)
             worksheet140.write('P22', 'JML', body)
 
             worksheet140.conditional_format(22, 0, row140+21, 15,
@@ -4633,12 +4633,12 @@
             worksheet141.write('G5', 'MAT. WJB.', body)
             worksheet141.write('H5', 'IND', body)
             worksheet141.write('I5', 'ENG', body)
-            worksheet141.write('J5', 'SEJ', body)
+            worksheet141.write('J5', 'GEO', body)
             worksheet141.write('K5', 'JML', body)
             worksheet141.write('L5', 'MAT. WJB.', body)
             worksheet141.write('M5', 'IND', body)
             worksheet141.write('N5', 'ENG', body)
-            worksheet141.write('O5', 'SEJ', body)
+            worksheet141.write('O5', 'GEO', body)
             worksheet141.write('P5', 'JML', body)
 
             worksheet141.conditional_format(5, 0, row141_10+4, 15,
@@ -4661,12 +4661,12 @@
             worksheet141.write('G22', 'MAT. WJB.', body)
             worksheet141.write('H22', 'IND', body)
             worksheet141.write('I22', 'ENG', body)
-            worksheet141.write('J22', 'SEJ', body)
+            worksheet141.write('J22', 'GEO', body)
             worksheet141.write('K22', 'JML', body)
             worksheet141.write('L22', 'MAT. WJB.', body)
             worksheet141.write('M22', 'IND', body)
             worksheet141.write('N22', 'ENG', body)
-            worksheet141.write('O22', 'SEJ', body)
+            worksheet141.write('O22', 'GEO', body)
             worksheet141.write('P22', 'JML', body)
 
             worksheet141.conditional_format(22, 0, row141+21, 15,
@@ -4698,12 +4698,12 @@
             worksheet142.write('G5', 'MAT. WJB.', body)
             worksheet142.write('H5', 'IND', body)
             worksheet142.write('I5', 'ENG', body)
-            worksheet142.write('J5', 'SEJ', body)
+            worksheet142.write('J5', 'GEO', body)
             worksheet142.write('K5', 'JML', body)
             worksheet142.write('L5', 'MAT. WJB.', body)
             worksheet142.write('M5', 'IND', body)
             worksheet142.write('N5', 'ENG', body)
-            worksheet142.write('O5', 'SEJ', body)
+            worksheet142.write('O5', 'GEO', body)
             worksheet142.write('P5', 'JML', body)
 
             worksheet142.conditional_format(5, 0, row142_10+4, 15,
@@ -4726,12 +4726,12 @@
             worksheet142.write('G22', 'MAT. WJB.', body)
             worksheet142.write('H22', 'IND', body)
             worksheet142.write('I22', 'ENG', body)
-            worksheet142.write('J22', 'SEJ', body)
+            worksheet142.write('J22', 'GEO', body)
             worksheet142.write('K22', 'JML', body)
             worksheet142.write('L22', 'MAT. WJB.', body)
             worksheet142.write('M22', 'IND', body)
             worksheet142.write('N22', 'ENG', body)
-            worksheet142.write('O22', 'SEJ', body)
+            worksheet142.write('O22', 'GEO', body)
             worksheet142.write('P22', 'JML', body)
 
             worksheet142.conditional_format(22, 0, row142+21, 15,
@@ -4763,12 +4763,12 @@
             worksheet143.write('G5', 'MAT. WJB.', body)
             worksheet143.write('H5', 'IND', body)
             worksheet143.write('I5', 'ENG', body)
-            worksheet143.write('J5', 'SEJ', body)
+            worksheet143.write('J5', 'GEO', body)
             worksheet143.write('K5', 'JML', body)
             worksheet143.write('L5', 'MAT. WJB.', body)
             worksheet143.write('M5', 'IND', body)
             worksheet143.write('N5', 'ENG', body)
-            worksheet143.write('O5', 'SEJ', body)
+            worksheet143.write('O5', 'GEO', body)
             worksheet143.write('P5', 'JML', body)
 
             worksheet143.conditional_format(5, 0, row143_10+4, 15,
@@ -4791,12 +4791,12 @@
             worksheet143.write('G22', 'MAT. WJB.', body)
             worksheet143.write('H22', 'IND', body)
             worksheet143.write('I22', 'ENG', body)
-            worksheet143.write('J22', 'SEJ', body)
+            worksheet143.write('J22', 'GEO', body)
             worksheet143.write('K22', 'JML', body)
             worksheet143.write('L22', 'MAT. WJB.', body)
             worksheet143.write('M22', 'IND', body)
             worksheet143.write('N22', 'ENG', body)
-            worksheet143.write('O22', 'SEJ', body)
+            worksheet143.write('O22', 'GEO', body)
             worksheet143.write('P22', 'JML', body)
 
             worksheet143.conditional_format(22, 0, row143+21, 15,
@@ -4828,12 +4828,12 @@
             worksheet144.write('G5', 'MAT. WJB.', body)
             worksheet144.write('H5', 'IND', body)
             worksheet144.write('I5', 'ENG', body)
-            worksheet144.write('J5', 'SEJ', body)
+            worksheet144.write('J5', 'GEO', body)
             worksheet144.write('K5', 'JML', body)
             worksheet144.write('L5', 'MAT. WJB.', body)
             worksheet144.write('M5', 'IND', body)
             worksheet144.write('N5', 'ENG', body)
-            worksheet144.write('O5', 'SEJ', body)
+            worksheet144.write('O5', 'GEO', body)
             worksheet144.write('P5', 'JML', body)
 
             worksheet144.conditional_format(5, 0, row144_10+4, 15,
@@ -4856,12 +4856,12 @@
             worksheet144.write('G22', 'MAT. WJB.', body)
             worksheet144.write('H22', 'IND', body)
             worksheet144.write('I22', 'ENG', body)
-            worksheet144.write('J22', 'SEJ', body)
+            worksheet144.write('J22', 'GEO', body)
             worksheet144.write('K22', 'JML', body)
             worksheet144.write('L22', 'MAT. WJB.', body)
             worksheet144.write('M22', 'IND', body)
             worksheet144.write('N22', 'ENG', body)
-            worksheet144.write('O22', 'SEJ', body)
+            worksheet144.write('O22', 'GEO', body)
             worksheet144.write('P22', 'JML', body)
 
             worksheet144.conditional_format(22, 0, row144+21, 15,
@@ -4893,12 +4893,12 @@
             worksheet145.write('G5', 'MAT. WJB.', body)
             worksheet145.write('H5', 'IND', body)
             worksheet145.write('I5', 'ENG', body)
-            worksheet145.write('J5', 'SEJ', body)
+            worksheet145.write('J5', 'GEO', body)
             worksheet145.write('K5', 'JML', body)
             worksheet145.write('L5', 'MAT. WJB.', body)
             worksheet145.write('M5', 'IND', body)
             worksheet145.write('N5', 'ENG', body)
-            worksheet145.write('O5', 'SEJ', body)
+            worksheet145.write('O5', 'GEO', body)
             worksheet145.write('P5', 'JML', body)
 
             worksheet145.conditional_format(5, 0, row145_10+4, 15,
@@ -4921,12 +4921,12 @@
             worksheet145.write('G22', 'MAT. WJB.', body)
             worksheet145.write('H22', 'IND', body)
             worksheet145.write('I22', 'ENG', body)
-            worksheet145.write('J22', 'SEJ', body)
+            worksheet145.write('J22', 'GEO', body)
             worksheet145.write('K22', 'JML', body)
             worksheet145.write('L22', 'MAT. WJB.', body)
             worksheet145.write('M22', 'IND', body)
             worksheet145.write('N22', 'ENG', body)
-            worksheet145.write('O22', 'SEJ', body)
+            worksheet145.write('O22', 'GEO', body)
             worksheet145.write('P22', 'JML', body)
 
             worksheet145.conditional_format(22, 0, row145+21, 15,
@@ -4958,12 +4958,12 @@
             worksheet146.write('G5', 'MAT. WJB.', body)
             worksheet146.write('H5', 'IND', body)
             worksheet146.write('I5', 'ENG', body)
-            worksheet146.write('J5', 'SEJ', body)
+            worksheet146.write('J5', 'GEO', body)
             worksheet146.write('K5', 'JML', body)
             worksheet146.write('L5', 'MAT. WJB.', body)
             worksheet146.write('M5', 'IND', body)
             worksheet146.write('N5', 'ENG', body)
-            worksheet146.write('O5', 'SEJ', body)
+            worksheet146.write('O5', 'GEO', body)
             worksheet146.write('P5', 'JML', body)
 
             worksheet146.conditional_format(5, 0, row146_10+4, 15,
@@ -4986,12 +4986,12 @@
             worksheet146.write('G22', 'MAT. WJB.', body)
             worksheet146.write('H22', 'IND', body)
             worksheet146.write('I22', 'ENG', body)
-            worksheet146.write('J22', 'SEJ', body)
+            worksheet146.write('J22', 'GEO', body)
             worksheet146.write('K22', 'JML', body)
             worksheet146.write('L22', 'MAT. WJB.', body)
             worksheet146.write('M22', 'IND', body)
             worksheet146.write('N22', 'ENG', body)
-            worksheet146.write('O22', 'SEJ', body)
+            worksheet146.write('O22', 'GEO', body)
             worksheet146.write('P22', 'JML', body)
 
             worksheet146.conditional_format(22, 0, row146+21, 15,
@@ -5023,12 +5023,12 @@
             worksheet148.write('G5', 'MAT. WJB.', body)
             worksheet148.write('H5', 'IND', body)
             worksheet148.write('I5', 'ENG', body)
-            worksheet148.write('J5', 'SEJ', body)
+            worksheet148.write('J5', 'GEO', body)
             worksheet148.write('K5', 'JML', body)
             worksheet148.write('L5', 'MAT. WJB.', body)
             worksheet148.write('M5', 'IND', body)
             worksheet148.write('N5', 'ENG', body)
-            worksheet148.write('O5', 'SEJ', body)
+            worksheet148.write('O5', 'GEO', body)
             worksheet148.write('P5', 'JML', body)
 
             worksheet148.conditional_format(5, 0, row148_10+4, 15,
@@ -5051,12 +5051,12 @@
             worksheet148.write('G22', 'MAT. WJB.', body)
             worksheet148.write('H22', 'IND', body)
             worksheet148.write('I22', 'ENG', body)
-            worksheet148.write('J22', 'SEJ', body)
+            worksheet148.write('J22', 'GEO', body)
             worksheet148.write('K22', 'JML', body)
             worksheet148.write('L22', 'MAT. WJB.', body)
             worksheet148.write('M22', 'IND', body)
             worksheet148.write('N22', 'ENG', body)
-            worksheet148.write('O22', 'SEJ', body)
+            worksheet148.write('O22', 'GEO', body)
             worksheet148.write('P22', 'JML', body)
 
             worksheet148.conditional_format(22, 0, row148+21, 15,
@@ -5088,12 +5088,12 @@
             worksheet149.write('G5', 'MAT. WJB.', body)
             worksheet149.write('H5', 'IND', body)
             worksheet149.write('I5', 'ENG', body)
-            worksheet149.write('J5', 'SEJ', body)
+            worksheet149.write('J5', 'GEO', body)
             worksheet149.write('K5', 'JML', body)
             worksheet149.write('L5', 'MAT. WJB.', body)
             worksheet149.write('M5', 'IND', body)
             worksheet149.write('N5', 'ENG', body)
-            worksheet149.write('O5', 'SEJ', body)
+            worksheet149.write('O5', 'GEO', body)
             worksheet149.write('P5', 'JML', body)
 
             worksheet149.conditional_format(5, 0, row149_10+4, 15,
@@ -5116,12 +5116,12 @@
             worksheet149.write('G22', 'MAT. WJB.', body)
             worksheet149.write('H22', 'IND', body)
             worksheet149.write('I22', 'ENG', body)
-            worksheet149.write('J22', 'SEJ', body)
+            worksheet149.write('J22', 'GEO', body)
             worksheet149.write('K22', 'JML', body)
             worksheet149.write('L22', 'MAT. WJB.', body)
             worksheet149.write('M22', 'IND', body)
             worksheet149.write('N22', 'ENG', body)
-            worksheet149.write('O22', 'SEJ', body)
+            worksheet149.write('O22', 'GEO', body)
             worksheet149.write('P22', 'JML', body)
 
             worksheet149.conditional_format(22, 0, row149+21, 15,
@@ -5153,12 +5153,12 @@
             worksheet150.write('G5', 'MAT. WJB.', body)
             worksheet150.write('H5', 'IND', body)
             worksheet150.write('I5', 'ENG', body)
-            worksheet150.write('J5', 'SEJ', body)
+            worksheet150.write('J5', 'GEO', body)
             worksheet150.write('K5', 'JML', body)
             worksheet150.write('L5', 'MAT. WJB.', body)
             worksheet150.write('M5', 'IND', body)
             worksheet150.write('N5', 'ENG', body)
-            worksheet150.write('O5', 'SEJ', body)
+            worksheet150.write('O5', 'GEO', body)
             worksheet150.write('P5', 'JML', body)
 
             worksheet150.conditional_format(5, 0, row150_10+4, 15,
@@ -5181,12 +5181,12 @@
             worksheet150.write('G22', 'MAT. WJB.', body)
             worksheet150.write('H22', 'IND', body)
             worksheet150.write('I22', 'ENG', body)
-            worksheet150.write('J22', 'SEJ', body)
+            worksheet150.write('J22', 'GEO', body)
             worksheet150.write('K22', 'JML', body)
             worksheet150.write('L22', 'MAT. WJB.', body)
             worksheet150.write('M22', 'IND', body)
             worksheet150.write('N22', 'ENG', body)
-            worksheet150.write('O22', 'SEJ', body)
+            worksheet150.write('O22', 'GEO', body)
             worksheet150.write('P22', 'JML', body)
 
             worksheet150.conditional_format(22, 0, row150+21, 15,
@@ -5218,12 +5218,12 @@
             worksheet151.write('G5', 'MAT. WJB.', body)
             worksheet151.write('H5', 'IND', body)
             worksheet151.write('I5', 'ENG', body)
-            worksheet151.write('J5', 'SEJ', body)
+            worksheet151.write('J5', 'GEO', body)
             worksheet151.write('K5', 'JML', body)
             worksheet151.write('L5', 'MAT. WJB.', body)
             worksheet151.write('M5', 'IND', body)
             worksheet151.write('N5', 'ENG', body)
-            worksheet151.write('O5', 'SEJ', body)
+            worksheet151.write('O5', 'GEO', body)
             worksheet151.write('P5', 'JML', body)
 
             worksheet151.conditional_format(5, 0, row151_10+4, 15,
@@ -5246,12 +5246,12 @@
             worksheet151.write('G22', 'MAT. WJB.', body)
             worksheet151.write('H22', 'IND', body)
             worksheet151.write('I22', 'ENG', body)
-            worksheet151.write('J22', 'SEJ', body)
+            worksheet151.write('J22', 'GEO', body)
             worksheet151.write('K22', 'JML', body)
             worksheet151.write('L22', 'MAT. WJB.', body)
             worksheet151.write('M22', 'IND', body)
             worksheet151.write('N22', 'ENG', body)
-            worksheet151.write('O22', 'SEJ', body)
+            worksheet151.write('O22', 'GEO', body)
             worksheet151.write('P22', 'JML', body)
 
             worksheet151.conditional_format(22, 0, row151+21, 15,
@@ -5283,12 +5283,12 @@
             worksheet152.write('G5', 'MAT. WJB.', body)
             worksheet152.write('H5', 'IND', body)
             worksheet152.write('I5', 'ENG', body)
-            worksheet152.write('J5', 'SEJ', body)
+            worksheet152.write('J5', 'GEO', body)
             worksheet152.write('K5', 'JML', body)
             worksheet152.write('L5', 'MAT. WJB.', body)
             worksheet152.write('M5', 'IND', body)
             worksheet152.write('N5', 'ENG', body)
-            worksheet152.write('O5', 'SEJ', body)
+            worksheet152.write('O5', 'GEO', body)
             worksheet152.write('P5', 'JML', body)
 
             worksheet152.conditional_format(5, 0, row152_10+4, 15,
@@ -5311,12 +5311,12 @@
             worksheet152.write('G22', 'MAT. WJB.', body)
             worksheet152.write('H22', 'IND', body)
             worksheet152.write('I22', 'ENG', body)
-            worksheet152.write('J22', 'SEJ', body)
+            worksheet152.write('J22', 'GEO', body)
             worksheet152.write('K22', 'JML', body)
             worksheet152.write('L22', 'MAT. WJB.', body)
             worksheet152.write('M22', 'IND', body)
             worksheet152.write('N22', 'ENG', body)
-            worksheet152.write('O22', 'SEJ', body)
+            worksheet152.write('O22', 'GEO', body)
             worksheet152.write('P22', 'JML', body)
 
             worksheet152.conditional_format(22, 0, row152+21, 15,
@@ -5348,12 +5348,12 @@
             worksheet153.write('G5', 'MAT. WJB.', body)
             worksheet153.write('H5', 'IND', body)
             worksheet153.write('I5', 'ENG', body)
-            worksheet153.write('J5', 'SEJ', body)
+            worksheet153.write('J5', 'GEO', body)
             worksheet153.write('K5', 'JML', body)
             worksheet153.write('L5', 'MAT. WJB.', body)
             worksheet153.write('M5', 'IND', body)
             worksheet153.write('N5', 'ENG', body)
-            worksheet153.write('O5', 'SEJ', body)
+            worksheet153.write('O5', 'GEO', body)
             worksheet153.write('P5', 'JML', body)
 
             worksheet153.conditional_format(5, 0, row153_10+4, 15,
@@ -5376,12 +5376,12 @@
             worksheet153.write('G22', 'MAT. WJB.', body)
             worksheet153.write('H22', 'IND', body)
             worksheet153.write('I22', 'ENG', body)
-            worksheet153.write('J22', 'SEJ', body)
+            worksheet153.write('J22', 'GEO', body)
             worksheet153.write('K22', 'JML', body)
             worksheet153.write('L22', 'MAT. WJB.', body)
             worksheet153.write('M22', 'IND', body)
             worksheet153.write('N22', 'ENG', body)
-            worksheet153.write('O22', 'SEJ', body)
+            worksheet153.write('O22', 'GEO', body)
             worksheet153.write('P22', 'JML', body)
 
             worksheet153.conditional_format(22, 0, row153+21, 15,
@@ -5413,12 +5413,12 @@
             worksheet154.write('G5', 'MAT. WJB.', body)
             worksheet154.write('H5', 'IND', body)
             worksheet154.write('I5', 'ENG', body)
-            worksheet154.write('J5', 'SEJ', body)
+            worksheet154.write('J5', 'GEO', body)
             worksheet154.write('K5', 'JML', body)
             worksheet154.write('L5', 'MAT. WJB.', body)
             worksheet154.write('M5', 'IND', body)
             worksheet154.write('N5', 'ENG', body)
-            worksheet154.write('O5', 'SEJ', body)
+            worksheet154.write('O5', 'GEO', body)
             worksheet154.write('P5', 'JML', body)
 
             worksheet154.conditional_format(5, 0, row154_10+4, 15,
@@ -5441,12 +5441,12 @@
             worksheet154.write('G22', 'MAT. WJB.', body)
             worksheet154.write('H22', 'IND', body)
             worksheet154.write('I22', 'ENG', body)
-            worksheet154.write('J22', 'SEJ', body)
+            worksheet154.write('J22', 'GEO', body)
             worksheet154.write('K22', 'JML', body)
             worksheet154.write('L22', 'MAT. WJB.', body)
             worksheet154.write('M22', 'IND', body)
             worksheet154.write('N22', 'ENG', body)
-            worksheet154.write('O22', 'SEJ', body)
+            worksheet154.write('O22', 'GEO', body)
             worksheet154.write('P22', 'JML', body)
 
             worksheet154.conditional_format(22, 0, row154+21, 15,
@@ -5478,12 +5478,12 @@
             worksheet155.write('G5', 'MAT. WJB.', body)
             worksheet155.write('H5', 'IND', body)
             worksheet155.write('I5', 'ENG', body)
-            worksheet155.write('J5', 'SEJ', body)
+            worksheet155.write('J5', 'GEO', body)
             worksheet155.write('K5', 'JML', body)
             worksheet155.write('L5', 'MAT. WJB.', body)
             worksheet155.write('M5', 'IND', body)
             worksheet155.write('N5', 'ENG', body)
-            worksheet155.write('O5', 'SEJ', body)
+            worksheet155.write('O5', 'GEO', body)
             worksheet155.write('P5', 'JML', body)
 
             worksheet155.conditional_format(5, 0, row155_10+4, 15,
@@ -5506,12 +5506,12 @@
             worksheet155.write('G22', 'MAT. WJB.', body)
             worksheet155.write('H22', 'IND', body)
             worksheet155.write('I22', 'ENG', body)
-            worksheet155.write('J22', 'SEJ', body)
+            worksheet155.write('J22', 'GEO', body)
             worksheet155.write('K22', 'JML', body)
             worksheet155.write('L22', 'MAT. WJB.', body)
             worksheet155.write('M22', 'IND', body)
             worksheet155.write('N22', 'ENG', body)
-            worksheet155.write('O22', 'SEJ', body)
+            worksheet155.write('O22', 'GEO', body)
             worksheet155.write('P22', 'JML', body)
 
             worksheet155.conditional_format(22, 0, row155+21, 15,
@@ -5543,12 +5543,12 @@
             worksheet156.write('G5', 'MAT. WJB.', body)
             worksheet156.write('H5', 'IND', body)
             worksheet156.write('I5', 'ENG', body)
-            worksheet156.write('J5', 'SEJ', body)
+            worksheet156.write('J5', 'GEO', body)
             worksheet156.write('K5', 'JML', body)
             worksheet156.write('L5', 'MAT. WJB.', body)
             worksheet156.write('M5', 'IND', body)
             worksheet156.write('N5', 'ENG', body)
-            worksheet156.write('O5', 'SEJ', body)
+            worksheet156.write('O5', 'GEO', body)
             worksheet156.write('P5', 'JML', body)
 
             worksheet156.conditional_format(5, 0, row156_10+4, 15,
@@ -5571,12 +5571,12 @@
             worksheet156.write('G22', 'MAT. WJB.', body)
             worksheet156.write('H22', 'IND', body)
             worksheet156.write('I22', 'ENG', body)
-            worksheet156.write('J22', 'SEJ', body)
+            worksheet156.write('J22', 'GEO', body)
             worksheet156.write('K22', 'JML', body)
             worksheet156.write('L22', 'MAT. WJB.', body)
             worksheet156.write('M22', 'IND', body)
             worksheet156.write('N22', 'ENG', body)
-            worksheet156.write('O22', 'SEJ', body)
+            worksheet156.write('O22', 'GEO', body)
             worksheet156.write('P22', 'JML', body)
 
             worksheet156.conditional_format(22, 0, row156+21, 15,
@@ -5608,12 +5608,12 @@
             worksheet157.write('G5', 'MAT. WJB.', body)
             worksheet157.write('H5', 'IND', body)
             worksheet157.write('I5', 'ENG', body)
-            worksheet157.write('J5', 'SEJ', body)
+            worksheet157.write('J5', 'GEO', body)
             worksheet157.write('K5', 'JML', body)
             worksheet157.write('L5', 'MAT. WJB.', body)
             worksheet157.write('M5', 'IND', body)
             worksheet157.write('N5', 'ENG', body)
-            worksheet157.write('O5', 'SEJ', body)
+            worksheet157.write('O5', 'GEO', body)
             worksheet157.write('P5', 'JML', body)
 
             worksheet157.conditional_format(5, 0, row157_10+4, 15,
@@ -5636,12 +5636,12 @@
             worksheet157.write('G22', 'MAT. WJB.', body)
             worksheet157.write('H22', 'IND', body)
             worksheet157.write('I22', 'ENG', body)
-            worksheet157.write('J22', 'SEJ', body)
+            worksheet157.write('J22', 'GEO', body)
             worksheet157.write('K22', 'JML', body)
             worksheet157.write('L22', 'MAT. WJB.', body)
             worksheet157.write('M22', 'IND', body)
             worksheet157.write('N22', 'ENG', body)
-            worksheet157.write('O22', 'SEJ', body)
+            worksheet157.write('O22', 'GEO', body)
             worksheet157.write('P22', 'JML', body)
 
             worksheet157.conditional_format(22, 0, row157+21, 15,
@@ -5673,12 +5673,12 @@
             worksheet158.write('G5', 'MAT. WJB.', body)
             worksheet158.write('H5', 'IND', body)
             worksheet158.write('I5', 'ENG', body)
-            worksheet158.write('J5', 'SEJ', body)
+            worksheet158.write('J5', 'GEO', body)
             worksheet158.write('K5', 'JML', body)
             worksheet158.write('L5', 'MAT. WJB.', body)
             worksheet158.write('M5', 'IND', body)
             worksheet158.write('N5', 'ENG', body)
-            worksheet158.write('O5', 'SEJ', body)
+            worksheet158.write('O5', 'GEO', body)
             worksheet158.write('P5', 'JML', body)
 
             worksheet158.conditional_format(5, 0, row158_10+4, 15,
@@ -5701,12 +5701,12 @@
             worksheet158.write('G22', 'MAT. WJB.', body)
             worksheet158.write('H22', 'IND', body)
             worksheet158.write('I22', 'ENG', body)
-            worksheet158.write('J22', 'SEJ', body)
+            worksheet158.write('J22', 'GEO', body)
             worksheet158.write('K22', 'JML', body)
             worksheet158.write('L22', 'MAT. WJB.', body)
             worksheet158.write('M22', 'IND', body)
             worksheet158.write('N22', 'ENG', body)
-            worksheet158.write('O22', 'SEJ', body)
+            worksheet158.write('O22', 'GEO', body)
             worksheet158.write('P22', 'JML', body)
 
             worksheet158.conditional_format(22, 0, row158+21, 15,
@@ -5738,12 +5738,12 @@
             worksheet159.write('G5', 'MAT. WJB.', body)
             worksheet159.write('H5', 'IND', body)
             worksheet159.write('I5', 'ENG', body)
-            worksheet159.write('J5', 'SEJ', body)
+            worksheet159.write('J5', 'GEO', body)
             worksheet159.write('K5', 'JML', body)
             worksheet159.write('L5', 'MAT. WJB.', body)
             worksheet159.write('M5', 'IND', body)
             worksheet159.write('N5', 'ENG', body)
-            worksheet159.write('O5', 'SEJ', body)
+            worksheet159.write('O5', 'GEO', body)
             worksheet159.write('P5', 'JML', body)
 
             worksheet159.conditional_format(5, 0, row159_10+4, 15,
@@ -5766,12 +5766,12 @@
             worksheet159.write('G22', 'MAT. WJB.', body)
             worksheet159.write('H22', 'IND', body)
             worksheet159.write('I22', 'ENG', body)
-            worksheet159.write('J22', 'SEJ', body)
+            worksheet159.write('J22', 'GEO', body)
             worksheet159.write('K22', 'JML', body)
             worksheet159.write('L22', 'MAT. WJB.', body)
             worksheet159.write('M22', 'IND', body)
             worksheet159.write('N22', 'ENG', body)
-            worksheet159.write('O22', 'SEJ', body)
+            worksheet159.write('O22', 'GEO', body)
             worksheet159.write('P22', 'JML', body)
 
             worksheet159.conditional_format(22, 0, row159+21, 15,
@@ -5803,12 +5803,12 @@
             worksheet160.write('G5', 'MAT. WJB.', body)
             worksheet160.write('H5', 'IND', body)
             worksheet160.write('I5', 'ENG', body)
-            worksheet160.write('J5', 'SEJ', body)
+            worksheet160.write('J5', 'GEO', body)
             worksheet160.write('K5', 'JML', body)
             worksheet160.write('L5', 'MAT. WJB.', body)
             worksheet160.write('M5', 'IND', body)
             worksheet160.write('N5', 'ENG', body)
-            worksheet160.write('O5', 'SEJ', body)
+            worksheet160.write('O5', 'GEO', body)
             worksheet160.write('P5', 'JML', body)
 
             worksheet160.conditional_format(5, 0, row160_10+4, 15,
@@ -5831,12 +5831,12 @@
             worksheet160.write('G22', 'MAT. WJB.', body)
             worksheet160.write('H22', 'IND', body)
             worksheet160.write('I22', 'ENG', body)
-            worksheet160.write('J22', 'SEJ', body)
+            worksheet160.write('J22', 'GEO', body)
             worksheet160.write('K22', 'JML', body)
             worksheet160.write('L22', 'MAT. WJB.', body)
             worksheet160.write('M22', 'IND', body)
             worksheet160.write('N22', 'ENG', body)
-            worksheet160.write('O22', 'SEJ', body)
+            worksheet160.write('O22', 'GEO', body)
             worksheet160.write('P22', 'JML', body)
 
             worksheet160.conditional_format(22, 0, row160+21, 15,
@@ -5871,21 +5871,21 @@
             rata_mat_wjb = df.iloc[r, len_col-20]
             rata_ind = df.iloc[r, len_col-19]
             rata_eng = df.iloc[r, len_col-18]
-            rata_sej = df.iloc[r, len_col-17]
+            rata_geo = df.iloc[r, len_col-17]
             rata_jml = df.iloc[r, len_col-16]
 
             # rata-rata nilai standar
             rata_Smat_wjb = df.iloc[t, len_col-11]
             rata_Sind = df.iloc[t, len_col-10]
             rata_Seng = df.iloc[t, len_col-9]
-            rata_Ssej = df.iloc[t, len_col-8]
+            rata_Sgeo = df.iloc[t, len_col-8]
             rata_Sjml = df.iloc[t, len_col-7]
 
             # max jumlah benar
             max_mat_wjb = df.iloc[t, len_col-20]
             max_ind = df.iloc[t, len_col-19]
             max_eng = df.iloc[t, len_col-18]
-            max_sej = df.iloc[t, len_col-17]
+            max_geo = df.iloc[t, len_col-17]
             max_jml = df.iloc[t, len_col-16]
 
             # max nilai standar
@@ -5899,27 +5899,27 @@
             min_mat_wjb = df.iloc[u, len_col-20]
             min_ind = df.iloc[u, len_col-19]
             min_eng = df.iloc[u, len_col-18]
-            min_sej = df.iloc[u, len_col-17]
+            min_geo = df.iloc[u, len_col-17]
             min_jml = df.iloc[u, len_col-16]
 
             # min nilai standar
             min_Smat_wjb = df.iloc[s, len_col-11]
             min_Sind = df.iloc[s, len_col-10]
             min_Seng = df.iloc[s, len_col-9]
-            min_Ssej = df.iloc[s, len_col-8]
+            min_Sgeo = df.iloc[s, len_col-8]
             min_Sjml = df.iloc[s, len_col-7]
 
-            data_jml_benar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'SEJARAH (SEJ)', 'JUMLAH (JML)'],
-                              'TERENDAH': [min_mat_wjb, min_ind, min_eng, min_sej, min_jml],
-                              'RATA-RATA': [rata_mat_wjb, rata_ind, rata_eng, rata_sej, rata_jml],
-                              'TERTINGGI': [max_mat_wjb, max_ind, max_eng, max_sej, max_jml]}
+            data_jml_benar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'GEOGRAFI (GEO)', 'JUMLAH (JML)'],
+                              'TERENDAH': [min_mat_wjb, min_ind, min_eng, min_geo, min_jml],
+                              'RATA-RATA': [rata_mat_wjb, rata_ind, rata_eng, rata_geo, rata_jml],
+                              'TERTINGGI': [max_mat_wjb, max_ind, max_eng, max_geo, max_jml]}
 
             jml_benar = pd.DataFrame(data_jml_benar)
 
-            data_n_standar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'SEJARAH (SEJ)', 'JUMLAH (JML)'],
-                              'TERENDAH': [min_Smat_wjb, min_Sind, min_Seng, min_Ssej, min_Sjml],
-                              'RATA-RATA': [rata_Smat_wjb, rata_Sind, rata_Seng, rata_Ssej, rata_Sjml],
-                              'TERTINGGI': [max_Smat_wjb, max_Sind, max_Seng, max_Ssej, max_Sjml]}
+            data_n_standar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'GEOGRAFI (GEO)', 'JUMLAH (JML)'],
+                              'TERENDAH': [min_Smat_wjb, min_Sind, min_Seng, min_Sgeo, min_Sjml],
+                              'RATA-RATA': [rata_Smat_wjb, rata_Sind, rata_Seng, rata_Sgeo, rata_Sjml],
+                              'TERTINGGI': [max_Smat_wjb, max_Sind, max_Seng, max_Sgeo, max_Sjml]}
 
             n_standar = pd.DataFrame(data_n_standar)
 
@@ -5927,13 +5927,13 @@
 
             jml_peserta = pd.DataFrame(data_jml_peserta)
 
-            data_jml_soal = {'BIDANG STUDI': ['MAT. WJB.', 'IND', 'ENG', 'SEJ'],
-                             'JUMLAH': [JML_SOAL_MAT_WJB, JML_SOAL_IND, JML_SOAL_ENG, JML_SOAL_SEJ]}
+            data_jml_soal = {'BIDANG STUDI': ['MAT. WJB.', 'IND', 'ENG', 'GEO'],
+                             'JUMLAH': [JML_SOAL_MAT_WJB, JML_SOAL_IND, JML_SOAL_ENG, JML_SOAL_GEO]}
 
             jml_soal = pd.DataFrame(data_jml_soal)
 
             df = df[['LOKASI', 'RANK LOK.', 'RANK NAS.', 'NOMOR NF', 'NAMA SISWA', 'NAMA SEKOLAH',
-                    'KELAS', 'MAT_WJB', 'IND', 'ENG', 'SEJ', 'JML', 'S_MAT_WJB', 'S_IND', 'S_ENG', 'S_SEJ', 'S_JML']]
+                    'KELAS', 'MAT_WJB', 'IND', 'ENG', 'GEO', 'JML', 'S_MAT_WJB', 'S_IND', 'S_ENG', 'S_GEO', 'S_JML']]
 
             # sort best 150
             grouped = df.groupby('LOKASI')
@@ -7780,12 +7780,12 @@
             worksheetbest.write('F5', 'MAT. WJB.', body)
             worksheetbest.write('G5', 'IND', body)
             worksheetbest.write('H5', 'ENG', body)
-            worksheetbest.write('I5', 'SEJ', body)
+            worksheetbest.write('I5', 'GEO', body)
             worksheetbest.write('J5', 'JML', body)
             worksheetbest.write('K5', 'MAT. WJB.', body)
             worksheetbest.write('L5', 'IND', body)
             worksheetbest.write('M5', 'ENG', body)
-            worksheetbest.write('N5', 'SEJ', body)
+            worksheetbest.write('N5', 'GEO', body)
             worksheetbest.write('O5', 'JML', body)
 
             worksheetbest.conditional_format(5, 0, rowBest150_all+4, 14,
@@ -7814,12 +7814,12 @@
             # worksheet161.write('G5', 'MAT. WJB.', body)
             # worksheet161.write('H5', 'IND', body)
             # worksheet161.write('I5', 'ENG', body)
-            # worksheet161.write('J5', 'SEJ', body)
+            # worksheet161.write('J5', 'GEO', body)
             # worksheet161.write('K5', 'JML', body)
             # worksheet161.write('L5', 'MAT. WJB.', body)
             # worksheet161.write('M5', 'IND', body)
             # worksheet161.write('N5', 'ENG', body)
-            # worksheet161.write('O5', 'SEJ', body)
+            # worksheet161.write('O5', 'GEO', body)
             # worksheet161.write('P5', 'JML', body)
             #
 
@@ -7840,12 +7840,12 @@
             # worksheet161.write('G22', 'MAT. WJB.', body)
             # worksheet161.write('H22', 'IND', body)
             # worksheet161.write('I22', 'ENG', body)
-            # worksheet161.write('J22', 'SEJ', body)
+            # worksheet161.write('J22', 'GEO', body)
             # worksheet161.write('K22', 'JML', body)
             # worksheet161.write('L22', 'MAT. WJB.', body)
             # worksheet161.write('M22', 'IND', body)
             # worksheet161.write('N22', 'ENG', body)
-            # worksheet161.write('O22', 'SEJ', body)
+            # worksheet161.write('O22', 'GEO', body)
             # worksheet161.write('P22', 'JML', body)
             #
             # worksheet161.conditional_format(22,0,row161+21,15,
@@ -7877,12 +7877,12 @@
             worksheet162.write('G5', 'MAT. WJB.', body)
             worksheet162.write('H5', 'IND', body)
             worksheet162.write('I5', 'ENG', body)
-            worksheet162.write('J5', 'SEJ', body)
+            worksheet162.write('J5', 'GEO', body)
             worksheet162.write('K5', 'JML', body)
             worksheet162.write('L5', 'MAT. WJB.', body)
             worksheet162.write('M5', 'IND', body)
             worksheet162.write('N5', 'ENG', body)
-            worksheet162.write('O5', 'SEJ', body)
+            worksheet162.write('O5', 'GEO', body)
             worksheet162.write('P5', 'JML', body)
 
             worksheet162.conditional_format(5, 0, row162_10+4, 15,
@@ -7905,12 +7905,12 @@
             worksheet162.write('G22', 'MAT. WJB.', body)
             worksheet162.write('H22', 'IND', body)
             worksheet162.write('I22', 'ENG', body)
-            worksheet162.write('J22', 'SEJ', body)
+            worksheet162.write('J22', 'GEO', body)
             worksheet162.write('K22', 'JML', body)
             worksheet162.write('L22', 'MAT. WJB.', body)
             worksheet162.write('M22', 'IND', body)
             worksheet162.write('N22', 'ENG', body)
-            worksheet162.write('O22', 'SEJ', body)
+            worksheet162.write('O22', 'GEO', body)
             worksheet162.write('P22', 'JML', body)
 
             worksheet162.conditional_format(22, 0, row162+21, 15,
@@ -7942,12 +7942,12 @@
             worksheet163.write('G5', 'MAT. WJB.', body)
             worksheet163.write('H5', 'IND', body)
             worksheet163.write('I5', 'ENG', body)
-            worksheet163.write('J5', 'SEJ', body)
+            worksheet163.write('J5', 'GEO', body)
             worksheet163.write('K5', 'JML', body)
             worksheet163.write('L5', 'MAT. WJB.', body)
             worksheet163.write('M5', 'IND', body)
             worksheet163.write('N5', 'ENG', body)
-            worksheet163.write('O5', 'SEJ', body)
+            worksheet163.write('O5', 'GEO', body)
             worksheet163.write('P5', 'JML', body)
 
             worksheet163.conditional_format(5, 0, row163_10+4, 15,
@@ -7970,12 +7970,12 @@
             worksheet163.write('G22', 'MAT. WJB.', body)
             worksheet163.write('H22', 'IND', body)
             worksheet163.write('I22', 'ENG', body)
-            worksheet163.write('J22', 'SEJ', body)
+            worksheet163.write('J22', 'GEO', body)
             worksheet163.write('K22', 'JML', body)
             worksheet163.write('L22', 'MAT. WJB.', body)
             worksheet163.write('M22', 'IND', body)
             worksheet163.write('N22', 'ENG', body)
-            worksheet163.write('O22', 'SEJ', body)
+            worksheet163.write('O22', 'GEO', body)
             worksheet163.write('P22', 'JML', body)
 
             worksheet163.conditional_format(22, 0, row163+21, 15,
@@ -8007,12 +8007,12 @@
             worksheet164.write('G5', 'MAT. WJB.', body)
             worksheet164.write('H5', 'IND', body)
             worksheet164.write('I5', 'ENG', body)
-            worksheet164.write('J5', 'SEJ', body)
+            worksheet164.write('J5', 'GEO', body)
             worksheet164.write('K5', 'JML', body)
             worksheet164.write('L5', 'MAT. WJB.', body)
             worksheet164.write('M5', 'IND', body)
             worksheet164.write('N5', 'ENG', body)
-            worksheet164.write('O5', 'SEJ', body)
+            worksheet164.write('O5', 'GEO', body)
             worksheet164.write('P5', 'JML', body)
 
             worksheet164.conditional_format(5, 0, row164_10+4, 15,
@@ -8035,12 +8035,12 @@
             worksheet164.write('G22', 'MAT. WJB.', body)
             worksheet164.write('H22', 'IND', body)
             worksheet164.write('I22', 'ENG', body)
-            worksheet164.write('J22', 'SEJ', body)
+            worksheet164.write('J22', 'GEO', body)
             worksheet164.write('K22', 'JML', body)
             worksheet164.write('L22', 'MAT. WJB.', body)
             worksheet164.write('M22', 'IND', body)
             worksheet164.write('N22', 'ENG', body)
-            worksheet164.write('O22', 'SEJ', body)
+            worksheet164.write('O22', 'GEO', body)
             worksheet164.write('P22', 'JML', body)
 
             worksheet164.conditional_format(22, 0, row164+21, 15,
@@ -8072,12 +8072,12 @@
             worksheet165.write('G5', 'MAT. WJB.', body)
             worksheet165.write('H5', 'IND', body)
             worksheet165.write('I5', 'ENG', body)
-            worksheet165.write('J5', 'SEJ', body)
+            worksheet165.write('J5', 'GEO', body)
             worksheet165.write('K5', 'JML', body)
             worksheet165.write('L5', 'MAT. WJB.', body)
             worksheet165.write('M5', 'IND', body)
             worksheet165.write('N5', 'ENG', body)
-            worksheet165.write('O5', 'SEJ', body)
+            worksheet165.write('O5', 'GEO', body)
             worksheet165.write('P5', 'JML', body)
 
             worksheet165.conditional_format(5, 0, row165_10+4, 15,
@@ -8100,12 +8100,12 @@
             worksheet165.write('G22', 'MAT. WJB.', body)
             worksheet165.write('H22', 'IND', body)
             worksheet165.write('I22', 'ENG', body)
-            worksheet165.write('J22', 'SEJ', body)
+            worksheet165.write('J22', 'GEO', body)
             worksheet165.write('K22', 'JML', body)
             worksheet165.write('L22', 'MAT. WJB.', body)
             worksheet165.write('M22', 'IND', body)
             worksheet165.write('N22', 'ENG', body)
-            worksheet165.write('O22', 'SEJ', body)
+            worksheet165.write('O22', 'GEO', body)
             worksheet165.write('P22', 'JML', body)
 
             worksheet165.conditional_format(22, 0, row165+21, 15,
@@ -8134,12 +8134,12 @@
             # worksheet166.write('G5', 'MAT. WJB.', body)
             # worksheet166.write('H5', 'IND', body)
             # worksheet166.write('I5', 'ENG', body)
-            # worksheet166.write('J5', 'SEJ', body)
+            # worksheet166.write('J5', 'GEO', body)
             # worksheet166.write('K5', 'JML', body)
             # worksheet166.write('L5', 'MAT. WJB.', body)
             # worksheet166.write('M5', 'IND', body)
             # worksheet166.write('N5', 'ENG', body)
-            # worksheet166.write('O5', 'SEJ', body)
+            # worksheet166.write('O5', 'GEO', body)
             # worksheet166.write('P5', 'JML', body)
             #
 
@@ -8160,12 +8160,12 @@
             # worksheet166.write('G22', 'MAT. WJB.', body)
             # worksheet166.write('H22', 'IND', body)
             # worksheet166.write('I22', 'ENG', body)
-            # worksheet166.write('J22', 'SEJ', body)
+            # worksheet166.write('J22', 'GEO', body)
             # worksheet166.write('K22', 'JML', body)
             # worksheet166.write('L22', 'MAT. WJB.', body)
             # worksheet166.write('M22', 'IND', body)
             # worksheet166.write('N22', 'ENG', body)
-            # worksheet166.write('O22', 'SEJ', body)
+            # worksheet166.write('O22', 'GEO', body)
             # worksheet166.write('P22', 'JML', body)
             #
             # worksheet166.conditional_format(22,0,row166+21,15,
@@ -8197,12 +8197,12 @@
             worksheet167.write('G5', 'MAT. WJB.', body)
             worksheet167.write('H5', 'IND', body)
             worksheet167.write('I5', 'ENG', body)
-            worksheet167.write('J5', 'SEJ', body)
+            worksheet167.write('J5', 'GEO', body)
             worksheet167.write('K5', 'JML', body)
             worksheet167.write('L5', 'MAT. WJB.', body)
             worksheet167.write('M5', 'IND', body)
             worksheet167.write('N5', 'ENG', body)
-            worksheet167.write('O5', 'SEJ', body)
+            worksheet167.write('O5', 'GEO', body)
             worksheet167.write('P5', 'JML', body)
 
             worksheet167.conditional_format(5, 0, row167_10+4, 15,
@@ -8225,12 +8225,12 @@
             worksheet167.write('G22', 'MAT. WJB.', body)
             worksheet167.write('H22', 'IND', body)
             worksheet167.write('I22', 'ENG', body)
-            worksheet167.write('J22', 'SEJ', body)
+            worksheet167.write('J22', 'GEO', body)
             worksheet167.write('K22', 'JML', body)
             worksheet167.write('L22', 'MAT. WJB.', body)
             worksheet167.write('M22', 'IND', body)
             worksheet167.write('N22', 'ENG', body)
-            worksheet167.write('O22', 'SEJ', body)
+            worksheet167.write('O22', 'GEO', body)
             worksheet167.write('P22', 'JML', body)
 
             worksheet167.conditional_format(22, 0, row167+21, 15,
@@ -8262,12 +8262,12 @@
             worksheet168.write('G5', 'MAT. WJB.', body)
             worksheet168.write('H5', 'IND', body)
             worksheet168.write('I5', 'ENG', body)
-            worksheet168.write('J5', 'SEJ', body)
+            worksheet168.write('J5', 'GEO', body)
             worksheet168.write('K5', 'JML', body)
             worksheet168.write('L5', 'MAT. WJB.', body)
             worksheet168.write('M5', 'IND', body)
             worksheet168.write('N5', 'ENG', body)
-            worksheet168.write('O5', 'SEJ', body)
+            worksheet168.write('O5', 'GEO', body)
             worksheet168.write('P5', 'JML', body)
 
             worksheet168.conditional_format(5, 0, row168_10+4, 15,
@@ -8290,12 +8290,12 @@
             worksheet168.write('G22', 'MAT. WJB.', body)
             worksheet168.write('H22', 'IND', body)
             worksheet168.write('I22', 'ENG', body)
-            worksheet168.write('J22', 'SEJ', body)
+            worksheet168.write('J22', 'GEO', body)
             worksheet168.write('K22', 'JML', body)
             worksheet168.write('L22', 'MAT. WJB.', body)
             worksheet168.write('M22', 'IND', body)
             worksheet168.write('N22', 'ENG', body)
-            worksheet168.write('O22', 'SEJ', body)
+            worksheet168.write('O22', 'GEO', body)
             worksheet168.write('P22', 'JML', body)
 
             worksheet168.conditional_format(22, 0, row168+21, 15,
@@ -8327,12 +8327,12 @@
             worksheet169.write('G5', 'MAT. WJB.', body)
             worksheet169.write('H5', 'IND', body)
             worksheet169.write('I5', 'ENG', body)
-            worksheet169.write('J5', 'SEJ', body)
+            worksheet169.write('J5', 'GEO', body)
             worksheet169.write('K5', 'JML', body)
             worksheet169.write('L5', 'MAT. WJB.', body)
             worksheet169.write('M5', 'IND', body)
             worksheet169.write('N5', 'ENG', body)
-            worksheet169.write('O5', 'SEJ', body)
+            worksheet169.write('O5', 'GEO', body)
             worksheet169.write('P5', 'JML', body)
 
             worksheet169.conditional_format(5, 0, row169_10+4, 15,
@@ -8355,12 +8355,12 @@
             worksheet169.write('G22', 'MAT. WJB.', body)
             worksheet169.write('H22', 'IND', body)
             worksheet169.write('I22', 'ENG', body)
-            worksheet169.write('J22', 'SEJ', body)
+            worksheet169.write('J22', 'GEO', body)
             worksheet169.write('K22', 'JML', body)
             worksheet169.write('L22', 'MAT. WJB.', body)
             worksheet169.write('M22', 'IND', body)
             worksheet169.write('N22', 'ENG', body)
-            worksheet169.write('O22', 'SEJ', body)
+            worksheet169.write('O22', 'GEO', body)
             worksheet169.write('P22', 'JML', body)
 
             worksheet169.conditional_format(22, 0, row169+21, 15,
@@ -8392,12 +8392,12 @@
             worksheet171.write('G5', 'MAT. WJB.', body)
             worksheet171.write('H5', 'IND', body)
             worksheet171.write('I5', 'ENG', body)
-            worksheet171.write('J5', 'SEJ', body)
+            worksheet171.write('J5', 'GEO', body)
             worksheet171.write('K5', 'JML', body)
             worksheet171.write('L5', 'MAT. WJB.', body)
             worksheet171.write('M5', 'IND', body)
             worksheet171.write('N5', 'ENG', body)
-            worksheet171.write('O5', 'SEJ', body)
+            worksheet171.write('O5', 'GEO', body)
             worksheet171.write('P5', 'JML', body)
 
             worksheet171.conditional_format(5, 0, row171_10+4, 15,
@@ -8420,12 +8420,12 @@
             worksheet171.write('G22', 'MAT. WJB.', body)
             worksheet171.write('H22', 'IND', body)
             worksheet171.write('I22', 'ENG', body)
-            worksheet171.write('J22', 'SEJ', body)
+            worksheet171.write('J22', 'GEO', body)
             worksheet171.write('K22', 'JML', body)
             worksheet171.write('L22', 'MAT. WJB.', body)
             worksheet171.write('M22', 'IND', body)
             worksheet171.write('N22', 'ENG', body)
-            worksheet171.write('O22', 'SEJ', body)
+            worksheet171.write('O22', 'GEO', body)
             worksheet171.write('P22', 'JML', body)
 
             worksheet171.conditional_format(22, 0, row171+21, 15,
@@ -8457,12 +8457,12 @@
             worksheet173.write('G5', 'MAT. WJB.', body)
             worksheet173.write('H5', 'IND', body)
             worksheet173.write('I5', 'ENG', body)
-            worksheet173.write('J5', 'SEJ', body)
+            worksheet173.write('J5', 'GEO', body)
             worksheet173.write('K5', 'JML', body)
             worksheet173.write('L5', 'MAT. WJB.', body)
             worksheet173.write('M5', 'IND', body)
             worksheet173.write('N5', 'ENG', body)
-            worksheet173.write('O5', 'SEJ', body)
+            worksheet173.write('O5', 'GEO', body)
             worksheet173.write('P5', 'JML', body)
 
             worksheet173.conditional_format(5, 0, row173_10+4, 15,
@@ -8485,12 +8485,12 @@
             worksheet173.write('G22', 'MAT. WJB.', body)
             worksheet173.write('H22', 'IND', body)
             worksheet173.write('I22', 'ENG', body)
-            worksheet173.write('J22', 'SEJ', body)
+            worksheet173.write('J22', 'GEO', body)
             worksheet173.write('K22', 'JML', body)
             worksheet173.write('L22', 'MAT. WJB.', body)
             worksheet173.write('M22', 'IND', body)
             worksheet173.write('N22', 'ENG', body)
-            worksheet173.write('O22', 'SEJ', body)
+            worksheet173.write('O22', 'GEO', body)
             worksheet173.write('P22', 'JML', body)
 
             worksheet173.conditional_format(22, 0, row173+21, 15,
@@ -8522,12 +8522,12 @@
             worksheet174.write('G5', 'MAT. WJB.', body)
             worksheet174.write('H5', 'IND', body)
             worksheet174.write('I5', 'ENG', body)
-            worksheet174.write('J5', 'SEJ', body)
+            worksheet174.write('J5', 'GEO', body)
             worksheet174.write('K5', 'JML', body)
             worksheet174.write('L5', 'MAT. WJB.', body)
             worksheet174.write('M5', 'IND', body)
             worksheet174.write('N5', 'ENG', body)
-            worksheet174.write('O5', 'SEJ', body)
+            worksheet174.write('O5', 'GEO', body)
             worksheet174.write('P5', 'JML', body)
 
             worksheet174.conditional_format(5, 0, row174_10+4, 15,
@@ -8550,12 +8550,12 @@
             worksheet174.write('G22', 'MAT. WJB.', body)
             worksheet174.write('H22', 'IND', body)
             worksheet174.write('I22', 'ENG', body)
-            worksheet174.write('J22', 'SEJ', body)
+            worksheet174.write('J22', 'GEO', body)
             worksheet174.write('K22', 'JML', body)
             worksheet174.write('L22', 'MAT. WJB.', body)
             worksheet174.write('M22', 'IND', body)
             worksheet174.write('N22', 'ENG', body)
-            worksheet174.write('O22', 'SEJ', body)
+            worksheet174.write('O22', 'GEO', body)
             worksheet174.write('P22', 'JML', body)
 
             worksheet174.conditional_format(22, 0, row174+21, 15,
@@ -8587,12 +8587,12 @@
             worksheet175.write('G5', 'MAT. WJB.', body)
             worksheet175.write('H5', 'IND', body)
             worksheet175.write('I5', 'ENG', body)
-            worksheet175.write('J5', 'SEJ', body)
+            worksheet175.write('J5', 'GEO', body)
             worksheet175.write('K5', 'JML', body)
             worksheet175.write('L5', 'MAT. WJB.', body)
             worksheet175.write('M5', 'IND', body)
             worksheet175.write('N5', 'ENG', body)
-            worksheet175.write('O5', 'SEJ', body)
+            worksheet175.write('O5', 'GEO', body)
             worksheet175.write('P5', 'JML', body)
 
             worksheet175.conditional_format(5, 0, row175_10+4, 15,
@@ -8615,12 +8615,12 @@
             worksheet175.write('G22', 'MAT. WJB.', body)
             worksheet175.write('H22', 'IND', body)
             worksheet175.write('I22', 'ENG', body)
-            worksheet175.write('J22', 'SEJ', body)
+            worksheet175.write('J22', 'GEO', body)
             worksheet175.write('K22', 'JML', body)
             worksheet175.write('L22', 'MAT. WJB.', body)
             worksheet175.write('M22', 'IND', body)
             worksheet175.write('N22', 'ENG', body)
-            worksheet175.write('O22', 'SEJ', body)
+            worksheet175.write('O22', 'GEO', body)
             worksheet175.write('P22', 'JML', body)
 
             worksheet175.conditional_format(22, 0, row175+21, 15,
@@ -8652,12 +8652,12 @@
             worksheet176.write('G5', 'MAT. WJB.', body)
             worksheet176.write('H5', 'IND', body)
             worksheet176.write('I5', 'ENG', body)
-            worksheet176.write('J5', 'SEJ', body)
+            worksheet176.write('J5', 'GEO', body)
             worksheet176.write('K5', 'JML', body)
             worksheet176.write('L5', 'MAT. WJB.', body)
             worksheet176.write('M5', 'IND', body)
             worksheet176.write('N5', 'ENG', body)
-            worksheet176.write('O5', 'SEJ', body)
+            worksheet176.write('O5', 'GEO', body)
             worksheet176.write('P5', 'JML', body)
 
             worksheet176.conditional_format(5, 0, row176_10+4, 15,
@@ -8680,12 +8680,12 @@
             worksheet176.write('G22', 'MAT. WJB.', body)
             worksheet176.write('H22', 'IND', body)
             worksheet176.write('I22', 'ENG', body)
-            worksheet176.write('J22', 'SEJ', body)
+            worksheet176.write('J22', 'GEO', body)
             worksheet176.write('K22', 'JML', body)
             worksheet176.write('L22', 'MAT. WJB.', body)
             worksheet176.write('M22', 'IND', body)
             worksheet176.write('N22', 'ENG', body)
-            worksheet176.write('O22', 'SEJ', body)
+            worksheet176.write('O22', 'GEO', body)
             worksheet176.write('P22', 'JML', body)
 
             worksheet176.conditional_format(22, 0, row176+21, 15,
@@ -8716,12 +8716,12 @@
             worksheet177.write('G5', 'MAT. WJB.', body)
             worksheet177.write('H5', 'IND', body)
             worksheet177.write('I5', 'ENG', body)
-            worksheet177.write('J5', 'SEJ', body)
+            worksheet177.write('J5', 'GEO', body)
             worksheet177.write('K5', 'JML', body)
             worksheet177.write('L5', 'MAT. WJB.', body)
             worksheet177.write('M5', 'IND', body)
             worksheet177.write('N5', 'ENG', body)
-            worksheet177.write('O5', 'SEJ', body)
+            worksheet177.write('O5', 'GEO', body)
             worksheet177.write('P5', 'JML', body)
 
             worksheet177.conditional_format(5, 0, row177_10+4, 15,
@@ -8744,12 +8744,12 @@
             worksheet177.write('G22', 'MAT. WJB.', body)
             worksheet177.write('H22', 'IND', body)
             worksheet177.write('I22', 'ENG', body)
-            worksheet177.write('J22', 'SEJ', body)
+            worksheet177.write('J22', 'GEO', body)
             worksheet177.write('K22', 'JML', body)
             worksheet177.write('L22', 'MAT. WJB.', body)
             worksheet177.write('M22', 'IND', body)
             worksheet177.write('N22', 'ENG', body)
-            worksheet177.write('O22', 'SEJ', body)
+            worksheet177.write('O22', 'GEO', body)
             worksheet177.write('P22', 'JML', body)
 
             worksheet177.conditional_format(22, 0, row177+21, 15,
@@ -8781,12 +8781,12 @@
             worksheet178.write('G5', 'MAT. WJB.', body)
             worksheet178.write('H5', 'IND', body)
             worksheet178.write('I5', 'ENG', body)
-            worksheet178.write('J5', 'SEJ', body)
+            worksheet178.write('J5', 'GEO', body)
             worksheet178.write('K5', 'JML', body)
             worksheet178.write('L5', 'MAT. WJB.', body)
             worksheet178.write('M5', 'IND', body)
             worksheet178.write('N5', 'ENG', body)
-            worksheet178.write('O5', 'SEJ', body)
+            worksheet178.write('O5', 'GEO', body)
             worksheet178.write('P5', 'JML', body)
 
             worksheet178.conditional_format(5, 0, row178_10+4, 15,
@@ -8809,12 +8809,12 @@
             worksheet178.write('G22', 'MAT. WJB.', body)
             worksheet178.write('H22', 'IND', body)
             worksheet178.write('I22', 'ENG', body)
-            worksheet178.write('J22', 'SEJ', body)
+            worksheet178.write('J22', 'GEO', body)
             worksheet178.write('K22', 'JML', body)
             worksheet178.write('L22', 'MAT. WJB.', body)
             worksheet178.write('M22', 'IND', body)
             worksheet178.write('N22', 'ENG', body)
-            worksheet178.write('O22', 'SEJ', body)
+            worksheet178.write('O22', 'GEO', body)
             worksheet178.write('P22', 'JML', body)
 
             worksheet178.conditional_format(22, 0, row178+21, 15,
@@ -8846,12 +8846,12 @@
             worksheet179.write('G5', 'MAT. WJB.', body)
             worksheet179.write('H5', 'IND', body)
             worksheet179.write('I5', 'ENG', body)
-            worksheet179.write('J5', 'SEJ', body)
+            worksheet179.write('J5', 'GEO', body)
             worksheet179.write('K5', 'JML', body)
             worksheet179.write('L5', 'MAT. WJB.', body)
             worksheet179.write('M5', 'IND', body)
             worksheet179.write('N5', 'ENG', body)
-            worksheet179.write('O5', 'SEJ', body)
+            worksheet179.write('O5', 'GEO', body)
             worksheet179.write('P5', 'JML', body)
 
             worksheet179.conditional_format(5, 0, row179_10+4, 15,
@@ -8874,12 +8874,12 @@
             worksheet179.write('G22', 'MAT. WJB.', body)
             worksheet179.write('H22', 'IND', body)
             worksheet179.write('I22', 'ENG', body)
-            worksheet179.write('J22', 'SEJ', body)
+            worksheet179.write('J22', 'GEO', body)
             worksheet179.write('K22', 'JML', body)
             worksheet179.write('L22', 'MAT. WJB.', body)
             worksheet179.write('M22', 'IND', body)
             worksheet179.write('N22', 'ENG', body)
-            worksheet179.write('O22', 'SEJ', body)
+            worksheet179.write('O22', 'GEO', body)
             worksheet179.write('P22', 'JML', body)
 
             worksheet179.conditional_format(22, 0, row179+21, 15,
@@ -8911,12 +8911,12 @@
             worksheet180.write('G5', 'MAT. WJB.', body)
             worksheet180.write('H5', 'IND', body)
             worksheet180.write('I5', 'ENG', body)
-            worksheet180.write('J5', 'SEJ', body)
+            worksheet180.write('J5', 'GEO', body)
             worksheet180.write('K5', 'JML', body)
             worksheet180.write('L5', 'MAT. WJB.', body)
             worksheet180.write('M5', 'IND', body)
             worksheet180.write('N5', 'ENG', body)
-            worksheet180.write('O5', 'SEJ', body)
+            worksheet180.write('O5', 'GEO', body)
             worksheet180.write('P5', 'JML', body)
 
             worksheet180.conditional_format(5, 0, row180_10+4, 15,
@@ -8939,12 +8939,12 @@
             worksheet180.write('G22', 'MAT. WJB.', body)
             worksheet180.write('H22', 'IND', body)
             worksheet180.write('I22', 'ENG', body)
-            worksheet180.write('J22', 'SEJ', body)
+            worksheet180.write('J22', 'GEO', body)
             worksheet180.write('K22', 'JML', body)
             worksheet180.write('L22', 'MAT. WJB.', body)
             worksheet180.write('M22', 'IND', body)
             worksheet180.write('N22', 'ENG', body)
-            worksheet180.write('O22', 'SEJ', body)
+            worksheet180.write('O22', 'GEO', body)
             worksheet180.write('P22', 'JML', body)
 
             worksheet180.conditional_format(22, 0, row180+21, 15,
@@ -8976,12 +8976,12 @@
             worksheet181.write('G5', 'MAT. WJB.', body)
             worksheet181.write('H5', 'IND', body)
             worksheet181.write('I5', 'ENG', body)
-            worksheet181.write('J5', 'SEJ', body)
+            worksheet181.write('J5', 'GEO', body)
             worksheet181.write('K5', 'JML', body)
             worksheet181.write('L5', 'MAT. WJB.', body)
             worksheet181.write('M5', 'IND', body)
             worksheet181.write('N5', 'ENG', body)
-            worksheet181.write('O5', 'SEJ', body)
+            worksheet181.write('O5', 'GEO', body)
             worksheet181.write('P5', 'JML', body)
 
             worksheet181.conditional_format(5, 0, row181_10+4, 15,
@@ -9004,12 +9004,12 @@
             worksheet181.write('G22', 'MAT. WJB.', body)
             worksheet181.write('H22', 'IND', body)
             worksheet181.write('I22', 'ENG', body)
-            worksheet181.write('J22', 'SEJ', body)
+            worksheet181.write('J22', 'GEO', body)
             worksheet181.write('K22', 'JML', body)
             worksheet181.write('L22', 'MAT. WJB.', body)
             worksheet181.write('M22', 'IND', body)
             worksheet181.write('N22', 'ENG', body)
-            worksheet181.write('O22', 'SEJ', body)
+            worksheet181.write('O22', 'GEO', body)
             worksheet181.write('P22', 'JML', body)
 
             worksheet181.conditional_format(22, 0, row181+21, 15,
@@ -9041,12 +9041,12 @@
             worksheet182.write('G5', 'MAT. WJB.', body)
             worksheet182.write('H5', 'IND', body)
             worksheet182.write('I5', 'ENG', body)
-            worksheet182.write('J5', 'SEJ', body)
+            worksheet182.write('J5', 'GEO', body)
             worksheet182.write('K5', 'JML', body)
             worksheet182.write('L5', 'MAT. WJB.', body)
             worksheet182.write('M5', 'IND', body)
             worksheet182.write('N5', 'ENG', body)
-            worksheet182.write('O5', 'SEJ', body)
+            worksheet182.write('O5', 'GEO', body)
             worksheet182.write('P5', 'JML', body)
 
             worksheet182.conditional_format(5, 0, row182_10+4, 15,
@@ -9069,12 +9069,12 @@
             worksheet182.write('G22', 'MAT. WJB.', body)
             worksheet182.write('H22', 'IND', body)
             worksheet182.write('I22', 'ENG', body)
-            worksheet182.write('J22', 'SEJ', body)
+            worksheet182.write('J22', 'GEO', body)
             worksheet182.write('K22', 'JML', body)
             worksheet182.write('L22', 'MAT. WJB.', body)
             worksheet182.write('M22', 'IND', body)
             worksheet182.write('N22', 'ENG', body)
-            worksheet182.write('O22', 'SEJ', body)
+            worksheet182.write('O22', 'GEO', body)
             worksheet182.write('P22', 'JML', body)
 
             worksheet182.conditional_format(22, 0, row182+21, 15,
@@ -9106,12 +9106,12 @@
             worksheet183.write('G5', 'MAT. WJB.', body)
             worksheet183.write('H5', 'IND', body)
             worksheet183.write('I5', 'ENG', body)
-            worksheet183.write('J5', 'SEJ', body)
+            worksheet183.write('J5', 'GEO', body)
             worksheet183.write('K5', 'JML', body)
             worksheet183.write('L5', 'MAT. WJB.', body)
             worksheet183.write('M5', 'IND', body)
             worksheet183.write('N5', 'ENG', body)
-            worksheet183.write('O5', 'SEJ', body)
+            worksheet183.write('O5', 'GEO', body)
             worksheet183.write('P5', 'JML', body)
 
             worksheet183.conditional_format(5, 0, row183_10+4, 15,
@@ -9134,12 +9134,12 @@
             worksheet183.write('G22', 'MAT. WJB.', body)
             worksheet183.write('H22', 'IND', body)
             worksheet183.write('I22', 'ENG', body)
-            worksheet183.write('J22', 'SEJ', body)
+            worksheet183.write('J22', 'GEO', body)
             worksheet183.write('K22', 'JML', body)
             worksheet183.write('L22', 'MAT. WJB.', body)
             worksheet183.write('M22', 'IND', body)
             worksheet183.write('N22', 'ENG', body)
-            worksheet183.write('O22', 'SEJ', body)
+            worksheet183.write('O22', 'GEO', body)
             worksheet183.write('P22', 'JML', body)
 
             worksheet183.conditional_format(22, 0, row183+21, 15,
@@ -9171,12 +9171,12 @@
             worksheet184.write('G5', 'MAT. WJB.', body)
             worksheet184.write('H5', 'IND', body)
             worksheet184.write('I5', 'ENG', body)
-            worksheet184.write('J5', 'SEJ', body)
+            worksheet184.write('J5', 'GEO', body)
             worksheet184.write('K5', 'JML', body)
             worksheet184.write('L5', 'MAT. WJB.', body)
             worksheet184.write('M5', 'IND', body)
             worksheet184.write('N5', 'ENG', body)
-            worksheet184.write('O5', 'SEJ', body)
+            worksheet184.write('O5', 'GEO', body)
             worksheet184.write('P5', 'JML', body)
 
             worksheet184.conditional_format(5, 0, row184_10+4, 15,
@@ -9199,12 +9199,12 @@
             worksheet184.write('G22', 'MAT. WJB.', body)
             worksheet184.write('H22', 'IND', body)
             worksheet184.write('I22', 'ENG', body)
-            worksheet184.write('J22', 'SEJ', body)
+            worksheet184.write('J22', 'GEO', body)
             worksheet184.write('K22', 'JML', body)
             worksheet184.write('L22', 'MAT. WJB.', body)
             worksheet184.write('M22', 'IND', body)
             worksheet184.write('N22', 'ENG', body)
-            worksheet184.write('O22', 'SEJ', body)
+            worksheet184.write('O22', 'GEO', body)
             worksheet184.write('P22', 'JML', body)
 
             worksheet184.conditional_format(22, 0, row184+21, 15,
@@ -9236,12 +9236,12 @@
             worksheet185.write('G5', 'MAT. WJB.', body)
             worksheet185.write('H5', 'IND', body)
             worksheet185.write('I5', 'ENG', body)
-            worksheet185.write('J5', 'SEJ', body)
+            worksheet185.write('J5', 'GEO', body)
             worksheet185.write('K5', 'JML', body)
             worksheet185.write('L5', 'MAT. WJB.', body)
             worksheet185.write('M5', 'IND', body)
             worksheet185.write('N5', 'ENG', body)
-            worksheet185.write('O5', 'SEJ', body)
+            worksheet185.write('O5', 'GEO', body)
             worksheet185.write('P5', 'JML', body)
 
             worksheet185.conditional_format(5, 0, row185_10+4, 15,
@@ -9264,12 +9264,12 @@
             worksheet185.write('G22', 'MAT. WJB.', body)
             worksheet185.write('H22', 'IND', body)
             worksheet185.write('I22', 'ENG', body)
-            worksheet185.write('J22', 'SEJ', body)
+            worksheet185.write('J22', 'GEO', body)
             worksheet185.write('K22', 'JML', body)
             worksheet185.write('L22', 'MAT. WJB.', body)
             worksheet185.write('M22', 'IND', body)
             worksheet185.write('N22', 'ENG', body)
-            worksheet185.write('O22', 'SEJ', body)
+            worksheet185.write('O22', 'GEO', body)
             worksheet185.write('P22', 'JML', body)
 
             worksheet185.conditional_format(22, 0, row185+21, 15,
@@ -9301,12 +9301,12 @@
             worksheet186.write('G5', 'MAT. WJB.', body)
             worksheet186.write('H5', 'IND', body)
             worksheet186.write('I5', 'ENG', body)
-            worksheet186.write('J5', 'SEJ', body)
+            worksheet186.write('J5', 'GEO', body)
             worksheet186.write('K5', 'JML', body)
             worksheet186.write('L5', 'MAT. WJB.', body)
             worksheet186.write('M5', 'IND', body)
             worksheet186.write('N5', 'ENG', body)
-            worksheet186.write('O5', 'SEJ', body)
+            worksheet186.write('O5', 'GEO', body)
             worksheet186.write('P5', 'JML', body)
 
             worksheet186.conditional_format(5, 0, row186_10+4, 15,
@@ -9329,12 +9329,12 @@
             worksheet186.write('G22', 'MAT. WJB.', body)
             worksheet186.write('H22', 'IND', body)
             worksheet186.write('I22', 'ENG', body)
-            worksheet186.write('J22', 'SEJ', body)
+            worksheet186.write('J22', 'GEO', body)
             worksheet186.write('K22', 'JML', body)
             worksheet186.write('L22', 'MAT. WJB.', body)
             worksheet186.write('M22', 'IND', body)
             worksheet186.write('N22', 'ENG', body)
-            worksheet186.write('O22', 'SEJ', body)
+            worksheet186.write('O22', 'GEO', body)
             worksheet186.write('P22', 'JML', body)
 
             worksheet186.conditional_format(22, 0, row186+21, 15,
@@ -9366,12 +9366,12 @@
             worksheet187.write('G5', 'MAT. WJB.', body)
             worksheet187.write('H5', 'IND', body)
             worksheet187.write('I5', 'ENG', body)
-            worksheet187.write('J5', 'SEJ', body)
+            worksheet187.write('J5', 'GEO', body)
             worksheet187.write('K5', 'JML', body)
             worksheet187.write('L5', 'MAT. WJB.', body)
             worksheet187.write('M5', 'IND', body)
             worksheet187.write('N5', 'ENG', body)
-            worksheet187.write('O5', 'SEJ', body)
+            worksheet187.write('O5', 'GEO', body)
             worksheet187.write('P5', 'JML', body)
 
             worksheet187.conditional_format(5, 0, row187_10+4, 15,
@@ -9394,12 +9394,12 @@
             worksheet187.write('G22', 'MAT. WJB.', body)
             worksheet187.write('H22', 'IND', body)
             worksheet187.write('I22', 'ENG', body)
-            worksheet187.write('J22', 'SEJ', body)
+            worksheet187.write('J22', 'GEO', body)
             worksheet187.write('K22', 'JML', body)
             worksheet187.write('L22', 'MAT. WJB.', body)
             worksheet187.write('M22', 'IND', body)
             worksheet187.write('N22', 'ENG', body)
-            worksheet187.write('O22', 'SEJ', body)
+            worksheet187.write('O22', 'GEO', body)
             worksheet187.write('P22', 'JML', body)
 
             worksheet187.conditional_format(22, 0, row187+21, 15,
@@ -9428,12 +9428,12 @@
             # worksheet188.write('G5', 'MAT. WJB.', body)
             # worksheet188.write('H5', 'IND', body)
             # worksheet188.write('I5', 'ENG', body)
-            # worksheet188.write('J5', 'SEJ', body)
+            # worksheet188.write('J5', 'GEO', body)
             # worksheet188.write('K5', 'JML', body)
             # worksheet188.write('L5', 'MAT. WJB.', body)
             # worksheet188.write('M5', 'IND', body)
             # worksheet188.write('N5', 'ENG', body)
-            # worksheet188.write('O5', 'SEJ', body)
+            # worksheet188.write('O5', 'GEO', body)
             # worksheet188.write('P5', 'JML', body)
             #
 
@@ -9454,12 +9454,12 @@
             # worksheet188.write('G22', 'MAT. WJB.', body)
             # worksheet188.write('H22', 'IND', body)
             # worksheet188.write('I22', 'ENG', body)
-            # worksheet188.write('J22', 'SEJ', body)
+            # worksheet188.write('J22', 'GEO', body)
             # worksheet188.write('K22', 'JML', body)
             # worksheet188.write('L22', 'MAT. WJB.', body)
             # worksheet188.write('M22', 'IND', body)
             # worksheet188.write('N22', 'ENG', body)
-            # worksheet188.write('O22', 'SEJ', body)
+            # worksheet188.write('O22', 'GEO', body)
             # worksheet188.write('P22', 'JML', body)
             #
             # worksheet188.conditional_format(22,0,row188+21,15,
@@ -9491,12 +9491,12 @@
             worksheet189.write('G5', 'MAT. WJB.', body)
             worksheet189.write('H5', 'IND', body)
             worksheet189.write('I5', 'ENG', body)
-            worksheet189.write('J5', 'SEJ', body)
+            worksheet189.write('J5', 'GEO', body)
             worksheet189.write('K5', 'JML', body)
             worksheet189.write('L5', 'MAT. WJB.', body)
             worksheet189.write('M5', 'IND', body)
             worksheet189.write('N5', 'ENG', body)
-            worksheet189.write('O5', 'SEJ', body)
+            worksheet189.write('O5', 'GEO', body)
             worksheet189.write('P5', 'JML', body)
 
             worksheet189.conditional_format(5, 0, row189_10+4, 15,
@@ -9519,12 +9519,12 @@
             worksheet189.write('G22', 'MAT. WJB.', body)
             worksheet189.write('H22', 'IND', body)
             worksheet189.write('I22', 'ENG', body)
-            worksheet189.write('J22', 'SEJ', body)
+            worksheet189.write('J22', 'GEO', body)
             worksheet189.write('K22', 'JML', body)
             worksheet189.write('L22', 'MAT. WJB.', body)
             worksheet189.write('M22', 'IND', body)
             worksheet189.write('N22', 'ENG', body)
-            worksheet189.write('O22', 'SEJ', body)
+            worksheet189.write('O22', 'GEO', body)
             worksheet189.write('P22', 'JML', body)
 
             worksheet189.conditional_format(22, 0, row189+21, 15,
@@ -9556,12 +9556,12 @@
             worksheet190.write('G5', 'MAT. WJB.', body)
             worksheet190.write('H5', 'IND', body)
             worksheet190.write('I5', 'ENG', body)
-            worksheet190.write('J5', 'SEJ', body)
+            worksheet190.write('J5', 'GEO', body)
             worksheet190.write('K5', 'JML', body)
             worksheet190.write('L5', 'MAT. WJB.', body)
             worksheet190.write('M5', 'IND', body)
             worksheet190.write('N5', 'ENG', body)
-            worksheet190.write('O5', 'SEJ', body)
+            worksheet190.write('O5', 'GEO', body)
             worksheet190.write('P5', 'JML', body)
 
             worksheet190.conditional_format(5, 0, row190_10+4, 15,
@@ -9584,12 +9584,12 @@
             worksheet190.write('G22', 'MAT. WJB.', body)
             worksheet190.write('H22', 'IND', body)
             worksheet190.write('I22', 'ENG', body)
-            worksheet190.write('J22', 'SEJ', body)
+            worksheet190.write('J22', 'GEO', body)
             worksheet190.write('K22', 'JML', body)
             worksheet190.write('L22', 'MAT. WJB.', body)
             worksheet190.write('M22', 'IND', body)
             worksheet190.write('N22', 'ENG', body)
-            worksheet190.write('O22', 'SEJ', body)
+            worksheet190.write('O22', 'GEO', body)
             worksheet190.write('P22', 'JML', body)
 
             worksheet190.conditional_format(22, 0, row190+21, 15,
@@ -9621,12 +9621,12 @@
             worksheet191.write('G5', 'MAT. WJB.', body)
             worksheet191.write('H5', 'IND', body)
             worksheet191.write('I5', 'ENG', body)
-            worksheet191.write('J5', 'SEJ', body)
+            worksheet191.write('J5', 'GEO', body)
             worksheet191.write('K5', 'JML', body)
             worksheet191.write('L5', 'MAT. WJB.', body)
             worksheet191.write('M5', 'IND', body)
             worksheet191.write('N5', 'ENG', body)
-            worksheet191.write('O5', 'SEJ', body)
+            worksheet191.write('O5', 'GEO', body)
             worksheet191.write('P5', 'JML', body)
 
             worksheet191.conditional_format(5, 0, row191_10+4, 15,
@@ -9649,12 +9649,12 @@
             worksheet191.write('G22', 'MAT. WJB.', body)
             worksheet191.write('H22', 'IND', body)
             worksheet191.write('I22', 'ENG', body)
-            worksheet191.write('J22', 'SEJ', body)
+            worksheet191.write('J22', 'GEO', body)
             worksheet191.write('K22', 'JML', body)
             worksheet191.write('L22', 'MAT. WJB.', body)
             worksheet191.write('M22', 'IND', body)
             worksheet191.write('N22', 'ENG', body)
-            worksheet191.write('O22', 'SEJ', body)
+            worksheet191.write('O22', 'GEO', body)
             worksheet191.write('P22', 'JML', body)
 
             worksheet191.conditional_format(22, 0, row191+21, 15,
@@ -9686,12 +9686,12 @@
             worksheet192.write('G5', 'MAT. WJB.', body)
             worksheet192.write('H5', 'IND', body)
             worksheet192.write('I5', 'ENG', body)
-            worksheet192.write('J5', 'SEJ', body)
+            worksheet192.write('J5', 'GEO', body)
             worksheet192.write('K5', 'JML', body)
             worksheet192.write('L5', 'MAT. WJB.', body)
             worksheet192.write('M5', 'IND', body)
             worksheet192.write('N5', 'ENG', body)
-            worksheet192.write('O5', 'SEJ', body)
+            worksheet192.write('O5', 'GEO', body)
             worksheet192.write('P5', 'JML', body)
 
             worksheet192.conditional_format(5, 0, row192_10+4, 15,
@@ -9714,12 +9714,12 @@
             worksheet192.write('G22', 'MAT. WJB.', body)
             worksheet192.write('H22', 'IND', body)
             worksheet192.write('I22', 'ENG', body)
-            worksheet192.write('J22', 'SEJ', body)
+            worksheet192.write('J22', 'GEO', body)
             worksheet192.write('K22', 'JML', body)
             worksheet192.write('L22', 'MAT. WJB.', body)
             worksheet192.write('M22', 'IND', body)
             worksheet192.write('N22', 'ENG', body)
-            worksheet192.write('O22', 'SEJ', body)
+            worksheet192.write('O22', 'GEO', body)
             worksheet192.write('P22', 'JML', body)
 
             worksheet192.conditional_format(22, 0, row192+21, 15,
@@ -9751,12 +9751,12 @@
             worksheet193.write('G5', 'MAT. WJB.', body)
             worksheet193.write('H5', 'IND', body)
             worksheet193.write('I5', 'ENG', body)
-            worksheet193.write('J5', 'SEJ', body)
+            worksheet193.write('J5', 'GEO', body)
             worksheet193.write('K5', 'JML', body)
             worksheet193.write('L5', 'MAT. WJB.', body)
             worksheet193.write('M5', 'IND', body)
             worksheet193.write('N5', 'ENG', body)
-            worksheet193.write('O5', 'SEJ', body)
+            worksheet193.write('O5', 'GEO', body)
             worksheet193.write('P5', 'JML', body)
 
             worksheet193.conditional_format(5, 0, row193_10+4, 15,
@@ -9779,12 +9779,12 @@
             worksheet193.write('G22', 'MAT. WJB.', body)
             worksheet193.write('H22', 'IND', body)
             worksheet193.write('I22', 'ENG', body)
-            worksheet193.write('J22', 'SEJ', body)
+            worksheet193.write('J22', 'GEO', body)
             worksheet193.write('K22', 'JML', body)
             worksheet193.write('L22', 'MAT. WJB.', body)
             worksheet193.write('M22', 'IND', body)
             worksheet193.write('N22', 'ENG', body)
-            worksheet193.write('O22', 'SEJ', body)
+            worksheet193.write('O22', 'GEO', body)
             worksheet193.write('P22', 'JML', body)
 
             worksheet193.conditional_format(22, 0, row193+21, 15,
@@ -9816,12 +9816,12 @@
             worksheet194.write('G5', 'MAT. WJB.', body)
             worksheet194.write('H5', 'IND', body)
             worksheet194.write('I5', 'ENG', body)
-            worksheet194.write('J5', 'SEJ', body)
+            worksheet194.write('J5', 'GEO', body)
             worksheet194.write('K5', 'JML', body)
             worksheet194.write('L5', 'MAT. WJB.', body)
             worksheet194.write('M5', 'IND', body)
             worksheet194.write('N5', 'ENG', body)
-            worksheet194.write('O5', 'SEJ', body)
+            worksheet194.write('O5', 'GEO', body)
             worksheet194.write('P5', 'JML', body)
 
             worksheet194.conditional_format(5, 0, row194_10+4, 15,
@@ -9844,12 +9844,12 @@
             worksheet194.write('G22', 'MAT. WJB.', body)
             worksheet194.write('H22', 'IND', body)
             worksheet194.write('I22', 'ENG', body)
-            worksheet194.write('J22', 'SEJ', body)
+            worksheet194.write('J22', 'GEO', body)
             worksheet194.write('K22', 'JML', body)
             worksheet194.write('L22', 'MAT. WJB.', body)
             worksheet194.write('M22', 'IND', body)
             worksheet194.write('N22', 'ENG', body)
-            worksheet194.write('O22', 'SEJ', body)
+            worksheet194.write('O22', 'GEO', body)
             worksheet194.write('P22', 'JML', body)
 
             worksheet194.conditional_format(22, 0, row194+21, 15,
@@ -9881,12 +9881,12 @@
             worksheet195.write('G5', 'MAT. WJB.', body)
             worksheet195.write('H5', 'IND', body)
             worksheet195.write('I5', 'ENG', body)
-            worksheet195.write('J5', 'SEJ', body)
+            worksheet195.write('J5', 'GEO', body)
             worksheet195.write('K5', 'JML', body)
             worksheet195.write('L5', 'MAT. WJB.', body)
             worksheet195.write('M5', 'IND', body)
             worksheet195.write('N5', 'ENG', body)
-            worksheet195.write('O5', 'SEJ', body)
+            worksheet195.write('O5', 'GEO', body)
             worksheet195.write('P5', 'JML', body)
 
             worksheet195.conditional_format(5, 0, row195_10+4, 15,
@@ -9909,12 +9909,12 @@
             worksheet195.write('G22', 'MAT. WJB.', body)
             worksheet195.write('H22', 'IND', body)
             worksheet195.write('I22', 'ENG', body)
-            worksheet195.write('J22', 'SEJ', body)
+            worksheet195.write('J22', 'GEO', body)
             worksheet195.write('K22', 'JML', body)
             worksheet195.write('L22', 'MAT. WJB.', body)
             worksheet195.write('M22', 'IND', body)
             worksheet195.write('N22', 'ENG', body)
-            worksheet195.write('O22', 'SEJ', body)
+            worksheet195.write('O22', 'GEO', body)
             worksheet195.write('P22', 'JML', body)
 
             worksheet195.conditional_format(22, 0, row195+21, 15,
@@ -9946,12 +9946,12 @@
             worksheet196.write('G5', 'MAT. WJB.', body)
             worksheet196.write('H5', 'IND', body)
             worksheet196.write('I5', 'ENG', body)
-            worksheet196.write('J5', 'SEJ', body)
+            worksheet196.write('J5', 'GEO', body)
             worksheet196.write('K5', 'JML', body)
             worksheet196.write('L5', 'MAT. WJB.', body)
             worksheet196.write('M5', 'IND', body)
             worksheet196.write('N5', 'ENG', body)
-            worksheet196.write('O5', 'SEJ', body)
+            worksheet196.write('O5', 'GEO', body)
             worksheet196.write('P5', 'JML', body)
 
             worksheet196.conditional_format(5, 0, row196_10+4, 15,
@@ -9974,12 +9974,12 @@
             worksheet196.write('G22', 'MAT. WJB.', body)
             worksheet196.write('H22', 'IND', body)
             worksheet196.write('I22', 'ENG', body)
-            worksheet196.write('J22', 'SEJ', body)
+            worksheet196.write('J22', 'GEO', body)
             worksheet196.write('K22', 'JML', body)
             worksheet196.write('L22', 'MAT. WJB.', body)
             worksheet196.write('M22', 'IND', body)
             worksheet196.write('N22', 'ENG', body)
-            worksheet196.write('O22', 'SEJ', body)
+            worksheet196.write('O22', 'GEO', body)
             worksheet196.write('P22', 'JML', body)
 
             worksheet196.conditional_format(22, 0, row196+21, 15,
@@ -10011,12 +10011,12 @@
             worksheet197.write('G5', 'MAT. WJB.', body)
             worksheet197.write('H5', 'IND', body)
             worksheet197.write('I5', 'ENG', body)
-            worksheet197.write('J5', 'SEJ', body)
+            worksheet197.write('J5', 'GEO', body)
             worksheet197.write('K5', 'JML', body)
             worksheet197.write('L5', 'MAT. WJB.', body)
             worksheet197.write('M5', 'IND', body)
             worksheet197.write('N5', 'ENG', body)
-            worksheet197.write('O5', 'SEJ', body)
+            worksheet197.write('O5', 'GEO', body)
             worksheet197.write('P5', 'JML', body)
 
             worksheet197.conditional_format(5, 0, row197_10+4, 15,
@@ -10039,12 +10039,12 @@
             worksheet197.write('G22', 'MAT. WJB.', body)
             worksheet197.write('H22', 'IND', body)
             worksheet197.write('I22', 'ENG', body)
-            worksheet197.write('J22', 'SEJ', body)
+            worksheet197.write('J22', 'GEO', body)
             worksheet197.write('K22', 'JML', body)
             worksheet197.write('L22', 'MAT. WJB.', body)
             worksheet197.write('M22', 'IND', body)
             worksheet197.write('N22', 'ENG', body)
-            worksheet197.write('O22', 'SEJ', body)
+            worksheet197.write('O22', 'GEO', body)
             worksheet197.write('P22', 'JML', body)
 
             worksheet197.conditional_format(22, 0, row197+21, 15,
@@ -10076,12 +10076,12 @@
             worksheet198.write('G5', 'MAT. WJB.', body)
             worksheet198.write('H5', 'IND', body)
             worksheet198.write('I5', 'ENG', body)
-            worksheet198.write('J5', 'SEJ', body)
+            worksheet198.write('J5', 'GEO', body)
             worksheet198.write('K5', 'JML', body)
             worksheet198.write('L5', 'MAT. WJB.', body)
             worksheet198.write('M5', 'IND', body)
             worksheet198.write('N5', 'ENG', body)
-            worksheet198.write('O5', 'SEJ', body)
+            worksheet198.write('O5', 'GEO', body)
             worksheet198.write('P5', 'JML', body)
 
             worksheet198.conditional_format(5, 0, row198_10+4, 15,
@@ -10104,12 +10104,12 @@
             worksheet198.write('G22', 'MAT. WJB.', body)
             worksheet198.write('H22', 'IND', body)
             worksheet198.write('I22', 'ENG', body)
-            worksheet198.write('J22', 'SEJ', body)
+            worksheet198.write('J22', 'GEO', body)
             worksheet198.write('K22', 'JML', body)
             worksheet198.write('L22', 'MAT. WJB.', body)
             worksheet198.write('M22', 'IND', body)
             worksheet198.write('N22', 'ENG', body)
-            worksheet198.write('O22', 'SEJ', body)
+            worksheet198.write('O22', 'GEO', body)
             worksheet198.write('P22', 'JML', body)
 
             worksheet198.conditional_format(22, 0, row198+21, 15,
@@ -10141,12 +10141,12 @@
             worksheet199.write('G5', 'MAT. WJB.', body)
             worksheet199.write('H5', 'IND', body)
             worksheet199.write('I5', 'ENG', body)
-            worksheet199.write('J5', 'SEJ', body)
+            worksheet199.write('J5', 'GEO', body)
             worksheet199.write('K5', 'JML', body)
             worksheet199.write('L5', 'MAT. WJB.', body)
             worksheet199.write('M5', 'IND', body)
             worksheet199.write('N5', 'ENG', body)
-            worksheet199.write('O5', 'SEJ', body)
+            worksheet199.write('O5', 'GEO', body)
             worksheet199.write('P5', 'JML', body)
 
             worksheet199.conditional_format(5, 0, row199_10+4, 15,
@@ -10169,12 +10169,12 @@
             worksheet199.write('G22', 'MAT. WJB.', body)
             worksheet199.write('H22', 'IND', body)
             worksheet199.write('I22', 'ENG', body)
-            worksheet199.write('J22', 'SEJ', body)
+            worksheet199.write('J22', 'GEO', body)
             worksheet199.write('K22', 'JML', body)
             worksheet199.write('L22', 'MAT. WJB.', body)
             worksheet199.write('M22', 'IND', body)
             worksheet199.write('N22', 'ENG', body)
-            worksheet199.write('O22', 'SEJ', body)
+            worksheet199.write('O22', 'GEO', body)
             worksheet199.write('P22', 'JML', body)
 
             worksheet199.conditional_format(22, 0, row199+21, 15,
@@ -10206,12 +10206,12 @@
             worksheet201.write('G5', 'MAT. WJB.', body)
             worksheet201.write('H5', 'IND', body)
             worksheet201.write('I5', 'ENG', body)
-            worksheet201.write('J5', 'SEJ', body)
+            worksheet201.write('J5', 'GEO', body)
             worksheet201.write('K5', 'JML', body)
             worksheet201.write('L5', 'MAT. WJB.', body)
             worksheet201.write('M5', 'IND', body)
             worksheet201.write('N5', 'ENG', body)
-            worksheet201.write('O5', 'SEJ', body)
+            worksheet201.write('O5', 'GEO', body)
             worksheet201.write('P5', 'JML', body)
 
             worksheet201.conditional_format(5, 0, row201_10+4, 15,
@@ -10234,12 +10234,12 @@
             worksheet201.write('G22', 'MAT. WJB.', body)
             worksheet201.write('H22', 'IND', body)
             worksheet201.write('I22', 'ENG', body)
-            worksheet201.write('J22', 'SEJ', body)
+            worksheet201.write('J22', 'GEO', body)
             worksheet201.write('K22', 'JML', body)
             worksheet201.write('L22', 'MAT. WJB.', body)
             worksheet201.write('M22', 'IND', body)
             worksheet201.write('N22', 'ENG', body)
-            worksheet201.write('O22', 'SEJ', body)
+            worksheet201.write('O22', 'GEO', body)
             worksheet201.write('P22', 'JML', body)
 
             worksheet201.conditional_format(22, 0, row201+21, 15,
@@ -10271,12 +10271,12 @@
             worksheet202.write('G5', 'MAT. WJB.', body)
             worksheet202.write('H5', 'IND', body)
             worksheet202.write('I5', 'ENG', body)
-            worksheet202.write('J5', 'SEJ', body)
+            worksheet202.write('J5', 'GEO', body)
             worksheet202.write('K5', 'JML', body)
             worksheet202.write('L5', 'MAT. WJB.', body)
             worksheet202.write('M5', 'IND', body)
             worksheet202.write('N5', 'ENG', body)
-            worksheet202.write('O5', 'SEJ', body)
+            worksheet202.write('O5', 'GEO', body)
             worksheet202.write('P5', 'JML', body)
 
             worksheet202.conditional_format(5, 0, row202_10+4, 15,
@@ -10299,12 +10299,12 @@
             worksheet202.write('G22', 'MAT. WJB.', body)
             worksheet202.write('H22', 'IND', body)
             worksheet202.write('I22', 'ENG', body)
-            worksheet202.write('J22', 'SEJ', body)
+            worksheet202.write('J22', 'GEO', body)
             worksheet202.write('K22', 'JML', body)
             worksheet202.write('L22', 'MAT. WJB.', body)
             worksheet202.write('M22', 'IND', body)
             worksheet202.write('N22', 'ENG', body)
-            worksheet202.write('O22', 'SEJ', body)
+            worksheet202.write('O22', 'GEO', body)
             worksheet202.write('P22', 'JML', body)
 
             worksheet202.conditional_format(22, 0, row202+21, 15,
@@ -10336,12 +10336,12 @@
             worksheet203.write('G5', 'MAT. WJB.', body)
             worksheet203.write('H5', 'IND', body)
             worksheet203.write('I5', 'ENG', body)
-            worksheet203.write('J5', 'SEJ', body)
+            worksheet203.write('J5', 'GEO', body)
             worksheet203.write('K5', 'JML', body)
             worksheet203.write('L5', 'MAT. WJB.', body)
             worksheet203.write('M5', 'IND', body)
             worksheet203.write('N5', 'ENG', body)
-            worksheet203.write('O5', 'SEJ', body)
+            worksheet203.write('O5', 'GEO', body)
             worksheet203.write('P5', 'JML', body)
 
             worksheet203.conditional_format(5, 0, row203_10+4, 15,
@@ -10364,12 +10364,12 @@
             worksheet203.write('G22', 'MAT. WJB.', body)
             worksheet203.write('H22', 'IND', body)
             worksheet203.write('I22', 'ENG', body)
-            worksheet203.write('J22', 'SEJ', body)
+            worksheet203.write('J22', 'GEO', body)
             worksheet203.write('K22', 'JML', body)
             worksheet203.write('L22', 'MAT. WJB.', body)
             worksheet203.write('M22', 'IND', body)
             worksheet203.write('N22', 'ENG', body)
-            worksheet203.write('O22', 'SEJ', body)
+            worksheet203.write('O22', 'GEO', body)
             worksheet203.write('P22', 'JML', body)
 
             worksheet203.conditional_format(22, 0, row203+21, 15,
@@ -10401,12 +10401,12 @@
             worksheet210.write('G5', 'MAT. WJB.', body)
             worksheet210.write('H5', 'IND', body)
             worksheet210.write('I5', 'ENG', body)
-            worksheet210.write('J5', 'SEJ', body)
+            worksheet210.write('J5', 'GEO', body)
             worksheet210.write('K5', 'JML', body)
             worksheet210.write('L5', 'MAT. WJB.', body)
             worksheet210.write('M5', 'IND', body)
             worksheet210.write('N5', 'ENG', body)
-            worksheet210.write('O5', 'SEJ', body)
+            worksheet210.write('O5', 'GEO', body)
             worksheet210.write('P5', 'JML', body)
 
             worksheet210.conditional_format(5, 0, row210_10+4, 15,
@@ -10429,12 +10429,12 @@
             worksheet210.write('G22', 'MAT. WJB.', body)
             worksheet210.write('H22', 'IND', body)
             worksheet210.write('I22', 'ENG', body)
-            worksheet210.write('J22', 'SEJ', body)
+            worksheet210.write('J22', 'GEO', body)
             worksheet210.write('K22', 'JML', body)
             worksheet210.write('L22', 'MAT. WJB.', body)
             worksheet210.write('M22', 'IND', body)
             worksheet210.write('N22', 'ENG', body)
-            worksheet210.write('O22', 'SEJ', body)
+            worksheet210.write('O22', 'GEO', body)
             worksheet210.write('P22', 'JML', body)
 
             worksheet210.conditional_format(22, 0, row210+21, 15,
@@ -10466,12 +10466,12 @@
             worksheet211.write('G5', 'MAT. WJB.', body)
             worksheet211.write('H5', 'IND', body)
             worksheet211.write('I5', 'ENG', body)
-            worksheet211.write('J5', 'SEJ', body)
+            worksheet211.write('J5', 'GEO', body)
             worksheet211.write('K5', 'JML', body)
             worksheet211.write('L5', 'MAT. WJB.', body)
             worksheet211.write('M5', 'IND', body)
             worksheet211.write('N5', 'ENG', body)
-            worksheet211.write('O5', 'SEJ', body)
+            worksheet211.write('O5', 'GEO', body)
             worksheet211.write('P5', 'JML', body)
 
             worksheet211.conditional_format(5, 0, row211_10+4, 15,
@@ -10494,12 +10494,12 @@
             worksheet211.write('G22', 'MAT. WJB.', body)
             worksheet211.write('H22', 'IND', body)
             worksheet211.write('I22', 'ENG', body)
-            worksheet211.write('J22', 'SEJ', body)
+            worksheet211.write('J22', 'GEO', body)
             worksheet211.write('K22', 'JML', body)
             worksheet211.write('L22', 'MAT. WJB.', body)
             worksheet211.write('M22', 'IND', body)
             worksheet211.write('N22', 'ENG', body)
-            worksheet211.write('O22', 'SEJ', body)
+            worksheet211.write('O22', 'GEO', body)
             worksheet211.write('P22', 'JML', body)
 
             worksheet211.conditional_format(22, 0, row211+21, 15,
@@ -10531,12 +10531,12 @@
             worksheet212.write('G5', 'MAT. WJB.', body)
             worksheet212.write('H5', 'IND', body)
             worksheet212.write('I5', 'ENG', body)
-            worksheet212.write('J5', 'SEJ', body)
+            worksheet212.write('J5', 'GEO', body)
             worksheet212.write('K5', 'JML', body)
             worksheet212.write('L5', 'MAT. WJB.', body)
             worksheet212.write('M5', 'IND', body)
             worksheet212.write('N5', 'ENG', body)
-            worksheet212.write('O5', 'SEJ', body)
+            worksheet212.write('O5', 'GEO', body)
             worksheet212.write('P5', 'JML', body)
 
             worksheet212.conditional_format(5, 0, row212_10+4, 15,
@@ -10559,12 +10559,12 @@
             worksheet212.write('G22', 'MAT. WJB.', body)
             worksheet212.write('H22', 'IND', body)
             worksheet212.write('I22', 'ENG', body)
-            worksheet212.write('J22', 'SEJ', body)
+            worksheet212.write('J22', 'GEO', body)
             worksheet212.write('K22', 'JML', body)
             worksheet212.write('L22', 'MAT. WJB.', body)
             worksheet212.write('M22', 'IND', body)
             worksheet212.write('N22', 'ENG', body)
-            worksheet212.write('O22', 'SEJ', body)
+            worksheet212.write('O22', 'GEO', body)
             worksheet212.write('P22', 'JML', body)
 
             worksheet212.conditional_format(22, 0, row212+21, 15,
@@ -10596,12 +10596,12 @@
             worksheet216.write('G5', 'MAT. WJB.', body)
             worksheet216.write('H5', 'IND', body)
             worksheet216.write('I5', 'ENG', body)
-            worksheet216.write('J5', 'SEJ', body)
+            worksheet216.write('J5', 'GEO', body)
             worksheet216.write('K5', 'JML', body)
             worksheet216.write('L5', 'MAT. WJB.', body)
             worksheet216.write('M5', 'IND', body)
             worksheet216.write('N5', 'ENG', body)
-            worksheet216.write('O5', 'SEJ', body)
+            worksheet216.write('O5', 'GEO', body)
             worksheet216.write('P5', 'JML', body)
 
             worksheet216.conditional_format(5, 0, row216_10+4, 15,
@@ -10624,12 +10624,12 @@
             worksheet216.write('G22', 'MAT. WJB.', body)
             worksheet216.write('H22', 'IND', body)
             worksheet216.write('I22', 'ENG', body)
-            worksheet216.write('J22', 'SEJ', body)
+            worksheet216.write('J22', 'GEO', body)
             worksheet216.write('K22', 'JML', body)
             worksheet216.write('L22', 'MAT. WJB.', body)
             worksheet216.write('M22', 'IND', body)
             worksheet216.write('N22', 'ENG', body)
-            worksheet216.write('O22', 'SEJ', body)
+            worksheet216.write('O22', 'GEO', body)
             worksheet216.write('P22', 'JML', body)
 
             worksheet216.conditional_format(22, 0, row216+21, 15,
@@ -10661,12 +10661,12 @@
             worksheet217.write('G5', 'MAT. WJB.', body)
             worksheet217.write('H5', 'IND', body)
             worksheet217.write('I5', 'ENG', body)
-            worksheet217.write('J5', 'SEJ', body)
+            worksheet217.write('J5', 'GEO', body)
             worksheet217.write('K5', 'JML', body)
             worksheet217.write('L5', 'MAT. WJB.', body)
             worksheet217.write('M5', 'IND', body)
             worksheet217.write('N5', 'ENG', body)
-            worksheet217.write('O5', 'SEJ', body)
+            worksheet217.write('O5', 'GEO', body)
             worksheet217.write('P5', 'JML', body)
 
             worksheet217.conditional_format(5, 0, row217_10+4, 15,
@@ -10689,12 +10689,12 @@
             worksheet217.write('G22', 'MAT. WJB.', body)
             worksheet217.write('H22', 'IND', body)
             worksheet217.write('I22', 'ENG', body)
-            worksheet217.write('J22', 'SEJ', body)
+            worksheet217.write('J22', 'GEO', body)
             worksheet217.write('K22', 'JML', body)
             worksheet217.write('L22', 'MAT. WJB.', body)
             worksheet217.write('M22', 'IND', body)
             worksheet217.write('N22', 'ENG', body)
-            worksheet217.write('O22', 'SEJ', body)
+            worksheet217.write('O22', 'GEO', body)
             worksheet217.write('P22', 'JML', body)
 
             worksheet217.conditional_format(22, 0, row217+21, 15,
@@ -10726,12 +10726,12 @@
             worksheet218.write('G5', 'MAT. WJB.', body)
             worksheet218.write('H5', 'IND', body)
             worksheet218.write('I5', 'ENG', body)
-            worksheet218.write('J5', 'SEJ', body)
+            worksheet218.write('J5', 'GEO', body)
             worksheet218.write('K5', 'JML', body)
             worksheet218.write('L5', 'MAT. WJB.', body)
             worksheet218.write('M5', 'IND', body)
             worksheet218.write('N5', 'ENG', body)
-            worksheet218.write('O5', 'SEJ', body)
+            worksheet218.write('O5', 'GEO', body)
             worksheet218.write('P5', 'JML', body)
 
             worksheet218.conditional_format(5, 0, row218_10+4, 15,
@@ -10754,12 +10754,12 @@
             worksheet218.write('G22', 'MAT. WJB.', body)
             worksheet218.write('H22', 'IND', body)
             worksheet218.write('I22', 'ENG', body)
-            worksheet218.write('J22', 'SEJ', body)
+            worksheet218.write('J22', 'GEO', body)
             worksheet218.write('K22', 'JML', body)
             worksheet218.write('L22', 'MAT. WJB.', body)
             worksheet218.write('M22', 'IND', body)
             worksheet218.write('N22', 'ENG', body)
-            worksheet218.write('O22', 'SEJ', body)
+            worksheet218.write('O22', 'GEO', body)
             worksheet218.write('P22', 'JML', body)
 
             worksheet218.conditional_format(22, 0, row218+21, 15,
@@ -10791,12 +10791,12 @@
             worksheet219.write('G5', 'MAT. WJB.', body)
             worksheet219.write('H5', 'IND', body)
             worksheet219.write('I5', 'ENG', body)
-            worksheet219.write('J5', 'SEJ', body)
+            worksheet219.write('J5', 'GEO', body)
             worksheet219.write('K5', 'JML', body)
             worksheet219.write('L5', 'MAT. WJB.', body)
             worksheet219.write('M5', 'IND', body)
             worksheet219.write('N5', 'ENG', body)
-            worksheet219.write('O5', 'SEJ', body)
+            worksheet219.write('O5', 'GEO', body)
             worksheet219.write('P5', 'JML', body)
 
             worksheet219.conditional_format(5, 0, row219_10+4, 15,
@@ -10819,12 +10819,12 @@
             worksheet219.write('G22', 'MAT. WJB.', body)
             worksheet219.write('H22', 'IND', body)
             worksheet219.write('I22', 'ENG', body)
-            worksheet219.write('J22', 'SEJ', body)
+            worksheet219.write('J22', 'GEO', body)
             worksheet219.write('K22', 'JML', body)
             worksheet219.write('L22', 'MAT. WJB.', body)
             worksheet219.write('M22', 'IND', body)
             worksheet219.write('N22', 'ENG', body)
-            worksheet219.write('O22', 'SEJ', body)
+            worksheet219.write('O22', 'GEO', body)
             worksheet219.write('P22', 'JML', body)
 
             worksheet219.conditional_format(22, 0, row219+21, 15,
@@ -10856,12 +10856,12 @@
             worksheet220.write('G5', 'MAT. WJB.', body)
             worksheet220.write('H5', 'IND', body)
             worksheet220.write('I5', 'ENG', body)
-            worksheet220.write('J5', 'SEJ', body)
+            worksheet220.write('J5', 'GEO', body)
             worksheet220.write('K5', 'JML', body)
             worksheet220.write('L5', 'MAT. WJB.', body)
             worksheet220.write('M5', 'IND', body)
             worksheet220.write('N5', 'ENG', body)
-            worksheet220.write('O5', 'SEJ', body)
+            worksheet220.write('O5', 'GEO', body)
             worksheet220.write('P5', 'JML', body)
 
             worksheet220.conditional_format(5, 0, row220_10+4, 15,
@@ -10884,12 +10884,12 @@
             worksheet220.write('G22', 'MAT. WJB.', body)
             worksheet220.write('H22', 'IND', body)
             worksheet220.write('I22', 'ENG', body)
-            worksheet220.write('J22', 'SEJ', body)
+            worksheet220.write('J22', 'GEO', body)
             worksheet220.write('K22', 'JML', body)
             worksheet220.write('L22', 'MAT. WJB.', body)
             worksheet220.write('M22', 'IND', body)
             worksheet220.write('N22', 'ENG', body)
-            worksheet220.write('O22', 'SEJ', body)
+            worksheet220.write('O22', 'GEO', body)
             worksheet220.write('P22', 'JML', body)
 
             worksheet220.conditional_format(22, 0, row220+21, 15,
@@ -10918,12 +10918,12 @@
             # worksheet222.write('G5', 'MAT. WJB.', body)
             # worksheet222.write('H5', 'IND', body)
             # worksheet222.write('I5', 'ENG', body)
-            # worksheet222.write('J5', 'SEJ', body)
+            # worksheet222.write('J5', 'GEO', body)
             # worksheet222.write('K5', 'JML', body)
             # worksheet222.write('L5', 'MAT. WJB.', body)
             # worksheet222.write('M5', 'IND', body)
             # worksheet222.write('N5', 'ENG', body)
-            # worksheet222.write('O5', 'SEJ', body)
+            # worksheet222.write('O5', 'GEO', body)
             # worksheet222.write('P5', 'JML', body)
             #
 
@@ -10944,12 +10944,12 @@
             # worksheet222.write('G22', 'MAT. WJB.', body)
             # worksheet222.write('H22', 'IND', body)
             # worksheet222.write('I22', 'ENG', body)
-            # worksheet222.write('J22', 'SEJ', body)
+            # worksheet222.write('J22', 'GEO', body)
             # worksheet222.write('K22', 'JML', body)
             # worksheet222.write('L22', 'MAT. WJB.', body)
             # worksheet222.write('M22', 'IND', body)
             # worksheet222.write('N22', 'ENG', body)
-            # worksheet222.write('O22', 'SEJ', body)
+            # worksheet222.write('O22', 'GEO', body)
             # worksheet222.write('P22', 'JML', body)
             #
             # worksheet222.conditional_format(22,0,row222+21,15,
@@ -10981,12 +10981,12 @@
             worksheet226.write('G5', 'MAT. WJB.', body)
             worksheet226.write('H5', 'IND', body)
             worksheet226.write('I5', 'ENG', body)
-            worksheet226.write('J5', 'SEJ', body)
+            worksheet226.write('J5', 'GEO', body)
             worksheet226.write('K5', 'JML', body)
             worksheet226.write('L5', 'MAT. WJB.', body)
             worksheet226.write('M5', 'IND', body)
             worksheet226.write('N5', 'ENG', body)
-            worksheet226.write('O5', 'SEJ', body)
+            worksheet226.write('O5', 'GEO', body)
             worksheet226.write('P5', 'JML', body)
 
             worksheet226.conditional_format(5, 0, row226_10+4, 15,
@@ -11009,12 +11009,12 @@
             worksheet226.write('G22', 'MAT. WJB.', body)
             worksheet226.write('H22', 'IND', body)
             worksheet226.write('I22', 'ENG', body)
-            worksheet226.write('J22', 'SEJ', body)
+            worksheet226.write('J22', 'GEO', body)
             worksheet226.write('K22', 'JML', body)
             worksheet226.write('L22', 'MAT. WJB.', body)
             worksheet226.write('M22', 'IND', body)
             worksheet226.write('N22', 'ENG', body)
-            worksheet226.write('O22', 'SEJ', body)
+            worksheet226.write('O22', 'GEO', body)
             worksheet226.write('P22', 'JML', body)
 
             worksheet226.conditional_format(22, 0, row226+21, 15,
@@ -11046,12 +11046,12 @@
             worksheet227.write('G5', 'MAT. WJB.', body)
             worksheet227.write('H5', 'IND', body)
             worksheet227.write('I5', 'ENG', body)
-            worksheet227.write('J5', 'SEJ', body)
+            worksheet227.write('J5', 'GEO', body)
             worksheet227.write('K5', 'JML', body)
             worksheet227.write('L5', 'MAT. WJB.', body)
             worksheet227.write('M5', 'IND', body)
             worksheet227.write('N5', 'ENG', body)
-            worksheet227.write('O5', 'SEJ', body)
+            worksheet227.write('O5', 'GEO', body)
             worksheet227.write('P5', 'JML', body)
 
             worksheet227.conditional_format(5, 0, row227_10+4, 15,
@@ -11074,12 +11074,12 @@
             worksheet227.write('G22', 'MAT. WJB.', body)
             worksheet227.write('H22', 'IND', body)
             worksheet227.write('I22', 'ENG', body)
-            worksheet227.write('J22', 'SEJ', body)
+            worksheet227.write('J22', 'GEO', body)
             worksheet227.write('K22', 'JML', body)
             worksheet227.write('L22', 'MAT. WJB.', body)
             worksheet227.write('M22', 'IND', body)
             worksheet227.write('N22', 'ENG', body)
-            worksheet227.write('O22', 'SEJ', body)
+            worksheet227.write('O22', 'GEO', body)
             worksheet227.write('P22', 'JML', body)
 
             worksheet227.conditional_format(22, 0, row227+21, 15,
@@ -11111,12 +11111,12 @@
             worksheet228.write('G5', 'MAT. WJB.', body)
             worksheet228.write('H5', 'IND', body)
             worksheet228.write('I5', 'ENG', body)
-            worksheet228.write('J5', 'SEJ', body)
+            worksheet228.write('J5', 'GEO', body)
             worksheet228.write('K5', 'JML', body)
             worksheet228.write('L5', 'MAT. WJB.', body)
             worksheet228.write('M5', 'IND', body)
             worksheet228.write('N5', 'ENG', body)
-            worksheet228.write('O5', 'SEJ', body)
+            worksheet228.write('O5', 'GEO', body)
             worksheet228.write('P5', 'JML', body)
 
             worksheet228.conditional_format(5, 0, row228_10+4, 15,
@@ -11139,12 +11139,12 @@
             worksheet228.write('G22', 'MAT. WJB.', body)
             worksheet228.write('H22', 'IND', body)
             worksheet228.write('I22', 'ENG', body)
-            worksheet228.write('J22', 'SEJ', body)
+            worksheet228.write('J22', 'GEO', body)
             worksheet228.write('K22', 'JML', body)
             worksheet228.write('L22', 'MAT. WJB.', body)
             worksheet228.write('M22', 'IND', body)
             worksheet228.write('N22', 'ENG', body)
-            worksheet228.write('O22', 'SEJ', body)
+            worksheet228.write('O22', 'GEO', body)
             worksheet228.write('P22', 'JML', body)
 
             worksheet228.conditional_format(22, 0, row228+21, 15,
@@ -11176,12 +11176,12 @@
             worksheet229.write('G5', 'MAT. WJB.', body)
             worksheet229.write('H5', 'IND', body)
             worksheet229.write('I5', 'ENG', body)
-            worksheet229.write('J5', 'SEJ', body)
+            worksheet229.write('J5', 'GEO', body)
             worksheet229.write('K5', 'JML', body)
             worksheet229.write('L5', 'MAT. WJB.', body)
             worksheet229.write('M5', 'IND', body)
             worksheet229.write('N5', 'ENG', body)
-            worksheet229.write('O5', 'SEJ', body)
+            worksheet229.write('O5', 'GEO', body)
             worksheet229.write('P5', 'JML', body)
 
             worksheet229.conditional_format(5, 0, row229_10+4, 15,
@@ -11204,12 +11204,12 @@
             worksheet229.write('G22', 'MAT. WJB.', body)
             worksheet229.write('H22', 'IND', body)
             worksheet229.write('I22', 'ENG', body)
-            worksheet229.write('J22', 'SEJ', body)
+            worksheet229.write('J22', 'GEO', body)
             worksheet229.write('K22', 'JML', body)
             worksheet229.write('L22', 'MAT. WJB.', body)
             worksheet229.write('M22', 'IND', body)
             worksheet229.write('N22', 'ENG', body)
-            worksheet229.write('O22', 'SEJ', body)
+            worksheet229.write('O22', 'GEO', body)
             worksheet229.write('P22', 'JML', body)
 
             worksheet229.conditional_format(22, 0, row229+21, 15,
@@ -11241,12 +11241,12 @@
             worksheet230.write('G5', 'MAT. WJB.', body)
             worksheet230.write('H5', 'IND', body)
             worksheet230.write('I5', 'ENG', body)
-            worksheet230.write('J5', 'SEJ', body)
+            worksheet230.write('J5', 'GEO', body)
             worksheet230.write('K5', 'JML', body)
             worksheet230.write('L5', 'MAT. WJB.', body)
             worksheet230.write('M5', 'IND', body)
             worksheet230.write('N5', 'ENG', body)
-            worksheet230.write('O5', 'SEJ', body)
+            worksheet230.write('O5', 'GEO', body)
             worksheet230.write('P5', 'JML', body)
 
             worksheet230.conditional_format(5, 0, row230_10+4, 15,
@@ -11269,12 +11269,12 @@
             worksheet230.write('G22', 'MAT. WJB.', body)
             worksheet230.write('H22', 'IND', body)
             worksheet230.write('I22', 'ENG', body)
-            worksheet230.write('J22', 'SEJ', body)
+            worksheet230.write('J22', 'GEO', body)
             worksheet230.write('K22', 'JML', body)
             worksheet230.write('L22', 'MAT. WJB.', body)
             worksheet230.write('M22', 'IND', body)
             worksheet230.write('N22', 'ENG', body)
-            worksheet230.write('O22', 'SEJ', body)
+            worksheet230.write('O22', 'GEO', body)
             worksheet230.write('P22', 'JML', body)
 
             worksheet230.conditional_format(22, 0, row230+21, 15,
@@ -11306,12 +11306,12 @@
             worksheet231.write('G5', 'MAT. WJB.', body)
             worksheet231.write('H5', 'IND', body)
             worksheet231.write('I5', 'ENG', body)
-            worksheet231.write('J5', 'SEJ', body)
+            worksheet231.write('J5', 'GEO', body)
             worksheet231.write('K5', 'JML', body)
             worksheet231.write('L5', 'MAT. WJB.', body)
             worksheet231.write('M5', 'IND', body)
             worksheet231.write('N5', 'ENG', body)
-            worksheet231.write('O5', 'SEJ', body)
+            worksheet231.write('O5', 'GEO', body)
             worksheet231.write('P5', 'JML', body)
 
             worksheet231.conditional_format(5, 0, row231_10+4, 15,
@@ -11334,12 +11334,12 @@
             worksheet231.write('G22', 'MAT. WJB.', body)
             worksheet231.write('H22', 'IND', body)
             worksheet231.write('I22', 'ENG', body)
-            worksheet231.write('J22', 'SEJ', body)
+            worksheet231.write('J22', 'GEO', body)
             worksheet231.write('K22', 'JML', body)
             worksheet231.write('L22', 'MAT. WJB.', body)
             worksheet231.write('M22', 'IND', body)
             worksheet231.write('N22', 'ENG', body)
-            worksheet231.write('O22', 'SEJ', body)
+            worksheet231.write('O22', 'GEO', body)
             worksheet231.write('P22', 'JML', body)
 
             worksheet231.conditional_format(22, 0, row231+21, 15,
@@ -11371,12 +11371,12 @@
             worksheet233.write('G5', 'MAT. WJB.', body)
             worksheet233.write('H5', 'IND', body)
             worksheet233.write('I5', 'ENG', body)
-            worksheet233.write('J5', 'SEJ', body)
+            worksheet233.write('J5', 'GEO', body)
             worksheet233.write('K5', 'JML', body)
             worksheet233.write('L5', 'MAT. WJB.', body)
             worksheet233.write('M5', 'IND', body)
             worksheet233.write('N5', 'ENG', body)
-            worksheet233.write('O5', 'SEJ', body)
+            worksheet233.write('O5', 'GEO', body)
             worksheet233.write('P5', 'JML', body)
 
             worksheet233.conditional_format(5, 0, row233_10+4, 15,
@@ -11399,12 +11399,12 @@
             worksheet233.write('G22', 'MAT. WJB.', body)
             worksheet233.write('H22', 'IND', body)
             worksheet233.write('I22', 'ENG', body)
-            worksheet233.write('J22', 'SEJ', body)
+            worksheet233.write('J22', 'GEO', body)
             worksheet233.write('K22', 'JML', body)
             worksheet233.write('L22', 'MAT. WJB.', body)
             worksheet233.write('M22', 'IND', body)
             worksheet233.write('N22', 'ENG', body)
-            worksheet233.write('O22', 'SEJ', body)
+            worksheet233.write('O22', 'GEO', body)
             worksheet233.write('P22', 'JML', body)
 
             worksheet233.conditional_format(22, 0, row233+21, 15,
@@ -11436,12 +11436,12 @@
             worksheet234.write('G5', 'MAT. WJB.', body)
             worksheet234.write('H5', 'IND', body)
             worksheet234.write('I5', 'ENG', body)
-            worksheet234.write('J5', 'SEJ', body)
+            worksheet234.write('J5', 'GEO', body)
             worksheet234.write('K5', 'JML', body)
             worksheet234.write('L5', 'MAT. WJB.', body)
             worksheet234.write('M5', 'IND', body)
             worksheet234.write('N5', 'ENG', body)
-            worksheet234.write('O5', 'SEJ', body)
+            worksheet234.write('O5', 'GEO', body)
             worksheet234.write('P5', 'JML', body)
 
             worksheet234.conditional_format(5, 0, row234_10+4, 15,
@@ -11464,12 +11464,12 @@
             worksheet234.write('G22', 'MAT. WJB.', body)
             worksheet234.write('H22', 'IND', body)
             worksheet234.write('I22', 'ENG', body)
-            worksheet234.write('J22', 'SEJ', body)
+            worksheet234.write('J22', 'GEO', body)
             worksheet234.write('K22', 'JML', body)
             worksheet234.write('L22', 'MAT. WJB.', body)
             worksheet234.write('M22', 'IND', body)
             worksheet234.write('N22', 'ENG', body)
-            worksheet234.write('O22', 'SEJ', body)
+            worksheet234.write('O22', 'GEO', body)
             worksheet234.write('P22', 'JML', body)
 
             worksheet234.conditional_format(22, 0, row234+21, 15,
@@ -11501,12 +11501,12 @@
             worksheet235.write('G5', 'MAT. WJB.', body)
             worksheet235.write('H5', 'IND', body)
             worksheet235.write('I5', 'ENG', body)
-            worksheet235.write('J5', 'SEJ', body)
+            worksheet235.write('J5', 'GEO', body)
             worksheet235.write('K5', 'JML', body)
             worksheet235.write('L5', 'MAT. WJB.', body)
             worksheet235.write('M5', 'IND', body)
             worksheet235.write('N5', 'ENG', body)
-            worksheet235.write('O5', 'SEJ', body)
+            worksheet235.write('O5', 'GEO', body)
             worksheet235.write('P5', 'JML', body)
 
             worksheet235.conditional_format(5, 0, row235_10+4, 15,
@@ -11529,12 +11529,12 @@
             worksheet235.write('G22', 'MAT. WJB.', body)
             worksheet235.write('H22', 'IND', body)
             worksheet235.write('I22', 'ENG', body)
-            worksheet235.write('J22', 'SEJ', body)
+            worksheet235.write('J22', 'GEO', body)
             worksheet235.write('K22', 'JML', body)
             worksheet235.write('L22', 'MAT. WJB.', body)
             worksheet235.write('M22', 'IND', body)
             worksheet235.write('N22', 'ENG', body)
-            worksheet235.write('O22', 'SEJ', body)
+            worksheet235.write('O22', 'GEO', body)
             worksheet235.write('P22', 'JML', body)
 
             worksheet235.conditional_format(22, 0, row235+21, 15,
@@ -11566,12 +11566,12 @@
             worksheet236.write('G5', 'MAT. WJB.', body)
             worksheet236.write('H5', 'IND', body)
             worksheet236.write('I5', 'ENG', body)
-            worksheet236.write('J5', 'SEJ', body)
+            worksheet236.write('J5', 'GEO', body)
             worksheet236.write('K5', 'JML', body)
             worksheet236.write('L5', 'MAT. WJB.', body)
             worksheet236.write('M5', 'IND', body)
             worksheet236.write('N5', 'ENG', body)
-            worksheet236.write('O5', 'SEJ', body)
+            worksheet236.write('O5', 'GEO', body)
             worksheet236.write('P5', 'JML', body)
 
             worksheet236.conditional_format(5, 0, row236_10+4, 15,
@@ -11594,12 +11594,12 @@
             worksheet236.write('G22', 'MAT. WJB.', body)
             worksheet236.write('H22', 'IND', body)
             worksheet236.write('I22', 'ENG', body)
-            worksheet236.write('J22', 'SEJ', body)
+            worksheet236.write('J22', 'GEO', body)
             worksheet236.write('K22', 'JML', body)
             worksheet236.write('L22', 'MAT. WJB.', body)
             worksheet236.write('M22', 'IND', body)
             worksheet236.write('N22', 'ENG', body)
-            worksheet236.write('O22', 'SEJ', body)
+            worksheet236.write('O22', 'GEO', body)
             worksheet236.write('P22', 'JML', body)
 
             worksheet236.conditional_format(22, 0, row236+21, 15,
@@ -11634,21 +11634,21 @@
             rata_mat_wjb = df.iloc[r, len_col-20]
             rata_ind = df.iloc[r, len_col-19]
             rata_eng = df.iloc[r, len_col-18]
-            rata_sej = df.iloc[r, len_col-17]
+            rata_geo = df.iloc[r, len_col-17]
             rata_jml = df.iloc[r, len_col-16]
 
             # rata-rata nilai standar
             rata_Smat_wjb = df.iloc[t, len_col-11]
             rata_Sind = df.iloc[t, len_col-10]
             rata_Seng = df.iloc[t, len_col-9]
-            rata_Ssej = df.iloc[t, len_col-8]
+            rata_Sgeo = df.iloc[t, len_col-8]
             rata_Sjml = df.iloc[t, len_col-7]
 
             # max jumlah benar
             max_mat_wjb = df.iloc[t, len_col-20]
             max_ind = df.iloc[t, len_col-19]
             max_eng = df.iloc[t, len_col-18]
-            max_sej = df.iloc[t, len_col-17]
+            max_geo = df.iloc[t, len_col-17]
             max_jml = df.iloc[t, len_col-16]
 
             # max nilai standar
@@ -11662,27 +11662,27 @@
             min_mat_wjb = df.iloc[u, len_col-20]
             min_ind = df.iloc[u, len_col-19]
             min_eng = df.iloc[u, len_col-18]
-            min_sej = df.iloc[u, len_col-17]
+            min_geo = df.iloc[u, len_col-17]
             min_jml = df.iloc[u, len_col-16]
 
             # min nilai standar
             min_Smat_wjb = df.iloc[s, len_col-11]
             min_Sind = df.iloc[s, len_col-10]
             min_Seng = df.iloc[s, len_col-9]
-            min_Ssej = df.iloc[s, len_col-8]
+            min_Sgeo = df.iloc[s, len_col-8]
             min_Sjml = df.iloc[s, len_col-7]
 
-            data_jml_benar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'SEJARAH (SEJ)', 'JUMLAH (JML)'],
-                              'TERENDAH': [min_mat_wjb, min_ind, min_eng, min_sej, min_jml],
-                              'RATA-RATA': [rata_mat_wjb, rata_ind, rata_eng, rata_sej, rata_jml],
-                              'TERTINGGI': [max_mat_wjb, max_ind, max_eng, max_sej, max_jml]}
+            data_jml_benar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'GEOGRAFI (GEO)', 'JUMLAH (JML)'],
+                              'TERENDAH': [min_mat_wjb, min_ind, min_eng, min_geo, min_jml],
+                              'RATA-RATA': [rata_mat_wjb, rata_ind, rata_eng, rata_geo, rata_jml],
+                              'TERTINGGI': [max_mat_wjb, max_ind, max_eng, max_geo, max_jml]}
 
             jml_benar = pd.DataFrame(data_jml_benar)
 
-            data_n_standar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'SEJARAH (SEJ)', 'JUMLAH (JML)'],
-                              'TERENDAH': [min_Smat_wjb, min_Sind, min_Seng, min_Ssej, min_Sjml],
-                              'RATA-RATA': [rata_Smat_wjb, rata_Sind, rata_Seng, rata_Ssej, rata_Sjml],
-                              'TERTINGGI': [max_Smat_wjb, max_Sind, max_Seng, max_Ssej, max_Sjml]}
+            data_n_standar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'GEOGRAFI (GEO)', 'JUMLAH (JML)'],
+                              'TERENDAH': [min_Smat_wjb, min_Sind, min_Seng, min_Sgeo, min_Sjml],
+                              'RATA-RATA': [rata_Smat_wjb, rata_Sind, rata_Seng, rata_Sgeo, rata_Sjml],
+                              'TERTINGGI': [max_Smat_wjb, max_Sind, max_Seng, max_Sgeo, max_Sjml]}
 
             n_standar = pd.DataFrame(data_n_standar)
 
@@ -11690,13 +11690,13 @@
 
             jml_peserta = pd.DataFrame(data_jml_peserta)
 
-            data_jml_soal = {'BIDANG STUDI': ['MAT. WJB.', 'IND', 'ENG', 'SEJ'],
-                             'JUMLAH': [JML_SOAL_MAT_WJB, JML_SOAL_IND, JML_SOAL_ENG, JML_SOAL_SEJ]}
+            data_jml_soal = {'BIDANG STUDI': ['MAT. WJB.', 'IND', 'ENG', 'GEO'],
+                             'JUMLAH': [JML_SOAL_MAT_WJB, JML_SOAL_IND, JML_SOAL_ENG, JML_SOAL_GEO]}
 
             jml_soal = pd.DataFrame(data_jml_soal)
 
             df = df[['LOKASI', 'RANK LOK.', 'RANK NAS.', 'NOMOR NF', 'NAMA SISWA', 'NAMA SEKOLAH',
-                    'KELAS', 'MAT_WJB', 'IND', 'ENG', 'SEJ', 'JML', 'S_MAT_WJB', 'S_IND', 'S_ENG', 'S_SEJ', 'S_JML']]
+                    'KELAS', 'MAT_WJB', 'IND', 'ENG', 'GEO', 'JML', 'S_MAT_WJB', 'S_IND', 'S_ENG', 'S_GEO', 'S_JML']]
 
             # sort best 150
             grouped = df.groupby('LOKASI')
@@ -13566,12 +13566,12 @@
             worksheetbest.write('F5', 'MAT. WJB.', body)
             worksheetbest.write('G5', 'IND', body)
             worksheetbest.write('H5', 'ENG', body)
-            worksheetbest.write('I5', 'SEJ', body)
+            worksheetbest.write('I5', 'GEO', body)
             worksheetbest.write('J5', 'JML', body)
             worksheetbest.write('K5', 'MAT. WJB.', body)
             worksheetbest.write('L5', 'IND', body)
             worksheetbest.write('M5', 'ENG', body)
-            worksheetbest.write('N5', 'SEJ', body)
+            worksheetbest.write('N5', 'GEO', body)
             worksheetbest.write('O5', 'JML', body)
 
             worksheetbest.conditional_format(5, 0, rowBest150_all+4, 14,
@@ -13603,12 +13603,12 @@
             worksheet237.write('G5', 'MAT. WJB.', body)
             worksheet237.write('H5', 'IND', body)
             worksheet237.write('I5', 'ENG', body)
-            worksheet237.write('J5', 'SEJ', body)
+            worksheet237.write('J5', 'GEO', body)
             worksheet237.write('K5', 'JML', body)
             worksheet237.write('L5', 'MAT. WJB.', body)
             worksheet237.write('M5', 'IND', body)
             worksheet237.write('N5', 'ENG', body)
-            worksheet237.write('O5', 'SEJ', body)
+            worksheet237.write('O5', 'GEO', body)
             worksheet237.write('P5', 'JML', body)
 
             worksheet237.conditional_format(5, 0, row237_10+4, 15,
@@ -13631,12 +13631,12 @@
             worksheet237.write('G22', 'MAT. WJB.', body)
             worksheet237.write('H22', 'IND', body)
             worksheet237.write('I22', 'ENG', body)
-            worksheet237.write('J22', 'SEJ', body)
+            worksheet237.write('J22', 'GEO', body)
             worksheet237.write('K22', 'JML', body)
             worksheet237.write('L22', 'MAT. WJB.', body)
             worksheet237.write('M22', 'IND', body)
             worksheet237.write('N22', 'ENG', body)
-            worksheet237.write('O22', 'SEJ', body)
+            worksheet237.write('O22', 'GEO', body)
             worksheet237.write('P22', 'JML', body)
 
             worksheet237.conditional_format(22, 0, row237+21, 15,
@@ -13668,12 +13668,12 @@
             worksheet238.write('G5', 'MAT. WJB.', body)
             worksheet238.write('H5', 'IND', body)
             worksheet238.write('I5', 'ENG', body)
-            worksheet238.write('J5', 'SEJ', body)
+            worksheet238.write('J5', 'GEO', body)
             worksheet238.write('K5', 'JML', body)
             worksheet238.write('L5', 'MAT. WJB.', body)
             worksheet238.write('M5', 'IND', body)
             worksheet238.write('N5', 'ENG', body)
-            worksheet238.write('O5', 'SEJ', body)
+            worksheet238.write('O5', 'GEO', body)
             worksheet238.write('P5', 'JML', body)
 
             worksheet238.conditional_format(5, 0, row238_10+4, 15,
@@ -13696,12 +13696,12 @@
             worksheet238.write('G22', 'MAT. WJB.', body)
             worksheet238.write('H22', 'IND', body)
             worksheet238.write('I22', 'ENG', body)
-            worksheet238.write('J22', 'SEJ', body)
+            worksheet238.write('J22', 'GEO', body)
             worksheet238.write('K22', 'JML', body)
             worksheet238.write('L22', 'MAT. WJB.', body)
             worksheet238.write('M22', 'IND', body)
             worksheet238.write('N22', 'ENG', body)
-            worksheet238.write('O22', 'SEJ', body)
+            worksheet238.write('O22', 'GEO', body)
             worksheet238.write('P22', 'JML', body)
 
             worksheet238.conditional_format(22, 0, row238+21, 15,
@@ -13733,12 +13733,12 @@
             worksheet240.write('G5', 'MAT. WJB.', body)
             worksheet240.write('H5', 'IND', body)
             worksheet240.write('I5', 'ENG', body)
-            worksheet240.write('J5', 'SEJ', body)
+            worksheet240.write('J5', 'GEO', body)
             worksheet240.write('K5', 'JML', body)
             worksheet240.write('L5', 'MAT. WJB.', body)
             worksheet240.write('M5', 'IND', body)
             worksheet240.write('N5', 'ENG', body)
-            worksheet240.write('O5', 'SEJ', body)
+            worksheet240.write('O5', 'GEO', body)
             worksheet240.write('P5', 'JML', body)
 
             worksheet240.conditional_format(5, 0, row240_10+4, 15,
@@ -13761,12 +13761,12 @@
             worksheet240.write('G22', 'MAT. WJB.', body)
             worksheet240.write('H22', 'IND', body)
             worksheet240.write('I22', 'ENG', body)
-            worksheet240.write('J22', 'SEJ', body)
+            worksheet240.write('J22', 'GEO', body)
             worksheet240.write('K22', 'JML', body)
             worksheet240.write('L22', 'MAT. WJB.', body)
             worksheet240.write('M22', 'IND', body)
             worksheet240.write('N22', 'ENG', body)
-            worksheet240.write('O22', 'SEJ', body)
+            worksheet240.write('O22', 'GEO', body)
             worksheet240.write('P22', 'JML', body)
 
             worksheet240.conditional_format(22, 0, row240+21, 15,
@@ -13798,12 +13798,12 @@
             worksheet241.write('G5', 'MAT. WJB.', body)
             worksheet241.write('H5', 'IND', body)
             worksheet241.write('I5', 'ENG', body)
-            worksheet241.write('J5', 'SEJ', body)
+            worksheet241.write('J5', 'GEO', body)
             worksheet241.write('K5', 'JML', body)
             worksheet241.write('L5', 'MAT. WJB.', body)
             worksheet241.write('M5', 'IND', body)
             worksheet241.write('N5', 'ENG', body)
-            worksheet241.write('O5', 'SEJ', body)
+            worksheet241.write('O5', 'GEO', body)
             worksheet241.write('P5', 'JML', body)
 
             worksheet241.conditional_format(5, 0, row241_10+4, 15,
@@ -13826,12 +13826,12 @@
             worksheet241.write('G22', 'MAT. WJB.', body)
             worksheet241.write('H22', 'IND', body)
             worksheet241.write('I22', 'ENG', body)
-            worksheet241.write('J22', 'SEJ', body)
+            worksheet241.write('J22', 'GEO', body)
             worksheet241.write('K22', 'JML', body)
             worksheet241.write('L22', 'MAT. WJB.', body)
             worksheet241.write('M22', 'IND', body)
             worksheet241.write('N22', 'ENG', body)
-            worksheet241.write('O22', 'SEJ', body)
+            worksheet241.write('O22', 'GEO', body)
             worksheet241.write('P22', 'JML', body)
 
             worksheet241.conditional_format(22, 0, row241+21, 15,
@@ -13863,12 +13863,12 @@
             worksheet243.write('G5', 'MAT. WJB.', body)
             worksheet243.write('H5', 'IND', body)
             worksheet243.write('I5', 'ENG', body)
-            worksheet243.write('J5', 'SEJ', body)
+            worksheet243.write('J5', 'GEO', body)
             worksheet243.write('K5', 'JML', body)
             worksheet243.write('L5', 'MAT. WJB.', body)
             worksheet243.write('M5', 'IND', body)
             worksheet243.write('N5', 'ENG', body)
-            worksheet243.write('O5', 'SEJ', body)
+            worksheet243.write('O5', 'GEO', body)
             worksheet243.write('P5', 'JML', body)
 
             worksheet243.conditional_format(5, 0, row243_10+4, 15,
@@ -13891,12 +13891,12 @@
             worksheet243.write('G22', 'MAT. WJB.', body)
             worksheet243.write('H22', 'IND', body)
             worksheet243.write('I22', 'ENG', body)
-            worksheet243.write('J22', 'SEJ', body)
+            worksheet243.write('J22', 'GEO', body)
             worksheet243.write('K22', 'JML', body)
             worksheet243.write('L22', 'MAT. WJB.', body)
             worksheet243.write('M22', 'IND', body)
             worksheet243.write('N22', 'ENG', body)
-            worksheet243.write('O22', 'SEJ', body)
+            worksheet243.write('O22', 'GEO', body)
             worksheet243.write('P22', 'JML', body)
 
             worksheet243.conditional_format(22, 0, row243+21, 15,
@@ -13928,12 +13928,12 @@
             worksheet244.write('G5', 'MAT. WJB.', body)
             worksheet244.write('H5', 'IND', body)
             worksheet244.write('I5', 'ENG', body)
-            worksheet244.write('J5', 'SEJ', body)
+            worksheet244.write('J5', 'GEO', body)
             worksheet244.write('K5', 'JML', body)
             worksheet244.write('L5', 'MAT. WJB.', body)
             worksheet244.write('M5', 'IND', body)
             worksheet244.write('N5', 'ENG', body)
-            worksheet244.write('O5', 'SEJ', body)
+            worksheet244.write('O5', 'GEO', body)
             worksheet244.write('P5', 'JML', body)
 
             worksheet244.conditional_format(5, 0, row244_10+4, 15,
@@ -13956,12 +13956,12 @@
             worksheet244.write('G22', 'MAT. WJB.', body)
             worksheet244.write('H22', 'IND', body)
             worksheet244.write('I22', 'ENG', body)
-            worksheet244.write('J22', 'SEJ', body)
+            worksheet244.write('J22', 'GEO', body)
             worksheet244.write('K22', 'JML', body)
             worksheet244.write('L22', 'MAT. WJB.', body)
             worksheet244.write('M22', 'IND', body)
             worksheet244.write('N22', 'ENG', body)
-            worksheet244.write('O22', 'SEJ', body)
+            worksheet244.write('O22', 'GEO', body)
             worksheet244.write('P22', 'JML', body)
 
             worksheet244.conditional_format(22, 0, row244+21, 15,
@@ -13993,12 +13993,12 @@
             worksheet245.write('G5', 'MAT. WJB.', body)
             worksheet245.write('H5', 'IND', body)
             worksheet245.write('I5', 'ENG', body)
-            worksheet245.write('J5', 'SEJ', body)
+            worksheet245.write('J5', 'GEO', body)
             worksheet245.write('K5', 'JML', body)
             worksheet245.write('L5', 'MAT. WJB.', body)
             worksheet245.write('M5', 'IND', body)
             worksheet245.write('N5', 'ENG', body)
-            worksheet245.write('O5', 'SEJ', body)
+            worksheet245.write('O5', 'GEO', body)
             worksheet245.write('P5', 'JML', body)
 
             worksheet245.conditional_format(5, 0, row245_10+4, 15,
@@ -14021,12 +14021,12 @@
             worksheet245.write('G22', 'MAT. WJB.', body)
             worksheet245.write('H22', 'IND', body)
             worksheet245.write('I22', 'ENG', body)
-            worksheet245.write('J22', 'SEJ', body)
+            worksheet245.write('J22', 'GEO', body)
             worksheet245.write('K22', 'JML', body)
             worksheet245.write('L22', 'MAT. WJB.', body)
             worksheet245.write('M22', 'IND', body)
             worksheet245.write('N22', 'ENG', body)
-            worksheet245.write('O22', 'SEJ', body)
+            worksheet245.write('O22', 'GEO', body)
             worksheet245.write('P22', 'JML', body)
 
             worksheet245.conditional_format(22, 0, row245+21, 15,
@@ -14058,12 +14058,12 @@
             worksheet246.write('G5', 'MAT. WJB.', body)
             worksheet246.write('H5', 'IND', body)
             worksheet246.write('I5', 'ENG', body)
-            worksheet246.write('J5', 'SEJ', body)
+            worksheet246.write('J5', 'GEO', body)
             worksheet246.write('K5', 'JML', body)
             worksheet246.write('L5', 'MAT. WJB.', body)
             worksheet246.write('M5', 'IND', body)
             worksheet246.write('N5', 'ENG', body)
-            worksheet246.write('O5', 'SEJ', body)
+            worksheet246.write('O5', 'GEO', body)
             worksheet246.write('P5', 'JML', body)
 
             worksheet246.conditional_format(5, 0, row246_10+4, 15,
@@ -14086,12 +14086,12 @@
             worksheet246.write('G22', 'MAT. WJB.', body)
             worksheet246.write('H22', 'IND', body)
             worksheet246.write('I22', 'ENG', body)
-            worksheet246.write('J22', 'SEJ', body)
+            worksheet246.write('J22', 'GEO', body)
             worksheet246.write('K22', 'JML', body)
             worksheet246.write('L22', 'MAT. WJB.', body)
             worksheet246.write('M22', 'IND', body)
             worksheet246.write('N22', 'ENG', body)
-            worksheet246.write('O22', 'SEJ', body)
+            worksheet246.write('O22', 'GEO', body)
             worksheet246.write('P22', 'JML', body)
 
             worksheet246.conditional_format(22, 0, row246+21, 15,
@@ -14120,12 +14120,12 @@
             # worksheet247.write('G5', 'MAT. WJB.', body)
             # worksheet247.write('H5', 'IND', body)
             # worksheet247.write('I5', 'ENG', body)
-            # worksheet247.write('J5', 'SEJ', body)
+            # worksheet247.write('J5', 'GEO', body)
             # worksheet247.write('K5', 'JML', body)
             # worksheet247.write('L5', 'MAT. WJB.', body)
             # worksheet247.write('M5', 'IND', body)
             # worksheet247.write('N5', 'ENG', body)
-            # worksheet247.write('O5', 'SEJ', body)
+            # worksheet247.write('O5', 'GEO', body)
             # worksheet247.write('P5', 'JML', body)
             #
 
@@ -14146,12 +14146,12 @@
             # worksheet247.write('G22', 'MAT. WJB.', body)
             # worksheet247.write('H22', 'IND', body)
             # worksheet247.write('I22', 'ENG', body)
-            # worksheet247.write('J22', 'SEJ', body)
+            # worksheet247.write('J22', 'GEO', body)
             # worksheet247.write('K22', 'JML', body)
             # worksheet247.write('L22', 'MAT. WJB.', body)
             # worksheet247.write('M22', 'IND', body)
             # worksheet247.write('N22', 'ENG', body)
-            # worksheet247.write('O22', 'SEJ', body)
+            # worksheet247.write('O22', 'GEO', body)
             # worksheet247.write('P22', 'JML', body)
             #
             # worksheet247.conditional_format(22,0,row247+21,15,
@@ -14183,12 +14183,12 @@
             worksheet248.write('G5', 'MAT. WJB.', body)
             worksheet248.write('H5', 'IND', body)
             worksheet248.write('I5', 'ENG', body)
-            worksheet248.write('J5', 'SEJ', body)
+            worksheet248.write('J5', 'GEO', body)
             worksheet248.write('K5', 'JML', body)
             worksheet248.write('L5', 'MAT. WJB.', body)
             worksheet248.write('M5', 'IND', body)
             worksheet248.write('N5', 'ENG', body)
-            worksheet248.write('O5', 'SEJ', body)
+            worksheet248.write('O5', 'GEO', body)
             worksheet248.write('P5', 'JML', body)
 
             worksheet248.conditional_format(5, 0, row248_10+4, 15,
@@ -14211,12 +14211,12 @@
             worksheet248.write('G22', 'MAT. WJB.', body)
             worksheet248.write('H22', 'IND', body)
             worksheet248.write('I22', 'ENG', body)
-            worksheet248.write('J22', 'SEJ', body)
+            worksheet248.write('J22', 'GEO', body)
             worksheet248.write('K22', 'JML', body)
             worksheet248.write('L22', 'MAT. WJB.', body)
             worksheet248.write('M22', 'IND', body)
             worksheet248.write('N22', 'ENG', body)
-            worksheet248.write('O22', 'SEJ', body)
+            worksheet248.write('O22', 'GEO', body)
             worksheet248.write('P22', 'JML', body)
 
             worksheet248.conditional_format(22, 0, row248+21, 15,
@@ -14248,12 +14248,12 @@
             worksheet249.write('G5', 'MAT. WJB.', body)
             worksheet249.write('H5', 'IND', body)
             worksheet249.write('I5', 'ENG', body)
-            worksheet249.write('J5', 'SEJ', body)
+            worksheet249.write('J5', 'GEO', body)
             worksheet249.write('K5', 'JML', body)
             worksheet249.write('L5', 'MAT. WJB.', body)
             worksheet249.write('M5', 'IND', body)
             worksheet249.write('N5', 'ENG', body)
-            worksheet249.write('O5', 'SEJ', body)
+            worksheet249.write('O5', 'GEO', body)
             worksheet249.write('P5', 'JML', body)
 
             worksheet249.conditional_format(5, 0, row249_10+4, 15,
@@ -14276,12 +14276,12 @@
             worksheet249.write('G22', 'MAT. WJB.', body)
             worksheet249.write('H22', 'IND', body)
             worksheet249.write('I22', 'ENG', body)
-            worksheet249.write('J22', 'SEJ', body)
+            worksheet249.write('J22', 'GEO', body)
             worksheet249.write('K22', 'JML', body)
             worksheet249.write('L22', 'MAT. WJB.', body)
             worksheet249.write('M22', 'IND', body)
             worksheet249.write('N22', 'ENG', body)
-            worksheet249.write('O22', 'SEJ', body)
+            worksheet249.write('O22', 'GEO', body)
             worksheet249.write('P22', 'JML', body)
 
             worksheet249.conditional_format(22, 0, row249+21, 15,
@@ -14313,12 +14313,12 @@
             worksheet250.write('G5', 'MAT. WJB.', body)
             worksheet250.write('H5', 'IND', body)
             worksheet250.write('I5', 'ENG', body)
-            worksheet250.write('J5', 'SEJ', body)
+            worksheet250.write('J5', 'GEO', body)
             worksheet250.write('K5', 'JML', body)
             worksheet250.write('L5', 'MAT. WJB.', body)
             worksheet250.write('M5', 'IND', body)
             worksheet250.write('N5', 'ENG', body)
-            worksheet250.write('O5', 'SEJ', body)
+            worksheet250.write('O5', 'GEO', body)
             worksheet250.write('P5', 'JML', body)
 
             worksheet250.conditional_format(5, 0, row250_10+4, 15,
@@ -14341,12 +14341,12 @@
             worksheet250.write('G22', 'MAT. WJB.', body)
             worksheet250.write('H22', 'IND', body)
             worksheet250.write('I22', 'ENG', body)
-            worksheet250.write('J22', 'SEJ', body)
+            worksheet250.write('J22', 'GEO', body)
             worksheet250.write('K22', 'JML', body)
             worksheet250.write('L22', 'MAT. WJB.', body)
             worksheet250.write('M22', 'IND', body)
             worksheet250.write('N22', 'ENG', body)
-            worksheet250.write('O22', 'SEJ', body)
+            worksheet250.write('O22', 'GEO', body)
             worksheet250.write('P22', 'JML', body)
 
             worksheet250.conditional_format(22, 0, row250+21, 15,
@@ -14375,12 +14375,12 @@
             # worksheet251.write('G5', 'MAT. WJB.', body)
             # worksheet251.write('H5', 'IND', body)
             # worksheet251.write('I5', 'ENG', body)
-            # worksheet251.write('J5', 'SEJ', body)
+            # worksheet251.write('J5', 'GEO', body)
             # worksheet251.write('K5', 'JML', body)
             # worksheet251.write('L5', 'MAT. WJB.', body)
             # worksheet251.write('M5', 'IND', body)
             # worksheet251.write('N5', 'ENG', body)
-            # worksheet251.write('O5', 'SEJ', body)
+            # worksheet251.write('O5', 'GEO', body)
             # worksheet251.write('P5', 'JML', body)
             #
 
@@ -14401,12 +14401,12 @@
             # worksheet251.write('G22', 'MAT. WJB.', body)
             # worksheet251.write('H22', 'IND', body)
             # worksheet251.write('I22', 'ENG', body)
-            # worksheet251.write('J22', 'SEJ', body)
+            # worksheet251.write('J22', 'GEO', body)
             # worksheet251.write('K22', 'JML', body)
             # worksheet251.write('L22', 'MAT. WJB.', body)
             # worksheet251.write('M22', 'IND', body)
             # worksheet251.write('N22', 'ENG', body)
-            # worksheet251.write('O22', 'SEJ', body)
+            # worksheet251.write('O22', 'GEO', body)
             # worksheet251.write('P22', 'JML', body)
             #
             # worksheet251.conditional_format(22,0,row251+21,15,
@@ -14438,12 +14438,12 @@
             worksheet252.write('G5', 'MAT. WJB.', body)
             worksheet252.write('H5', 'IND', body)
             worksheet252.write('I5', 'ENG', body)
-            worksheet252.write('J5', 'SEJ', body)
+            worksheet252.write('J5', 'GEO', body)
             worksheet252.write('K5', 'JML', body)
             worksheet252.write('L5', 'MAT. WJB.', body)
             worksheet252.write('M5', 'IND', body)
             worksheet252.write('N5', 'ENG', body)
-            worksheet252.write('O5', 'SEJ', body)
+            worksheet252.write('O5', 'GEO', body)
             worksheet252.write('P5', 'JML', body)
 
             worksheet252.conditional_format(5, 0, row252_10+4, 15,
@@ -14466,12 +14466,12 @@
             worksheet252.write('G22', 'MAT. WJB.', body)
             worksheet252.write('H22', 'IND', body)
             worksheet252.write('I22', 'ENG', body)
-            worksheet252.write('J22', 'SEJ', body)
+            worksheet252.write('J22', 'GEO', body)
             worksheet252.write('K22', 'JML', body)
             worksheet252.write('L22', 'MAT. WJB.', body)
             worksheet252.write('M22', 'IND', body)
             worksheet252.write('N22', 'ENG', body)
-            worksheet252.write('O22', 'SEJ', body)
+            worksheet252.write('O22', 'GEO', body)
             worksheet252.write('P22', 'JML', body)
 
             worksheet252.conditional_format(22, 0, row252+21, 15,
@@ -14499,12 +14499,12 @@
             # worksheet253.write('G5', 'MAT. WJB.', body)
             # worksheet253.write('H5', 'IND', body)
             # worksheet253.write('I5', 'ENG', body)
-            # worksheet253.write('J5', 'SEJ', body)
+            # worksheet253.write('J5', 'GEO', body)
             # worksheet253.write('K5', 'JML', body)
             # worksheet253.write('L5', 'MAT. WJB.', body)
             # worksheet253.write('M5', 'IND', body)
             # worksheet253.write('N5', 'ENG', body)
-            # worksheet253.write('O5', 'SEJ', body)
+            # worksheet253.write('O5', 'GEO', body)
             # worksheet253.write('P5', 'JML', body)
             #
 
@@ -14525,12 +14525,12 @@
             # worksheet253.write('G22', 'MAT. WJB.', body)
             # worksheet253.write('H22', 'IND', body)
             # worksheet253.write('I22', 'ENG', body)
-            # worksheet253.write('J22', 'SEJ', body)
+            # worksheet253.write('J22', 'GEO', body)
             # worksheet253.write('K22', 'JML', body)
             # worksheet253.write('L22', 'MAT. WJB.', body)
             # worksheet253.write('M22', 'IND', body)
             # worksheet253.write('N22', 'ENG', body)
-            # worksheet253.write('O22', 'SEJ', body)
+            # worksheet253.write('O22', 'GEO', body)
             # worksheet253.write('P22', 'JML', body)
             #
             # worksheet253.conditional_format(22,0,row253+21,15,
@@ -14562,12 +14562,12 @@
             worksheet254.write('G5', 'MAT. WJB.', body)
             worksheet254.write('H5', 'IND', body)
             worksheet254.write('I5', 'ENG', body)
-            worksheet254.write('J5', 'SEJ', body)
+            worksheet254.write('J5', 'GEO', body)
             worksheet254.write('K5', 'JML', body)
             worksheet254.write('L5', 'MAT. WJB.', body)
             worksheet254.write('M5', 'IND', body)
             worksheet254.write('N5', 'ENG', body)
-            worksheet254.write('O5', 'SEJ', body)
+            worksheet254.write('O5', 'GEO', body)
             worksheet254.write('P5', 'JML', body)
 
             worksheet254.conditional_format(5, 0, row254_10+4, 15,
@@ -14590,12 +14590,12 @@
             worksheet254.write('G22', 'MAT. WJB.', body)
             worksheet254.write('H22', 'IND', body)
             worksheet254.write('I22', 'ENG', body)
-            worksheet254.write('J22', 'SEJ', body)
+            worksheet254.write('J22', 'GEO', body)
             worksheet254.write('K22', 'JML', body)
             worksheet254.write('L22', 'MAT. WJB.', body)
             worksheet254.write('M22', 'IND', body)
             worksheet254.write('N22', 'ENG', body)
-            worksheet254.write('O22', 'SEJ', body)
+            worksheet254.write('O22', 'GEO', body)
             worksheet254.write('P22', 'JML', body)
 
             worksheet254.conditional_format(22, 0, row254+21, 15,
@@ -14627,12 +14627,12 @@
             worksheet255.write('G5', 'MAT. WJB.', body)
             worksheet255.write('H5', 'IND', body)
             worksheet255.write('I5', 'ENG', body)
-            worksheet255.write('J5', 'SEJ', body)
+            worksheet255.write('J5', 'GEO', body)
             worksheet255.write('K5', 'JML', body)
             worksheet255.write('L5', 'MAT. WJB.', body)
             worksheet255.write('M5', 'IND', body)
             worksheet255.write('N5', 'ENG', body)
-            worksheet255.write('O5', 'SEJ', body)
+            worksheet255.write('O5', 'GEO', body)
             worksheet255.write('P5', 'JML', body)
 
             worksheet255.conditional_format(5, 0, row255_10+4, 15,
@@ -14655,12 +14655,12 @@
             worksheet255.write('G22', 'MAT. WJB.', body)
             worksheet255.write('H22', 'IND', body)
             worksheet255.write('I22', 'ENG', body)
-            worksheet255.write('J22', 'SEJ', body)
+            worksheet255.write('J22', 'GEO', body)
             worksheet255.write('K22', 'JML', body)
             worksheet255.write('L22', 'MAT. WJB.', body)
             worksheet255.write('M22', 'IND', body)
             worksheet255.write('N22', 'ENG', body)
-            worksheet255.write('O22', 'SEJ', body)
+            worksheet255.write('O22', 'GEO', body)
             worksheet255.write('P22', 'JML', body)
 
             worksheet255.conditional_format(22, 0, row255+21, 15,
@@ -14692,12 +14692,12 @@
             worksheet256.write('G5', 'MAT. WJB.', body)
             worksheet256.write('H5', 'IND', body)
             worksheet256.write('I5', 'ENG', body)
-            worksheet256.write('J5', 'SEJ', body)
+            worksheet256.write('J5', 'GEO', body)
             worksheet256.write('K5', 'JML', body)
             worksheet256.write('L5', 'MAT. WJB.', body)
             worksheet256.write('M5', 'IND', body)
             worksheet256.write('N5', 'ENG', body)
-            worksheet256.write('O5', 'SEJ', body)
+            worksheet256.write('O5', 'GEO', body)
             worksheet256.write('P5', 'JML', body)
 
             worksheet256.conditional_format(5, 0, row256_10+4, 15,
@@ -14720,12 +14720,12 @@
             worksheet256.write('G22', 'MAT. WJB.', body)
             worksheet256.write('H22', 'IND', body)
             worksheet256.write('I22', 'ENG', body)
-            worksheet256.write('J22', 'SEJ', body)
+            worksheet256.write('J22', 'GEO', body)
             worksheet256.write('K22', 'JML', body)
             worksheet256.write('L22', 'MAT. WJB.', body)
             worksheet256.write('M22', 'IND', body)
             worksheet256.write('N22', 'ENG', body)
-            worksheet256.write('O22', 'SEJ', body)
+            worksheet256.write('O22', 'GEO', body)
             worksheet256.write('P22', 'JML', body)
 
             worksheet256.conditional_format(22, 0, row256+21, 15,
@@ -14757,12 +14757,12 @@
             worksheet258.write('G5', 'MAT. WJB.', body)
             worksheet258.write('H5', 'IND', body)
             worksheet258.write('I5', 'ENG', body)
-            worksheet258.write('J5', 'SEJ', body)
+            worksheet258.write('J5', 'GEO', body)
             worksheet258.write('K5', 'JML', body)
             worksheet258.write('L5', 'MAT. WJB.', body)
             worksheet258.write('M5', 'IND', body)
             worksheet258.write('N5', 'ENG', body)
-            worksheet258.write('O5', 'SEJ', body)
+            worksheet258.write('O5', 'GEO', body)
             worksheet258.write('P5', 'JML', body)
 
             worksheet258.conditional_format(5, 0, row258_10+4, 15,
@@ -14785,12 +14785,12 @@
             worksheet258.write('G22', 'MAT. WJB.', body)
             worksheet258.write('H22', 'IND', body)
             worksheet258.write('I22', 'ENG', body)
-            worksheet258.write('J22', 'SEJ', body)
+            worksheet258.write('J22', 'GEO', body)
             worksheet258.write('K22', 'JML', body)
             worksheet258.write('L22', 'MAT. WJB.', body)
             worksheet258.write('M22', 'IND', body)
             worksheet258.write('N22', 'ENG', body)
-            worksheet258.write('O22', 'SEJ', body)
+            worksheet258.write('O22', 'GEO', body)
             worksheet258.write('P22', 'JML', body)
 
             worksheet258.conditional_format(22, 0, row258+21, 15,
@@ -14822,12 +14822,12 @@
             worksheet259.write('G5', 'MAT. WJB.', body)
             worksheet259.write('H5', 'IND', body)
             worksheet259.write('I5', 'ENG', body)
-            worksheet259.write('J5', 'SEJ', body)
+            worksheet259.write('J5', 'GEO', body)
             worksheet259.write('K5', 'JML', body)
             worksheet259.write('L5', 'MAT. WJB.', body)
             worksheet259.write('M5', 'IND', body)
             worksheet259.write('N5', 'ENG', body)
-            worksheet259.write('O5', 'SEJ', body)
+            worksheet259.write('O5', 'GEO', body)
             worksheet259.write('P5', 'JML', body)
 
             worksheet259.conditional_format(5, 0, row259_10+4, 15,
@@ -14850,12 +14850,12 @@
             worksheet259.write('G22', 'MAT. WJB.', body)
             worksheet259.write('H22', 'IND', body)
             worksheet259.write('I22', 'ENG', body)
-            worksheet259.write('J22', 'SEJ', body)
+            worksheet259.write('J22', 'GEO', body)
             worksheet259.write('K22', 'JML', body)
             worksheet259.write('L22', 'MAT. WJB.', body)
             worksheet259.write('M22', 'IND', body)
             worksheet259.write('N22', 'ENG', body)
-            worksheet259.write('O22', 'SEJ', body)
+            worksheet259.write('O22', 'GEO', body)
             worksheet259.write('P22', 'JML', body)
 
             worksheet259.conditional_format(22, 0, row259+21, 15,
@@ -14887,12 +14887,12 @@
             worksheet260.write('G5', 'MAT. WJB.', body)
             worksheet260.write('H5', 'IND', body)
             worksheet260.write('I5', 'ENG', body)
-            worksheet260.write('J5', 'SEJ', body)
+            worksheet260.write('J5', 'GEO', body)
             worksheet260.write('K5', 'JML', body)
             worksheet260.write('L5', 'MAT. WJB.', body)
             worksheet260.write('M5', 'IND', body)
             worksheet260.write('N5', 'ENG', body)
-            worksheet260.write('O5', 'SEJ', body)
+            worksheet260.write('O5', 'GEO', body)
             worksheet260.write('P5', 'JML', body)
 
             worksheet260.conditional_format(5, 0, row260_10+4, 15,
@@ -14915,12 +14915,12 @@
             worksheet260.write('G22', 'MAT. WJB.', body)
             worksheet260.write('H22', 'IND', body)
             worksheet260.write('I22', 'ENG', body)
-            worksheet260.write('J22', 'SEJ', body)
+            worksheet260.write('J22', 'GEO', body)
             worksheet260.write('K22', 'JML', body)
             worksheet260.write('L22', 'MAT. WJB.', body)
             worksheet260.write('M22', 'IND', body)
             worksheet260.write('N22', 'ENG', body)
-            worksheet260.write('O22', 'SEJ', body)
+            worksheet260.write('O22', 'GEO', body)
             worksheet260.write('P22', 'JML', body)
 
             worksheet260.conditional_format(22, 0, row260+21, 15,
@@ -14952,12 +14952,12 @@
             worksheet261.write('G5', 'MAT. WJB.', body)
             worksheet261.write('H5', 'IND', body)
             worksheet261.write('I5', 'ENG', body)
-            worksheet261.write('J5', 'SEJ', body)
+            worksheet261.write('J5', 'GEO', body)
             worksheet261.write('K5', 'JML', body)
             worksheet261.write('L5', 'MAT. WJB.', body)
             worksheet261.write('M5', 'IND', body)
             worksheet261.write('N5', 'ENG', body)
-            worksheet261.write('O5', 'SEJ', body)
+            worksheet261.write('O5', 'GEO', body)
             worksheet261.write('P5', 'JML', body)
 
             worksheet261.conditional_format(5, 0, row261_10+4, 15,
@@ -14980,12 +14980,12 @@
             worksheet261.write('G22', 'MAT. WJB.', body)
             worksheet261.write('H22', 'IND', body)
             worksheet261.write('I22', 'ENG', body)
-            worksheet261.write('J22', 'SEJ', body)
+            worksheet261.write('J22', 'GEO', body)
             worksheet261.write('K22', 'JML', body)
             worksheet261.write('L22', 'MAT. WJB.', body)
             worksheet261.write('M22', 'IND', body)
             worksheet261.write('N22', 'ENG', body)
-            worksheet261.write('O22', 'SEJ', body)
+            worksheet261.write('O22', 'GEO', body)
             worksheet261.write('P22', 'JML', body)
 
             worksheet261.conditional_format(22, 0, row261+21, 15,
@@ -15017,12 +15017,12 @@
             worksheet262.write('G5', 'MAT. WJB.', body)
             worksheet262.write('H5', 'IND', body)
             worksheet262.write('I5', 'ENG', body)
-            worksheet262.write('J5', 'SEJ', body)
+            worksheet262.write('J5', 'GEO', body)
             worksheet262.write('K5', 'JML', body)
             worksheet262.write('L5', 'MAT. WJB.', body)
             worksheet262.write('M5', 'IND', body)
             worksheet262.write('N5', 'ENG', body)
-            worksheet262.write('O5', 'SEJ', body)
+            worksheet262.write('O5', 'GEO', body)
             worksheet262.write('P5', 'JML', body)
 
             worksheet262.conditional_format(5, 0, row262_10+4, 15,
@@ -15045,12 +15045,12 @@
             worksheet262.write('G22', 'MAT. WJB.', body)
             worksheet262.write('H22', 'IND', body)
             worksheet262.write('I22', 'ENG', body)
-            worksheet262.write('J22', 'SEJ', body)
+            worksheet262.write('J22', 'GEO', body)
             worksheet262.write('K22', 'JML', body)
             worksheet262.write('L22', 'MAT. WJB.', body)
             worksheet262.write('M22', 'IND', body)
             worksheet262.write('N22', 'ENG', body)
-            worksheet262.write('O22', 'SEJ', body)
+            worksheet262.write('O22', 'GEO', body)
             worksheet262.write('P22', 'JML', body)
 
             worksheet262.conditional_format(22, 0, row262+21, 15,
@@ -15082,12 +15082,12 @@
             worksheet263.write('G5', 'MAT. WJB.', body)
             worksheet263.write('H5', 'IND', body)
             worksheet263.write('I5', 'ENG', body)
-            worksheet263.write('J5', 'SEJ', body)
+            worksheet263.write('J5', 'GEO', body)
             worksheet263.write('K5', 'JML', body)
             worksheet263.write('L5', 'MAT. WJB.', body)
             worksheet263.write('M5', 'IND', body)
             worksheet263.write('N5', 'ENG', body)
-            worksheet263.write('O5', 'SEJ', body)
+            worksheet263.write('O5', 'GEO', body)
             worksheet263.write('P5', 'JML', body)
 
             worksheet263.conditional_format(5, 0, row263_10+4, 15,
@@ -15110,12 +15110,12 @@
             worksheet263.write('G22', 'MAT. WJB.', body)
             worksheet263.write('H22', 'IND', body)
             worksheet263.write('I22', 'ENG', body)
-            worksheet263.write('J22', 'SEJ', body)
+            worksheet263.write('J22', 'GEO', body)
             worksheet263.write('K22', 'JML', body)
             worksheet263.write('L22', 'MAT. WJB.', body)
             worksheet263.write('M22', 'IND', body)
             worksheet263.write('N22', 'ENG', body)
-            worksheet263.write('O22', 'SEJ', body)
+            worksheet263.write('O22', 'GEO', body)
             worksheet263.write('P22', 'JML', body)
 
             worksheet263.conditional_format(22, 0, row263+21, 15,
@@ -15147,12 +15147,12 @@
             worksheet264.write('G5', 'MAT. WJB.', body)
             worksheet264.write('H5', 'IND', body)
             worksheet264.write('I5', 'ENG', body)
-            worksheet264.write('J5', 'SEJ', body)
+            worksheet264.write('J5', 'GEO', body)
             worksheet264.write('K5', 'JML', body)
             worksheet264.write('L5', 'MAT. WJB.', body)
             worksheet264.write('M5', 'IND', body)
             worksheet264.write('N5', 'ENG', body)
-            worksheet264.write('O5', 'SEJ', body)
+            worksheet264.write('O5', 'GEO', body)
             worksheet264.write('P5', 'JML', body)
 
             worksheet264.conditional_format(5, 0, row264_10+4, 15,
@@ -15175,12 +15175,12 @@
             worksheet264.write('G22', 'MAT. WJB.', body)
             worksheet264.write('H22', 'IND', body)
             worksheet264.write('I22', 'ENG', body)
-            worksheet264.write('J22', 'SEJ', body)
+            worksheet264.write('J22', 'GEO', body)
             worksheet264.write('K22', 'JML', body)
             worksheet264.write('L22', 'MAT. WJB.', body)
             worksheet264.write('M22', 'IND', body)
             worksheet264.write('N22', 'ENG', body)
-            worksheet264.write('O22', 'SEJ', body)
+            worksheet264.write('O22', 'GEO', body)
             worksheet264.write('P22', 'JML', body)
 
             worksheet264.conditional_format(22, 0, row264+21, 15,
@@ -15212,12 +15212,12 @@
             worksheet265.write('G5', 'MAT. WJB.', body)
             worksheet265.write('H5', 'IND', body)
             worksheet265.write('I5', 'ENG', body)
-            worksheet265.write('J5', 'SEJ', body)
+            worksheet265.write('J5', 'GEO', body)
             worksheet265.write('K5', 'JML', body)
             worksheet265.write('L5', 'MAT. WJB.', body)
             worksheet265.write('M5', 'IND', body)
             worksheet265.write('N5', 'ENG', body)
-            worksheet265.write('O5', 'SEJ', body)
+            worksheet265.write('O5', 'GEO', body)
             worksheet265.write('P5', 'JML', body)
 
             worksheet265.conditional_format(5, 0, row265_10+4, 15,
@@ -15240,12 +15240,12 @@
             worksheet265.write('G22', 'MAT. WJB.', body)
             worksheet265.write('H22', 'IND', body)
             worksheet265.write('I22', 'ENG', body)
-            worksheet265.write('J22', 'SEJ', body)
+            worksheet265.write('J22', 'GEO', body)
             worksheet265.write('K22', 'JML', body)
             worksheet265.write('L22', 'MAT. WJB.', body)
             worksheet265.write('M22', 'IND', body)
             worksheet265.write('N22', 'ENG', body)
-            worksheet265.write('O22', 'SEJ', body)
+            worksheet265.write('O22', 'GEO', body)
             worksheet265.write('P22', 'JML', body)
 
             worksheet265.conditional_format(22, 0, row265+21, 15,
@@ -15277,12 +15277,12 @@
             worksheet266.write('G5', 'MAT. WJB.', body)
             worksheet266.write('H5', 'IND', body)
             worksheet266.write('I5', 'ENG', body)
-            worksheet266.write('J5', 'SEJ', body)
+            worksheet266.write('J5', 'GEO', body)
             worksheet266.write('K5', 'JML', body)
             worksheet266.write('L5', 'MAT. WJB.', body)
             worksheet266.write('M5', 'IND', body)
             worksheet266.write('N5', 'ENG', body)
-            worksheet266.write('O5', 'SEJ', body)
+            worksheet266.write('O5', 'GEO', body)
             worksheet266.write('P5', 'JML', body)
 
             worksheet266.conditional_format(5, 0, row266_10+4, 15,
@@ -15305,12 +15305,12 @@
             worksheet266.write('G22', 'MAT. WJB.', body)
             worksheet266.write('H22', 'IND', body)
             worksheet266.write('I22', 'ENG', body)
-            worksheet266.write('J22', 'SEJ', body)
+            worksheet266.write('J22', 'GEO', body)
             worksheet266.write('K22', 'JML', body)
             worksheet266.write('L22', 'MAT. WJB.', body)
             worksheet266.write('M22', 'IND', body)
             worksheet266.write('N22', 'ENG', body)
-            worksheet266.write('O22', 'SEJ', body)
+            worksheet266.write('O22', 'GEO', body)
             worksheet266.write('P22', 'JML', body)
 
             worksheet266.conditional_format(22, 0, row266+21, 15,
@@ -15342,12 +15342,12 @@
             worksheet267.write('G5', 'MAT. WJB.', body)
             worksheet267.write('H5', 'IND', body)
             worksheet267.write('I5', 'ENG', body)
-            worksheet267.write('J5', 'SEJ', body)
+            worksheet267.write('J5', 'GEO', body)
             worksheet267.write('K5', 'JML', body)
             worksheet267.write('L5', 'MAT. WJB.', body)
             worksheet267.write('M5', 'IND', body)
             worksheet267.write('N5', 'ENG', body)
-            worksheet267.write('O5', 'SEJ', body)
+            worksheet267.write('O5', 'GEO', body)
             worksheet267.write('P5', 'JML', body)
 
             worksheet267.conditional_format(5, 0, row267_10+4, 15,
@@ -15370,12 +15370,12 @@
             worksheet267.write('G22', 'MAT. WJB.', body)
             worksheet267.write('H22', 'IND', body)
             worksheet267.write('I22', 'ENG', body)
-            worksheet267.write('J22', 'SEJ', body)
+            worksheet267.write('J22', 'GEO', body)
             worksheet267.write('K22', 'JML', body)
             worksheet267.write('L22', 'MAT. WJB.', body)
             worksheet267.write('M22', 'IND', body)
             worksheet267.write('N22', 'ENG', body)
-            worksheet267.write('O22', 'SEJ', body)
+            worksheet267.write('O22', 'GEO', body)
             worksheet267.write('P22', 'JML', body)
 
             worksheet267.conditional_format(22, 0, row267+21, 15,
@@ -15407,12 +15407,12 @@
             worksheet268.write('G5', 'MAT. WJB.', body)
             worksheet268.write('H5', 'IND', body)
             worksheet268.write('I5', 'ENG', body)
-            worksheet268.write('J5', 'SEJ', body)
+            worksheet268.write('J5', 'GEO', body)
             worksheet268.write('K5', 'JML', body)
             worksheet268.write('L5', 'MAT. WJB.', body)
             worksheet268.write('M5', 'IND', body)
             worksheet268.write('N5', 'ENG', body)
-            worksheet268.write('O5', 'SEJ', body)
+            worksheet268.write('O5', 'GEO', body)
             worksheet268.write('P5', 'JML', body)
 
             worksheet268.conditional_format(5, 0, row268_10+4, 15,
@@ -15435,12 +15435,12 @@
             worksheet268.write('G22', 'MAT. WJB.', body)
             worksheet268.write('H22', 'IND', body)
             worksheet268.write('I22', 'ENG', body)
-            worksheet268.write('J22', 'SEJ', body)
+            worksheet268.write('J22', 'GEO', body)
             worksheet268.write('K22', 'JML', body)
             worksheet268.write('L22', 'MAT. WJB.', body)
             worksheet268.write('M22', 'IND', body)
             worksheet268.write('N22', 'ENG', body)
-            worksheet268.write('O22', 'SEJ', body)
+            worksheet268.write('O22', 'GEO', body)
             worksheet268.write('P22', 'JML', body)
 
             worksheet268.conditional_format(22, 0, row268+21, 15,
@@ -15472,12 +15472,12 @@
             worksheet269.write('G5', 'MAT. WJB.', body)
             worksheet269.write('H5', 'IND', body)
             worksheet269.write('I5', 'ENG', body)
-            worksheet269.write('J5', 'SEJ', body)
+            worksheet269.write('J5', 'GEO', body)
             worksheet269.write('K5', 'JML', body)
             worksheet269.write('L5', 'MAT. WJB.', body)
             worksheet269.write('M5', 'IND', body)
             worksheet269.write('N5', 'ENG', body)
-            worksheet269.write('O5', 'SEJ', body)
+            worksheet269.write('O5', 'GEO', body)
             worksheet269.write('P5', 'JML', body)
 
             worksheet269.conditional_format(5, 0, row269_10+4, 15,
@@ -15500,12 +15500,12 @@
             worksheet269.write('G22', 'MAT. WJB.', body)
             worksheet269.write('H22', 'IND', body)
             worksheet269.write('I22', 'ENG', body)
-            worksheet269.write('J22', 'SEJ', body)
+            worksheet269.write('J22', 'GEO', body)
             worksheet269.write('K22', 'JML', body)
             worksheet269.write('L22', 'MAT. WJB.', body)
             worksheet269.write('M22', 'IND', body)
             worksheet269.write('N22', 'ENG', body)
-            worksheet269.write('O22', 'SEJ', body)
+            worksheet269.write('O22', 'GEO', body)
             worksheet269.write('P22', 'JML', body)
 
             worksheet269.conditional_format(22, 0, row269+21, 15,
@@ -15537,12 +15537,12 @@
             worksheet270.write('G5', 'MAT. WJB.', body)
             worksheet270.write('H5', 'IND', body)
             worksheet270.write('I5', 'ENG', body)
-            worksheet270.write('J5', 'SEJ', body)
+            worksheet270.write('J5', 'GEO', body)
             worksheet270.write('K5', 'JML', body)
             worksheet270.write('L5', 'MAT. WJB.', body)
             worksheet270.write('M5', 'IND', body)
             worksheet270.write('N5', 'ENG', body)
-            worksheet270.write('O5', 'SEJ', body)
+            worksheet270.write('O5', 'GEO', body)
             worksheet270.write('P5', 'JML', body)
 
             worksheet270.conditional_format(5, 0, row270_10+4, 15,
@@ -15565,12 +15565,12 @@
             worksheet270.write('G22', 'MAT. WJB.', body)
             worksheet270.write('H22', 'IND', body)
             worksheet270.write('I22', 'ENG', body)
-            worksheet270.write('J22', 'SEJ', body)
+            worksheet270.write('J22', 'GEO', body)
             worksheet270.write('K22', 'JML', body)
             worksheet270.write('L22', 'MAT. WJB.', body)
             worksheet270.write('M22', 'IND', body)
             worksheet270.write('N22', 'ENG', body)
-            worksheet270.write('O22', 'SEJ', body)
+            worksheet270.write('O22', 'GEO', body)
             worksheet270.write('P22', 'JML', body)
 
             worksheet270.conditional_format(22, 0, row270+21, 15,
@@ -15602,12 +15602,12 @@
             worksheet271.write('G5', 'MAT. WJB.', body)
             worksheet271.write('H5', 'IND', body)
             worksheet271.write('I5', 'ENG', body)
-            worksheet271.write('J5', 'SEJ', body)
+            worksheet271.write('J5', 'GEO', body)
             worksheet271.write('K5', 'JML', body)
             worksheet271.write('L5', 'MAT. WJB.', body)
             worksheet271.write('M5', 'IND', body)
             worksheet271.write('N5', 'ENG', body)
-            worksheet271.write('O5', 'SEJ', body)
+            worksheet271.write('O5', 'GEO', body)
             worksheet271.write('P5', 'JML', body)
 
             worksheet271.conditional_format(5, 0, row271_10+4, 15,
@@ -15630,12 +15630,12 @@
             worksheet271.write('G22', 'MAT. WJB.', body)
             worksheet271.write('H22', 'IND', body)
             worksheet271.write('I22', 'ENG', body)
-            worksheet271.write('J22', 'SEJ', body)
+            worksheet271.write('J22', 'GEO', body)
             worksheet271.write('K22', 'JML', body)
             worksheet271.write('L22', 'MAT. WJB.', body)
             worksheet271.write('M22', 'IND', body)
             worksheet271.write('N22', 'ENG', body)
-            worksheet271.write('O22', 'SEJ', body)
+            worksheet271.write('O22', 'GEO', body)
             worksheet271.write('P22', 'JML', body)
 
             worksheet271.conditional_format(22, 0, row271+21, 15,
@@ -15667,12 +15667,12 @@
             worksheet272.write('G5', 'MAT. WJB.', body)
             worksheet272.write('H5', 'IND', body)
             worksheet272.write('I5', 'ENG', body)
-            worksheet272.write('J5', 'SEJ', body)
+            worksheet272.write('J5', 'GEO', body)
             worksheet272.write('K5', 'JML', body)
             worksheet272.write('L5', 'MAT. WJB.', body)
             worksheet272.write('M5', 'IND', body)
             worksheet272.write('N5', 'ENG', body)
-            worksheet272.write('O5', 'SEJ', body)
+            worksheet272.write('O5', 'GEO', body)
             worksheet272.write('P5', 'JML', body)
 
             worksheet272.conditional_format(5, 0, row272_10+4, 15,
@@ -15695,12 +15695,12 @@
             worksheet272.write('G22', 'MAT. WJB.', body)
             worksheet272.write('H22', 'IND', body)
             worksheet272.write('I22', 'ENG', body)
-            worksheet272.write('J22', 'SEJ', body)
+            worksheet272.write('J22', 'GEO', body)
             worksheet272.write('K22', 'JML', body)
             worksheet272.write('L22', 'MAT. WJB.', body)
             worksheet272.write('M22', 'IND', body)
             worksheet272.write('N22', 'ENG', body)
-            worksheet272.write('O22', 'SEJ', body)
+            worksheet272.write('O22', 'GEO', body)
             worksheet272.write('P22', 'JML', body)
 
             worksheet272.conditional_format(22, 0, row272+21, 15,
@@ -15732,12 +15732,12 @@
             worksheet273.write('G5', 'MAT. WJB.', body)
             worksheet273.write('H5', 'IND', body)
             worksheet273.write('I5', 'ENG', body)
-            worksheet273.write('J5', 'SEJ', body)
+            worksheet273.write('J5', 'GEO', body)
             worksheet273.write('K5', 'JML', body)
             worksheet273.write('L5', 'MAT. WJB.', body)
             worksheet273.write('M5', 'IND', body)
             worksheet273.write('N5', 'ENG', body)
-            worksheet273.write('O5', 'SEJ', body)
+            worksheet273.write('O5', 'GEO', body)
             worksheet273.write('P5', 'JML', body)
 
             worksheet273.conditional_format(5, 0, row273_10+4, 15,
@@ -15760,12 +15760,12 @@
             worksheet273.write('G22', 'MAT. WJB.', body)
             worksheet273.write('H22', 'IND', body)
             worksheet273.write('I22', 'ENG', body)
-            worksheet273.write('J22', 'SEJ', body)
+            worksheet273.write('J22', 'GEO', body)
             worksheet273.write('K22', 'JML', body)
             worksheet273.write('L22', 'MAT. WJB.', body)
             worksheet273.write('M22', 'IND', body)
             worksheet273.write('N22', 'ENG', body)
-            worksheet273.write('O22', 'SEJ', body)
+            worksheet273.write('O22', 'GEO', body)
             worksheet273.write('P22', 'JML', body)
 
             worksheet273.conditional_format(22, 0, row273+21, 15,
@@ -15797,12 +15797,12 @@
             worksheet274.write('G5', 'MAT. WJB.', body)
             worksheet274.write('H5', 'IND', body)
             worksheet274.write('I5', 'ENG', body)
-            worksheet274.write('J5', 'SEJ', body)
+            worksheet274.write('J5', 'GEO', body)
             worksheet274.write('K5', 'JML', body)
             worksheet274.write('L5', 'MAT. WJB.', body)
             worksheet274.write('M5', 'IND', body)
             worksheet274.write('N5', 'ENG', body)
-            worksheet274.write('O5', 'SEJ', body)
+            worksheet274.write('O5', 'GEO', body)
             worksheet274.write('P5', 'JML', body)
 
             worksheet274.conditional_format(5, 0, row274_10+4, 15,
@@ -15825,12 +15825,12 @@
             worksheet274.write('G22', 'MAT. WJB.', body)
             worksheet274.write('H22', 'IND', body)
             worksheet274.write('I22', 'ENG', body)
-            worksheet274.write('J22', 'SEJ', body)
+            worksheet274.write('J22', 'GEO', body)
             worksheet274.write('K22', 'JML', body)
             worksheet274.write('L22', 'MAT. WJB.', body)
             worksheet274.write('M22', 'IND', body)
             worksheet274.write('N22', 'ENG', body)
-            worksheet274.write('O22', 'SEJ', body)
+            worksheet274.write('O22', 'GEO', body)
             worksheet274.write('P22', 'JML', body)
 
             worksheet274.conditional_format(22, 0, row274+21, 15,
@@ -15862,12 +15862,12 @@
             worksheet275.write('G5', 'MAT. WJB.', body)
             worksheet275.write('H5', 'IND', body)
             worksheet275.write('I5', 'ENG', body)
-            worksheet275.write('J5', 'SEJ', body)
+            worksheet275.write('J5', 'GEO', body)
             worksheet275.write('K5', 'JML', body)
             worksheet275.write('L5', 'MAT. WJB.', body)
             worksheet275.write('M5', 'IND', body)
             worksheet275.write('N5', 'ENG', body)
-            worksheet275.write('O5', 'SEJ', body)
+            worksheet275.write('O5', 'GEO', body)
             worksheet275.write('P5', 'JML', body)
 
             worksheet275.conditional_format(5, 0, row275_10+4, 15,
@@ -15890,12 +15890,12 @@
             worksheet275.write('G22', 'MAT. WJB.', body)
             worksheet275.write('H22', 'IND', body)
             worksheet275.write('I22', 'ENG', body)
-            worksheet275.write('J22', 'SEJ', body)
+            worksheet275.write('J22', 'GEO', body)
             worksheet275.write('K22', 'JML', body)
             worksheet275.write('L22', 'MAT. WJB.', body)
             worksheet275.write('M22', 'IND', body)
             worksheet275.write('N22', 'ENG', body)
-            worksheet275.write('O22', 'SEJ', body)
+            worksheet275.write('O22', 'GEO', body)
             worksheet275.write('P22', 'JML', body)
 
             worksheet275.conditional_format(22, 0, row275+21, 15,
@@ -15927,12 +15927,12 @@
             worksheet276.write('G5', 'MAT. WJB.', body)
             worksheet276.write('H5', 'IND', body)
             worksheet276.write('I5', 'ENG', body)
-            worksheet276.write('J5', 'SEJ', body)
+            worksheet276.write('J5', 'GEO', body)
             worksheet276.write('K5', 'JML', body)
             worksheet276.write('L5', 'MAT. WJB.', body)
             worksheet276.write('M5', 'IND', body)
             worksheet276.write('N5', 'ENG', body)
-            worksheet276.write('O5', 'SEJ', body)
+            worksheet276.write('O5', 'GEO', body)
             worksheet276.write('P5', 'JML', body)
 
             worksheet276.conditional_format(5, 0, row276_10+4, 15,
@@ -15955,12 +15955,12 @@
             worksheet276.write('G22', 'MAT. WJB.', body)
             worksheet276.write('H22', 'IND', body)
             worksheet276.write('I22', 'ENG', body)
-            worksheet276.write('J22', 'SEJ', body)
+            worksheet276.write('J22', 'GEO', body)
             worksheet276.write('K22', 'JML', body)
             worksheet276.write('L22', 'MAT. WJB.', body)
             worksheet276.write('M22', 'IND', body)
             worksheet276.write('N22', 'ENG', body)
-            worksheet276.write('O22', 'SEJ', body)
+            worksheet276.write('O22', 'GEO', body)
             worksheet276.write('P22', 'JML', body)
 
             worksheet276.conditional_format(22, 0, row276+21, 15,
@@ -15992,12 +15992,12 @@
             worksheet277.write('G5', 'MAT. WJB.', body)
             worksheet277.write('H5', 'IND', body)
             worksheet277.write('I5', 'ENG', body)
-            worksheet277.write('J5', 'SEJ', body)
+            worksheet277.write('J5', 'GEO', body)
             worksheet277.write('K5', 'JML', body)
             worksheet277.write('L5', 'MAT. WJB.', body)
             worksheet277.write('M5', 'IND', body)
             worksheet277.write('N5', 'ENG', body)
-            worksheet277.write('O5', 'SEJ', body)
+            worksheet277.write('O5', 'GEO', body)
             worksheet277.write('P5', 'JML', body)
 
             worksheet277.conditional_format(5, 0, row277_10+4, 15,
@@ -16020,12 +16020,12 @@
             worksheet277.write('G22', 'MAT. WJB.', body)
             worksheet277.write('H22', 'IND', body)
             worksheet277.write('I22', 'ENG', body)
-            worksheet277.write('J22', 'SEJ', body)
+            worksheet277.write('J22', 'GEO', body)
             worksheet277.write('K22', 'JML', body)
             worksheet277.write('L22', 'MAT. WJB.', body)
             worksheet277.write('M22', 'IND', body)
             worksheet277.write('N22', 'ENG', body)
-            worksheet277.write('O22', 'SEJ', body)
+            worksheet277.write('O22', 'GEO', body)
             worksheet277.write('P22', 'JML', body)
 
             worksheet277.conditional_format(22, 0, row277+21, 15,
@@ -16057,12 +16057,12 @@
             worksheet278.write('G5', 'MAT. WJB.', body)
             worksheet278.write('H5', 'IND', body)
             worksheet278.write('I5', 'ENG', body)
-            worksheet278.write('J5', 'SEJ', body)
+            worksheet278.write('J5', 'GEO', body)
             worksheet278.write('K5', 'JML', body)
             worksheet278.write('L5', 'MAT. WJB.', body)
             worksheet278.write('M5', 'IND', body)
             worksheet278.write('N5', 'ENG', body)
-            worksheet278.write('O5', 'SEJ', body)
+            worksheet278.write('O5', 'GEO', body)
             worksheet278.write('P5', 'JML', body)
 
             worksheet278.conditional_format(5, 0, row278_10+4, 15,
@@ -16085,12 +16085,12 @@
             worksheet278.write('G22', 'MAT. WJB.', body)
             worksheet278.write('H22', 'IND', body)
             worksheet278.write('I22', 'ENG', body)
-            worksheet278.write('J22', 'SEJ', body)
+            worksheet278.write('J22', 'GEO', body)
             worksheet278.write('K22', 'JML', body)
             worksheet278.write('L22', 'MAT. WJB.', body)
             worksheet278.write('M22', 'IND', body)
             worksheet278.write('N22', 'ENG', body)
-            worksheet278.write('O22', 'SEJ', body)
+            worksheet278.write('O22', 'GEO', body)
             worksheet278.write('P22', 'JML', body)
 
             worksheet278.conditional_format(22, 0, row278+21, 15,
@@ -16122,12 +16122,12 @@
             worksheet279.write('G5', 'MAT. WJB.', body)
             worksheet279.write('H5', 'IND', body)
             worksheet279.write('I5', 'ENG', body)
-            worksheet279.write('J5', 'SEJ', body)
+            worksheet279.write('J5', 'GEO', body)
             worksheet279.write('K5', 'JML', body)
             worksheet279.write('L5', 'MAT. WJB.', body)
             worksheet279.write('M5', 'IND', body)
             worksheet279.write('N5', 'ENG', body)
-            worksheet279.write('O5', 'SEJ', body)
+            worksheet279.write('O5', 'GEO', body)
             worksheet279.write('P5', 'JML', body)
 
             worksheet279.conditional_format(5, 0, row279_10+4, 15,
@@ -16150,12 +16150,12 @@
             worksheet279.write('G22', 'MAT. WJB.', body)
             worksheet279.write('H22', 'IND', body)
             worksheet279.write('I22', 'ENG', body)
-            worksheet279.write('J22', 'SEJ', body)
+            worksheet279.write('J22', 'GEO', body)
             worksheet279.write('K22', 'JML', body)
             worksheet279.write('L22', 'MAT. WJB.', body)
             worksheet279.write('M22', 'IND', body)
             worksheet279.write('N22', 'ENG', body)
-            worksheet279.write('O22', 'SEJ', body)
+            worksheet279.write('O22', 'GEO', body)
             worksheet279.write('P22', 'JML', body)
 
             worksheet279.conditional_format(22, 0, row279+21, 15,
@@ -16187,12 +16187,12 @@
             worksheet280.write('G5', 'MAT. WJB.', body)
             worksheet280.write('H5', 'IND', body)
             worksheet280.write('I5', 'ENG', body)
-            worksheet280.write('J5', 'SEJ', body)
+            worksheet280.write('J5', 'GEO', body)
             worksheet280.write('K5', 'JML', body)
             worksheet280.write('L5', 'MAT. WJB.', body)
             worksheet280.write('M5', 'IND', body)
             worksheet280.write('N5', 'ENG', body)
-            worksheet280.write('O5', 'SEJ', body)
+            worksheet280.write('O5', 'GEO', body)
             worksheet280.write('P5', 'JML', body)
 
             worksheet280.conditional_format(5, 0, row280_10+4, 15,
@@ -16215,12 +16215,12 @@
             worksheet280.write('G22', 'MAT. WJB.', body)
             worksheet280.write('H22', 'IND', body)
             worksheet280.write('I22', 'ENG', body)
-            worksheet280.write('J22', 'SEJ', body)
+            worksheet280.write('J22', 'GEO', body)
             worksheet280.write('K22', 'JML', body)
             worksheet280.write('L22', 'MAT. WJB.', body)
             worksheet280.write('M22', 'IND', body)
             worksheet280.write('N22', 'ENG', body)
-            worksheet280.write('O22', 'SEJ', body)
+            worksheet280.write('O22', 'GEO', body)
             worksheet280.write('P22', 'JML', body)
 
             worksheet280.conditional_format(22, 0, row280+21, 15,
@@ -16249,12 +16249,12 @@
             # worksheet281.write('G5', 'MAT. WJB.', body)
             # worksheet281.write('H5', 'IND', body)
             # worksheet281.write('I5', 'ENG', body)
-            # worksheet281.write('J5', 'SEJ', body)
+            # worksheet281.write('J5', 'GEO', body)
             # worksheet281.write('K5', 'JML', body)
             # worksheet281.write('L5', 'MAT. WJB.', body)
             # worksheet281.write('M5', 'IND', body)
             # worksheet281.write('N5', 'ENG', body)
-            # worksheet281.write('O5', 'SEJ', body)
+            # worksheet281.write('O5', 'GEO', body)
             # worksheet281.write('P5', 'JML', body)
             #
 
@@ -16275,12 +16275,12 @@
             # worksheet281.write('G22', 'MAT. WJB.', body)
             # worksheet281.write('H22', 'IND', body)
             # worksheet281.write('I22', 'ENG', body)
-            # worksheet281.write('J22', 'SEJ', body)
+            # worksheet281.write('J22', 'GEO', body)
             # worksheet281.write('K22', 'JML', body)
             # worksheet281.write('L22', 'MAT. WJB.', body)
             # worksheet281.write('M22', 'IND', body)
             # worksheet281.write('N22', 'ENG', body)
-            # worksheet281.write('O22', 'SEJ', body)
+            # worksheet281.write('O22', 'GEO', body)
             # worksheet281.write('P22', 'JML', body)
             #
             # worksheet281.conditional_format(22,0,row281+21,15,
@@ -16312,12 +16312,12 @@
             worksheet282.write('G5', 'MAT. WJB.', body)
             worksheet282.write('H5', 'IND', body)
             worksheet282.write('I5', 'ENG', body)
-            worksheet282.write('J5', 'SEJ', body)
+            worksheet282.write('J5', 'GEO', body)
             worksheet282.write('K5', 'JML', body)
             worksheet282.write('L5', 'MAT. WJB.', body)
             worksheet282.write('M5', 'IND', body)
             worksheet282.write('N5', 'ENG', body)
-            worksheet282.write('O5', 'SEJ', body)
+            worksheet282.write('O5', 'GEO', body)
             worksheet282.write('P5', 'JML', body)
 
             worksheet282.conditional_format(5, 0, row282_10+4, 15,
@@ -16340,12 +16340,12 @@
             worksheet282.write('G22', 'MAT. WJB.', body)
             worksheet282.write('H22', 'IND', body)
             worksheet282.write('I22', 'ENG', body)
-            worksheet282.write('J22', 'SEJ', body)
+            worksheet282.write('J22', 'GEO', body)
             worksheet282.write('K22', 'JML', body)
             worksheet282.write('L22', 'MAT. WJB.', body)
             worksheet282.write('M22', 'IND', body)
             worksheet282.write('N22', 'ENG', body)
-            worksheet282.write('O22', 'SEJ', body)
+            worksheet282.write('O22', 'GEO', body)
             worksheet282.write('P22', 'JML', body)
 
             worksheet282.conditional_format(22, 0, row282+21, 15,
@@ -16377,12 +16377,12 @@
             worksheet283.write('G5', 'MAT. WJB.', body)
             worksheet283.write('H5', 'IND', body)
             worksheet283.write('I5', 'ENG', body)
-            worksheet283.write('J5', 'SEJ', body)
+            worksheet283.write('J5', 'GEO', body)
             worksheet283.write('K5', 'JML', body)
             worksheet283.write('L5', 'MAT. WJB.', body)
             worksheet283.write('M5', 'IND', body)
             worksheet283.write('N5', 'ENG', body)
-            worksheet283.write('O5', 'SEJ', body)
+            worksheet283.write('O5', 'GEO', body)
             worksheet283.write('P5', 'JML', body)
 
             worksheet283.conditional_format(5, 0, row283_10+4, 15,
@@ -16405,12 +16405,12 @@
             worksheet283.write('G22', 'MAT. WJB.', body)
             worksheet283.write('H22', 'IND', body)
             worksheet283.write('I22', 'ENG', body)
-            worksheet283.write('J22', 'SEJ', body)
+            worksheet283.write('J22', 'GEO', body)
             worksheet283.write('K22', 'JML', body)
             worksheet283.write('L22', 'MAT. WJB.', body)
             worksheet283.write('M22', 'IND', body)
             worksheet283.write('N22', 'ENG', body)
-            worksheet283.write('O22', 'SEJ', body)
+            worksheet283.write('O22', 'GEO', body)
             worksheet283.write('P22', 'JML', body)
 
             worksheet283.conditional_format(22, 0, row283+21, 15,
@@ -16442,12 +16442,12 @@
             worksheet284.write('G5', 'MAT. WJB.', body)
             worksheet284.write('H5', 'IND', body)
             worksheet284.write('I5', 'ENG', body)
-            worksheet284.write('J5', 'SEJ', body)
+            worksheet284.write('J5', 'GEO', body)
             worksheet284.write('K5', 'JML', body)
             worksheet284.write('L5', 'MAT. WJB.', body)
             worksheet284.write('M5', 'IND', body)
             worksheet284.write('N5', 'ENG', body)
-            worksheet284.write('O5', 'SEJ', body)
+            worksheet284.write('O5', 'GEO', body)
             worksheet284.write('P5', 'JML', body)
 
             worksheet284.conditional_format(5, 0, row284_10+4, 15,
@@ -16470,12 +16470,12 @@
             worksheet284.write('G22', 'MAT. WJB.', body)
             worksheet284.write('H22', 'IND', body)
             worksheet284.write('I22', 'ENG', body)
-            worksheet284.write('J22', 'SEJ', body)
+            worksheet284.write('J22', 'GEO', body)
             worksheet284.write('K22', 'JML', body)
             worksheet284.write('L22', 'MAT. WJB.', body)
             worksheet284.write('M22', 'IND', body)
             worksheet284.write('N22', 'ENG', body)
-            worksheet284.write('O22', 'SEJ', body)
+            worksheet284.write('O22', 'GEO', body)
             worksheet284.write('P22', 'JML', body)
 
             worksheet284.conditional_format(22, 0, row284+21, 15,
@@ -16507,12 +16507,12 @@
             worksheet285.write('G5', 'MAT. WJB.', body)
             worksheet285.write('H5', 'IND', body)
             worksheet285.write('I5', 'ENG', body)
-            worksheet285.write('J5', 'SEJ', body)
+            worksheet285.write('J5', 'GEO', body)
             worksheet285.write('K5', 'JML', body)
             worksheet285.write('L5', 'MAT. WJB.', body)
             worksheet285.write('M5', 'IND', body)
             worksheet285.write('N5', 'ENG', body)
-            worksheet285.write('O5', 'SEJ', body)
+            worksheet285.write('O5', 'GEO', body)
             worksheet285.write('P5', 'JML', body)
 
             worksheet285.conditional_format(5, 0, row285_10+4, 15,
@@ -16535,12 +16535,12 @@
             worksheet285.write('G22', 'MAT. WJB.', body)
             worksheet285.write('H22', 'IND', body)
             worksheet285.write('I22', 'ENG', body)
-            worksheet285.write('J22', 'SEJ', body)
+            worksheet285.write('J22', 'GEO', body)
             worksheet285.write('K22', 'JML', body)
             worksheet285.write('L22', 'MAT. WJB.', body)
             worksheet285.write('M22', 'IND', body)
             worksheet285.write('N22', 'ENG', body)
-            worksheet285.write('O22', 'SEJ', body)
+            worksheet285.write('O22', 'GEO', body)
             worksheet285.write('P22', 'JML', body)
 
             worksheet285.conditional_format(22, 0, row285+21, 15,
@@ -16572,12 +16572,12 @@
             worksheet286.write('G5', 'MAT. WJB.', body)
             worksheet286.write('H5', 'IND', body)
             worksheet286.write('I5', 'ENG', body)
-            worksheet286.write('J5', 'SEJ', body)
+            worksheet286.write('J5', 'GEO', body)
             worksheet286.write('K5', 'JML', body)
             worksheet286.write('L5', 'MAT. WJB.', body)
             worksheet286.write('M5', 'IND', body)
             worksheet286.write('N5', 'ENG', body)
-            worksheet286.write('O5', 'SEJ', body)
+            worksheet286.write('O5', 'GEO', body)
             worksheet286.write('P5', 'JML', body)
 
             worksheet286.conditional_format(5, 0, row286_10+4, 15,
@@ -16600,12 +16600,12 @@
             worksheet286.write('G22', 'MAT. WJB.', body)
             worksheet286.write('H22', 'IND', body)
             worksheet286.write('I22', 'ENG', body)
-            worksheet286.write('J22', 'SEJ', body)
+            worksheet286.write('J22', 'GEO', body)
             worksheet286.write('K22', 'JML', body)
             worksheet286.write('L22', 'MAT. WJB.', body)
             worksheet286.write('M22', 'IND', body)
             worksheet286.write('N22', 'ENG', body)
-            worksheet286.write('O22', 'SEJ', body)
+            worksheet286.write('O22', 'GEO', body)
             worksheet286.write('P22', 'JML', body)
 
             worksheet286.conditional_format(22, 0, row286+21, 15,
@@ -16637,12 +16637,12 @@
             worksheet287.write('G5', 'MAT. WJB.', body)
             worksheet287.write('H5', 'IND', body)
             worksheet287.write('I5', 'ENG', body)
-            worksheet287.write('J5', 'SEJ', body)
+            worksheet287.write('J5', 'GEO', body)
             worksheet287.write('K5', 'JML', body)
             worksheet287.write('L5', 'MAT. WJB.', body)
             worksheet287.write('M5', 'IND', body)
             worksheet287.write('N5', 'ENG', body)
-            worksheet287.write('O5', 'SEJ', body)
+            worksheet287.write('O5', 'GEO', body)
             worksheet287.write('P5', 'JML', body)
 
             worksheet287.conditional_format(5, 0, row287_10+4, 15,
@@ -16665,12 +16665,12 @@
             worksheet287.write('G22', 'MAT. WJB.', body)
             worksheet287.write('H22', 'IND', body)
             worksheet287.write('I22', 'ENG', body)
-            worksheet287.write('J22', 'SEJ', body)
+            worksheet287.write('J22', 'GEO', body)
             worksheet287.write('K22', 'JML', body)
             worksheet287.write('L22', 'MAT. WJB.', body)
             worksheet287.write('M22', 'IND', body)
             worksheet287.write('N22', 'ENG', body)
-            worksheet287.write('O22', 'SEJ', body)
+            worksheet287.write('O22', 'GEO', body)
             worksheet287.write('P22', 'JML', body)
 
             worksheet287.conditional_format(22, 0, row287+21, 15,
@@ -16702,12 +16702,12 @@
             worksheet288.write('G5', 'MAT. WJB.', body)
             worksheet288.write('H5', 'IND', body)
             worksheet288.write('I5', 'ENG', body)
-            worksheet288.write('J5', 'SEJ', body)
+            worksheet288.write('J5', 'GEO', body)
             worksheet288.write('K5', 'JML', body)
             worksheet288.write('L5', 'MAT. WJB.', body)
             worksheet288.write('M5', 'IND', body)
             worksheet288.write('N5', 'ENG', body)
-            worksheet288.write('O5', 'SEJ', body)
+            worksheet288.write('O5', 'GEO', body)
             worksheet288.write('P5', 'JML', body)
 
             worksheet288.conditional_format(5, 0, row288_10+4, 15,
@@ -16730,12 +16730,12 @@
             worksheet288.write('G22', 'MAT. WJB.', body)
             worksheet288.write('H22', 'IND', body)
             worksheet288.write('I22', 'ENG', body)
-            worksheet288.write('J22', 'SEJ', body)
+            worksheet288.write('J22', 'GEO', body)
             worksheet288.write('K22', 'JML', body)
             worksheet288.write('L22', 'MAT. WJB.', body)
             worksheet288.write('M22', 'IND', body)
             worksheet288.write('N22', 'ENG', body)
-            worksheet288.write('O22', 'SEJ', body)
+            worksheet288.write('O22', 'GEO', body)
             worksheet288.write('P22', 'JML', body)
 
             worksheet288.conditional_format(22, 0, row288+21, 15,
@@ -16767,12 +16767,12 @@
             worksheet289.write('G5', 'MAT. WJB.', body)
             worksheet289.write('H5', 'IND', body)
             worksheet289.write('I5', 'ENG', body)
-            worksheet289.write('J5', 'SEJ', body)
+            worksheet289.write('J5', 'GEO', body)
             worksheet289.write('K5', 'JML', body)
             worksheet289.write('L5', 'MAT. WJB.', body)
             worksheet289.write('M5', 'IND', body)
             worksheet289.write('N5', 'ENG', body)
-            worksheet289.write('O5', 'SEJ', body)
+            worksheet289.write('O5', 'GEO', body)
             worksheet289.write('P5', 'JML', body)
 
             worksheet289.conditional_format(5, 0, row289_10+4, 15,
@@ -16795,12 +16795,12 @@
             worksheet289.write('G22', 'MAT. WJB.', body)
             worksheet289.write('H22', 'IND', body)
             worksheet289.write('I22', 'ENG', body)
-            worksheet289.write('J22', 'SEJ', body)
+            worksheet289.write('J22', 'GEO', body)
             worksheet289.write('K22', 'JML', body)
             worksheet289.write('L22', 'MAT. WJB.', body)
             worksheet289.write('M22', 'IND', body)
             worksheet289.write('N22', 'ENG', body)
-            worksheet289.write('O22', 'SEJ', body)
+            worksheet289.write('O22', 'GEO', body)
             worksheet289.write('P22', 'JML', body)
 
             worksheet289.conditional_format(22, 0, row289+21, 15,
@@ -16832,12 +16832,12 @@
             worksheet290.write('G5', 'MAT. WJB.', body)
             worksheet290.write('H5', 'IND', body)
             worksheet290.write('I5', 'ENG', body)
-            worksheet290.write('J5', 'SEJ', body)
+            worksheet290.write('J5', 'GEO', body)
             worksheet290.write('K5', 'JML', body)
             worksheet290.write('L5', 'MAT. WJB.', body)
             worksheet290.write('M5', 'IND', body)
             worksheet290.write('N5', 'ENG', body)
-            worksheet290.write('O5', 'SEJ', body)
+            worksheet290.write('O5', 'GEO', body)
             worksheet290.write('P5', 'JML', body)
 
             worksheet290.conditional_format(5, 0, row290_10+4, 15,
@@ -16860,12 +16860,12 @@
             worksheet290.write('G22', 'MAT. WJB.', body)
             worksheet290.write('H22', 'IND', body)
             worksheet290.write('I22', 'ENG', body)
-            worksheet290.write('J22', 'SEJ', body)
+            worksheet290.write('J22', 'GEO', body)
             worksheet290.write('K22', 'JML', body)
             worksheet290.write('L22', 'MAT. WJB.', body)
             worksheet290.write('M22', 'IND', body)
             worksheet290.write('N22', 'ENG', body)
-            worksheet290.write('O22', 'SEJ', body)
+            worksheet290.write('O22', 'GEO', body)
             worksheet290.write('P22', 'JML', body)
 
             worksheet290.conditional_format(22, 0, row290+21, 15,
@@ -16897,12 +16897,12 @@
             worksheet291.write('G5', 'MAT. WJB.', body)
             worksheet291.write('H5', 'IND', body)
             worksheet291.write('I5', 'ENG', body)
-            worksheet291.write('J5', 'SEJ', body)
+            worksheet291.write('J5', 'GEO', body)
             worksheet291.write('K5', 'JML', body)
             worksheet291.write('L5', 'MAT. WJB.', body)
             worksheet291.write('M5', 'IND', body)
             worksheet291.write('N5', 'ENG', body)
-            worksheet291.write('O5', 'SEJ', body)
+            worksheet291.write('O5', 'GEO', body)
             worksheet291.write('P5', 'JML', body)
 
             worksheet291.conditional_format(5, 0, row291_10+4, 15,
@@ -16925,12 +16925,12 @@
             worksheet291.write('G22', 'MAT. WJB.', body)
             worksheet291.write('H22', 'IND', body)
             worksheet291.write('I22', 'ENG', body)
-            worksheet291.write('J22', 'SEJ', body)
+            worksheet291.write('J22', 'GEO', body)
             worksheet291.write('K22', 'JML', body)
             worksheet291.write('L22', 'MAT. WJB.', body)
             worksheet291.write('M22', 'IND', body)
             worksheet291.write('N22', 'ENG', body)
-            worksheet291.write('O22', 'SEJ', body)
+            worksheet291.write('O22', 'GEO', body)
             worksheet291.write('P22', 'JML', body)
 
             worksheet291.conditional_format(22, 0, row291+21, 15,
@@ -16962,12 +16962,12 @@
             worksheet292.write('G5', 'MAT. WJB.', body)
             worksheet292.write('H5', 'IND', body)
             worksheet292.write('I5', 'ENG', body)
-            worksheet292.write('J5', 'SEJ', body)
+            worksheet292.write('J5', 'GEO', body)
             worksheet292.write('K5', 'JML', body)
             worksheet292.write('L5', 'MAT. WJB.', body)
             worksheet292.write('M5', 'IND', body)
             worksheet292.write('N5', 'ENG', body)
-            worksheet292.write('O5', 'SEJ', body)
+            worksheet292.write('O5', 'GEO', body)
             worksheet292.write('P5', 'JML', body)
 
             worksheet292.conditional_format(5, 0, row292_10+4, 15,
@@ -16990,12 +16990,12 @@
             worksheet292.write('G22', 'MAT. WJB.', body)
             worksheet292.write('H22', 'IND', body)
             worksheet292.write('I22', 'ENG', body)
-            worksheet292.write('J22', 'SEJ', body)
+            worksheet292.write('J22', 'GEO', body)
             worksheet292.write('K22', 'JML', body)
             worksheet292.write('L22', 'MAT. WJB.', body)
             worksheet292.write('M22', 'IND', body)
             worksheet292.write('N22', 'ENG', body)
-            worksheet292.write('O22', 'SEJ', body)
+            worksheet292.write('O22', 'GEO', body)
             worksheet292.write('P22', 'JML', body)
 
             worksheet292.conditional_format(22, 0, row292+21, 15,
@@ -17027,12 +17027,12 @@
             worksheet293.write('G5', 'MAT. WJB.', body)
             worksheet293.write('H5', 'IND', body)
             worksheet293.write('I5', 'ENG', body)
-            worksheet293.write('J5', 'SEJ', body)
+            worksheet293.write('J5', 'GEO', body)
             worksheet293.write('K5', 'JML', body)
             worksheet293.write('L5', 'MAT. WJB.', body)
             worksheet293.write('M5', 'IND', body)
             worksheet293.write('N5', 'ENG', body)
-            worksheet293.write('O5', 'SEJ', body)
+            worksheet293.write('O5', 'GEO', body)
             worksheet293.write('P5', 'JML', body)
 
             worksheet293.conditional_format(5, 0, row293_10+4, 15,
@@ -17055,12 +17055,12 @@
             worksheet293.write('G22', 'MAT. WJB.', body)
             worksheet293.write('H22', 'IND', body)
             worksheet293.write('I22', 'ENG', body)
-            worksheet293.write('J22', 'SEJ', body)
+            worksheet293.write('J22', 'GEO', body)
             worksheet293.write('K22', 'JML', body)
             worksheet293.write('L22', 'MAT. WJB.', body)
             worksheet293.write('M22', 'IND', body)
             worksheet293.write('N22', 'ENG', body)
-            worksheet293.write('O22', 'SEJ', body)
+            worksheet293.write('O22', 'GEO', body)
             worksheet293.write('P22', 'JML', body)
 
             worksheet293.conditional_format(22, 0, row293+21, 15,
@@ -17092,12 +17092,12 @@
             worksheet294.write('G5', 'MAT. WJB.', body)
             worksheet294.write('H5', 'IND', body)
             worksheet294.write('I5', 'ENG', body)
-            worksheet294.write('J5', 'SEJ', body)
+            worksheet294.write('J5', 'GEO', body)
             worksheet294.write('K5', 'JML', body)
             worksheet294.write('L5', 'MAT. WJB.', body)
             worksheet294.write('M5', 'IND', body)
             worksheet294.write('N5', 'ENG', body)
-            worksheet294.write('O5', 'SEJ', body)
+            worksheet294.write('O5', 'GEO', body)
             worksheet294.write('P5', 'JML', body)
 
             worksheet294.conditional_format(5, 0, row294_10+4, 15,
@@ -17120,12 +17120,12 @@
             worksheet294.write('G22', 'MAT. WJB.', body)
             worksheet294.write('H22', 'IND', body)
             worksheet294.write('I22', 'ENG', body)
-            worksheet294.write('J22', 'SEJ', body)
+            worksheet294.write('J22', 'GEO', body)
             worksheet294.write('K22', 'JML', body)
             worksheet294.write('L22', 'MAT. WJB.', body)
             worksheet294.write('M22', 'IND', body)
             worksheet294.write('N22', 'ENG', body)
-            worksheet294.write('O22', 'SEJ', body)
+            worksheet294.write('O22', 'GEO', body)
             worksheet294.write('P22', 'JML', body)
 
             worksheet294.conditional_format(22, 0, row294+21, 15,
@@ -17157,12 +17157,12 @@
             worksheet295.write('G5', 'MAT. WJB.', body)
             worksheet295.write('H5', 'IND', body)
             worksheet295.write('I5', 'ENG', body)
-            worksheet295.write('J5', 'SEJ', body)
+            worksheet295.write('J5', 'GEO', body)
             worksheet295.write('K5', 'JML', body)
             worksheet295.write('L5', 'MAT. WJB.', body)
             worksheet295.write('M5', 'IND', body)
             worksheet295.write('N5', 'ENG', body)
-            worksheet295.write('O5', 'SEJ', body)
+            worksheet295.write('O5', 'GEO', body)
             worksheet295.write('P5', 'JML', body)
 
             worksheet295.conditional_format(5, 0, row295_10+4, 15,
@@ -17185,12 +17185,12 @@
             worksheet295.write('G22', 'MAT. WJB.', body)
             worksheet295.write('H22', 'IND', body)
             worksheet295.write('I22', 'ENG', body)
-            worksheet295.write('J22', 'SEJ', body)
+            worksheet295.write('J22', 'GEO', body)
             worksheet295.write('K22', 'JML', body)
             worksheet295.write('L22', 'MAT. WJB.', body)
             worksheet295.write('M22', 'IND', body)
             worksheet295.write('N22', 'ENG', body)
-            worksheet295.write('O22', 'SEJ', body)
+            worksheet295.write('O22', 'GEO', body)
             worksheet295.write('P22', 'JML', body)
 
             worksheet295.conditional_format(22, 0, row295+21, 15,
@@ -17219,12 +17219,12 @@
             # worksheet296.write('G5', 'MAT. WJB.', body)
             # worksheet296.write('H5', 'IND', body)
             # worksheet296.write('I5', 'ENG', body)
-            # worksheet296.write('J5', 'SEJ', body)
+            # worksheet296.write('J5', 'GEO', body)
             # worksheet296.write('K5', 'JML', body)
             # worksheet296.write('L5', 'MAT. WJB.', body)
             # worksheet296.write('M5', 'IND', body)
             # worksheet296.write('N5', 'ENG', body)
-            # worksheet296.write('O5', 'SEJ', body)
+            # worksheet296.write('O5', 'GEO', body)
             # worksheet296.write('P5', 'JML', body)
             #
 
@@ -17245,12 +17245,12 @@
             # worksheet296.write('G22', 'MAT. WJB.', body)
             # worksheet296.write('H22', 'IND', body)
             # worksheet296.write('I22', 'ENG', body)
-            # worksheet296.write('J22', 'SEJ', body)
+            # worksheet296.write('J22', 'GEO', body)
             # worksheet296.write('K22', 'JML', body)
             # worksheet296.write('L22', 'MAT. WJB.', body)
             # worksheet296.write('M22', 'IND', body)
             # worksheet296.write('N22', 'ENG', body)
-            # worksheet296.write('O22', 'SEJ', body)
+            # worksheet296.write('O22', 'GEO', body)
             # worksheet296.write('P22', 'JML', body)
             #
             # worksheet296.conditional_format(22,0,row296+21,15,
@@ -17279,12 +17279,12 @@
             # worksheet297.write('G5', 'MAT. WJB.', body)
             # worksheet297.write('H5', 'IND', body)
             # worksheet297.write('I5', 'ENG', body)
-            # worksheet297.write('J5', 'SEJ', body)
+            # worksheet297.write('J5', 'GEO', body)
             # worksheet297.write('K5', 'JML', body)
             # worksheet297.write('L5', 'MAT. WJB.', body)
             # worksheet297.write('M5', 'IND', body)
             # worksheet297.write('N5', 'ENG', body)
-            # worksheet297.write('O5', 'SEJ', body)
+            # worksheet297.write('O5', 'GEO', body)
             # worksheet297.write('P5', 'JML', body)
             #
 
@@ -17305,12 +17305,12 @@
             # worksheet297.write('G22', 'MAT. WJB.', body)
             # worksheet297.write('H22', 'IND', body)
             # worksheet297.write('I22', 'ENG', body)
-            # worksheet297.write('J22', 'SEJ', body)
+            # worksheet297.write('J22', 'GEO', body)
             # worksheet297.write('K22', 'JML', body)
             # worksheet297.write('L22', 'MAT. WJB.', body)
             # worksheet297.write('M22', 'IND', body)
             # worksheet297.write('N22', 'ENG', body)
-            # worksheet297.write('O22', 'SEJ', body)
+            # worksheet297.write('O22', 'GEO', body)
             # worksheet297.write('P22', 'JML', body)
             #
             # worksheet297.conditional_format(22,0,row297+21,15,
@@ -17342,12 +17342,12 @@
             worksheet298.write('G5', 'MAT. WJB.', body)
             worksheet298.write('H5', 'IND', body)
             worksheet298.write('I5', 'ENG', body)
-            worksheet298.write('J5', 'SEJ', body)
+            worksheet298.write('J5', 'GEO', body)
             worksheet298.write('K5', 'JML', body)
             worksheet298.write('L5', 'MAT. WJB.', body)
             worksheet298.write('M5', 'IND', body)
             worksheet298.write('N5', 'ENG', body)
-            worksheet298.write('O5', 'SEJ', body)
+            worksheet298.write('O5', 'GEO', body)
             worksheet298.write('P5', 'JML', body)
 
             worksheet298.conditional_format(5, 0, row298_10+4, 15,
@@ -17370,12 +17370,12 @@
             worksheet298.write('G22', 'MAT. WJB.', body)
             worksheet298.write('H22', 'IND', body)
             worksheet298.write('I22', 'ENG', body)
-            worksheet298.write('J22', 'SEJ', body)
+            worksheet298.write('J22', 'GEO', body)
             worksheet298.write('K22', 'JML', body)
             worksheet298.write('L22', 'MAT. WJB.', body)
             worksheet298.write('M22', 'IND', body)
             worksheet298.write('N22', 'ENG', body)
-            worksheet298.write('O22', 'SEJ', body)
+            worksheet298.write('O22', 'GEO', body)
             worksheet298.write('P22', 'JML', body)
 
             worksheet298.conditional_format(22, 0, row298+21, 15,
@@ -17407,12 +17407,12 @@
             worksheet299.write('G5', 'MAT. WJB.', body)
             worksheet299.write('H5', 'IND', body)
             worksheet299.write('I5', 'ENG', body)
-            worksheet299.write('J5', 'SEJ', body)
+            worksheet299.write('J5', 'GEO', body)
             worksheet299.write('K5', 'JML', body)
             worksheet299.write('L5', 'MAT. WJB.', body)
             worksheet299.write('M5', 'IND', body)
             worksheet299.write('N5', 'ENG', body)
-            worksheet299.write('O5', 'SEJ', body)
+            worksheet299.write('O5', 'GEO', body)
             worksheet299.write('P5', 'JML', body)
 
             worksheet299.conditional_format(5, 0, row299_10+4, 15,
@@ -17435,12 +17435,12 @@
             worksheet299.write('G22', 'MAT. WJB.', body)
             worksheet299.write('H22', 'IND', body)
             worksheet299.write('I22', 'ENG', body)
-            worksheet299.write('J22', 'SEJ', body)
+            worksheet299.write('J22', 'GEO', body)
             worksheet299.write('K22', 'JML', body)
             worksheet299.write('L22', 'MAT. WJB.', body)
             worksheet299.write('M22', 'IND', body)
             worksheet299.write('N22', 'ENG', body)
-            worksheet299.write('O22', 'SEJ', body)
+            worksheet299.write('O22', 'GEO', body)
             worksheet299.write('P22', 'JML', body)
 
             worksheet299.conditional_format(22, 0, row299+21, 15,
@@ -17475,21 +17475,21 @@
             rata_mat_wjb = df.iloc[r, len_col-20]
             rata_ind = df.iloc[r, len_col-19]
             rata_eng = df.iloc[r, len_col-18]
-            rata_sej = df.iloc[r, len_col-17]
+            rata_geo = df.iloc[r, len_col-17]
             rata_jml = df.iloc[r, len_col-16]
 
             # rata-rata nilai standar
             rata_Smat_wjb = df.iloc[t, len_col-11]
             rata_Sind = df.iloc[t, len_col-10]
             rata_Seng = df.iloc[t, len_col-9]
-            rata_Ssej = df.iloc[t, len_col-8]
+            rata_Sgeo = df.iloc[t, len_col-8]
             rata_Sjml = df.iloc[t, len_col-7]
 
             # max jumlah benar
             max_mat_wjb = df.iloc[t, len_col-20]
             max_ind = df.iloc[t, len_col-19]
             max_eng = df.iloc[t, len_col-18]
-            max_sej = df.iloc[t, len_col-17]
+            max_geo = df.iloc[t, len_col-17]
             max_jml = df.iloc[t, len_col-16]
 
             # max nilai standar
@@ -17503,27 +17503,27 @@
             min_mat_wjb = df.iloc[u, len_col-20]
             min_ind = df.iloc[u, len_col-19]
             min_eng = df.iloc[u, len_col-18]
-            min_sej = df.iloc[u, len_col-17]
+            min_geo = df.iloc[u, len_col-17]
             min_jml = df.iloc[u, len_col-16]
 
             # min nilai standar
             min_Smat_wjb = df.iloc[s, len_col-11]
             min_Sind = df.iloc[s, len_col-10]
             min_Seng = df.iloc[s, len_col-9]
-            min_Ssej = df.iloc[s, len_col-8]
+            min_Sgeo = df.iloc[s, len_col-8]
             min_Sjml = df.iloc[s, len_col-7]
 
-            data_jml_benar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'SEJARAH (SEJ)', 'JUMLAH (JML)'],
-                              'TERENDAH': [min_mat_wjb, min_ind, min_eng, min_sej, min_jml],
-                              'RATA-RATA': [rata_mat_wjb, rata_ind, rata_eng, rata_sej, rata_jml],
-                              'TERTINGGI': [max_mat_wjb, max_ind, max_eng, max_sej, max_jml]}
+            data_jml_benar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'GEOGRAFI (GEO)', 'JUMLAH (JML)'],
+                              'TERENDAH': [min_mat_wjb, min_ind, min_eng, min_geo, min_jml],
+                              'RATA-RATA': [rata_mat_wjb, rata_ind, rata_eng, rata_geo, rata_jml],
+                              'TERTINGGI': [max_mat_wjb, max_ind, max_eng, max_geo, max_jml]}
 
             jml_benar = pd.DataFrame(data_jml_benar)
 
-            data_n_standar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'SEJARAH (SEJ)', 'JUMLAH (JML)'],
-                              'TERENDAH': [min_Smat_wjb, min_Sind, min_Seng, min_Ssej, min_Sjml],
-                              'RATA-RATA': [rata_Smat_wjb, rata_Sind, rata_Seng, rata_Ssej, rata_Sjml],
-                              'TERTINGGI': [max_Smat_wjb, max_Sind, max_Seng, max_Ssej, max_Sjml]}
+            data_n_standar = {'BIDANG STUDI': ['MAT. WAJIB (MAT. WJB.)', 'B. INDONESIA (IND)', 'B. INGGRIS (ENG)', 'GEOGRAFI (GEO)', 'JUMLAH (JML)'],
+                              'TERENDAH': [min_Smat_wjb, min_Sind, min_Seng, min_Sgeo, min_Sjml],
+                              'RATA-RATA': [rata_Smat_wjb, rata_Sind, rata_Seng, rata_Sgeo, rata_Sjml],
+                              'TERTINGGI': [max_Smat_wjb, max_Sind, max_Seng, max_Sgeo, max_Sjml]}
 
             n_standar = pd.DataFrame(data_n_standar)
 
@@ -17531,13 +17531,13 @@
 
             jml_peserta = pd.DataFrame(data_jml_peserta)
 
-            data_jml_soal = {'BIDANG STUDI': ['MAT. WJB.', 'IND', 'ENG', 'SEJ'],
-                             'JUMLAH': [JML_SOAL_MAT_WJB, JML_SOAL_IND, JML_SOAL_ENG, JML_SOAL_SEJ]}
+            data_jml_soal = {'BIDANG STUDI': ['MAT. WJB.', 'IND', 'ENG', 'GEO'],
+                             'JUMLAH': [JML_SOAL_MAT_WJB, JML_SOAL_IND, JML_SOAL_ENG, JML_SOAL_GEO]}
 
             jml_soal = pd.DataFrame(data_jml_soal)
 
             df = df[['LOKASI', 'RANK LOK.', 'RANK NAS.', 'NOMOR NF', 'NAMA SISWA', 'NAMA SEKOLAH',
-                    'KELAS', 'MAT_WJB', 'IND', 'ENG', 'SEJ', 'JML', 'S_MAT_WJB', 'S_IND', 'S_ENG', 'S_SEJ', 'S_JML']]
+                    'KELAS', 'MAT_WJB', 'IND', 'ENG', 'GEO', 'JML', 'S_MAT_WJB', 'S_IND', 'S_ENG', 'S_GEO', 'S_JML']]
 
             # sort best 150
             grouped = df.groupby('LOKASI')
@@ -18447,12 +18447,12 @@
             worksheetbest.write('F5', 'MAT. WJB.', body)
             worksheetbest.write('G5', 'IND', body)
             worksheetbest.write('H5', 'ENG', body)
-            worksheetbest.write('I5', 'SEJ', body)
+            worksheetbest.write('I5', 'GEO', body)
             worksheetbest.write('J5', 'JML', body)
             worksheetbest.write('K5', 'MAT. WJB.', body)
             worksheetbest.write('L5', 'IND', body)
             worksheetbest.write('M5', 'ENG', body)
-            worksheetbest.write('N5', 'SEJ', body)
+            worksheetbest.write('N5', 'GEO', body)
             worksheetbest.write('O5', 'JML', body)
 
             worksheetbest.conditional_format(5, 0, rowBest150_all+4, 14,
@@ -18484,12 +18484,12 @@
             worksheet530.write('G5', 'MAT. WJB.', body)
             worksheet530.write('H5', 'IND', body)
             worksheet530.write('I5', 'ENG', body)
-            worksheet530.write('J5', 'SEJ', body)
+            worksheet530.write('J5', 'GEO', body)
             worksheet530.write('K5', 'JML', body)
             worksheet530.write('L5', 'MAT. WJB.', body)
             worksheet530.write('M5', 'IND', body)
             worksheet530.write('N5', 'ENG', body)
-            worksheet530.write('O5', 'SEJ', body)
+            worksheet530.write('O5', 'GEO', body)
             worksheet530.write('P5', 'JML', body)
 
             worksheet530.conditional_format(5, 0, row530_10+4, 15,
@@ -18512,12 +18512,12 @@
             worksheet530.write('G22', 'MAT. WJB.', body)
             worksheet530.write('H22', 'IND', body)
             worksheet530.write('I22', 'ENG', body)
-            worksheet530.write('J22', 'SEJ', body)
+            worksheet530.write('J22', 'GEO', body)
             worksheet530.write('K22', 'JML', body)
             worksheet530.write('L22', 'MAT. WJB.', body)
             worksheet530.write('M22', 'IND', body)
             worksheet530.write('N22', 'ENG', body)
-            worksheet530.write('O22', 'SEJ', body)
+            worksheet530.write('O22', 'GEO', body)
             worksheet530.write('P22', 'JML', body)
 
             worksheet530.conditional_format(22, 0, row530+21, 15,
@@ -18549,12 +18549,12 @@
             worksheet531.write('G5', 'MAT. WJB.', body)
             worksheet531.write('H5', 'IND', body)
             worksheet531.write('I5', 'ENG', body)
-            worksheet531.write('J5', 'SEJ', body)
+            worksheet531.write('J5', 'GEO', body)
             worksheet531.write('K5', 'JML', body)
             worksheet531.write('L5', 'MAT. WJB.', body)
             worksheet531.write('M5', 'IND', body)
             worksheet531.write('N5', 'ENG', body)
-            worksheet531.write('O5', 'SEJ', body)
+            worksheet531.write('O5', 'GEO', body)
             worksheet531.write('P5', 'JML', body)
 
             worksheet531.conditional_format(5, 0, row531_10+4, 15,
@@ -18577,12 +18577,12 @@
             worksheet531.write('G22', 'MAT. WJB.', body)
             worksheet531.write('H22', 'IND', body)
             worksheet531.write('I22', 'ENG', body)
-            worksheet531.write('J22', 'SEJ', body)
+            worksheet531.write('J22', 'GEO', body)
             worksheet531.write('K22', 'JML', body)
             worksheet531.write('L22', 'MAT. WJB.', body)
             worksheet531.write('M22', 'IND', body)
             worksheet531.write('N22', 'ENG', body)
-            worksheet531.write('O22', 'SEJ', body)
+            worksheet531.write('O22', 'GEO', body)
             worksheet531.write('P22', 'JML', body)
 
             worksheet531.conditional_format(22, 0, row531+21, 15,
@@ -18614,12 +18614,12 @@
             worksheet532.write('G5', 'MAT. WJB.', body)
             worksheet532.write('H5', 'IND', body)
             worksheet532.write('I5', 'ENG', body)
-            worksheet532.write('J5', 'SEJ', body)
+            worksheet532.write('J5', 'GEO', body)
             worksheet532.write('K5', 'JML', body)
             worksheet532.write('L5', 'MAT. WJB.', body)
             worksheet532.write('M5', 'IND', body)
             worksheet532.write('N5', 'ENG', body)
-            worksheet532.write('O5', 'SEJ', body)
+            worksheet532.write('O5', 'GEO', body)
             worksheet532.write('P5', 'JML', body)
 
             worksheet532.conditional_format(5, 0, row532_10+4, 15,
@@ -18642,12 +18642,12 @@
             worksheet532.write('G22', 'MAT. WJB.', body)
             worksheet532.write('H22', 'IND', body)
             worksheet532.write('I22', 'ENG', body)
-            worksheet532.write('J22', 'SEJ', body)
+            worksheet532.write('J22', 'GEO', body)
             worksheet532.write('K22', 'JML', body)
             worksheet532.write('L22', 'MAT. WJB.', body)
             worksheet532.write('M22', 'IND', body)
             worksheet532.write('N22', 'ENG', body)
-            worksheet532.write('O22', 'SEJ', body)
+            worksheet532.write('O22', 'GEO', body)
             worksheet532.write('P22', 'JML', body)
 
             worksheet532.conditional_format(22, 0, row532+21, 15,
@@ -18679,12 +18679,12 @@
             worksheet533.write('G5', 'MAT. WJB.', body)
             worksheet533.write('H5', 'IND', body)
             worksheet533.write('I5', 'ENG', body)
-            worksheet533.write('J5', 'SEJ', body)
+            worksheet533.write('J5', 'GEO', body)
             worksheet533.write('K5', 'JML', body)
             worksheet533.write('L5', 'MAT. WJB.', body)
             worksheet533.write('M5', 'IND', body)
             worksheet533.write('N5', 'ENG', body)
-            worksheet533.write('O5', 'SEJ', body)
+            worksheet533.write('O5', 'GEO', body)
             worksheet533.write('P5', 'JML', body)
 
             worksheet533.conditional_format(5, 0, row533_10+4, 15,
@@ -18707,12 +18707,12 @@
             worksheet533.write('G22', 'MAT. WJB.', body)
             worksheet533.write('H22', 'IND', body)
             worksheet533.write('I22', 'ENG', body)
-            worksheet533.write('J22', 'SEJ', body)
+            worksheet533.write('J22', 'GEO', body)
             worksheet533.write('K22', 'JML', body)
             worksheet533.write('L22', 'MAT. WJB.', body)
             worksheet533.write('M22', 'IND', body)
             worksheet533.write('N22', 'ENG', body)
-            worksheet533.write('O22', 'SEJ', body)
+            worksheet533.write('O22', 'GEO', body)
             worksheet533.write('P22', 'JML', body)
 
             worksheet533.conditional_format(22, 0, row533+21, 15,
@@ -18744,12 +18744,12 @@
             worksheet534.write('G5', 'MAT. WJB.', body)
             worksheet534.write('H5', 'IND', body)
             worksheet534.write('I5', 'ENG', body)
-            worksheet534.write('J5', 'SEJ', body)
+            worksheet534.write('J5', 'GEO', body)
             worksheet534.write('K5', 'JML', body)
             worksheet534.write('L5', 'MAT. WJB.', body)
             worksheet534.write('M5', 'IND', body)
             worksheet534.write('N5', 'ENG', body)
-            worksheet534.write('O5', 'SEJ', body)
+            worksheet534.write('O5', 'GEO', body)
             worksheet534.write('P5', 'JML', body)
 
             worksheet534.conditional_format(5, 0, row534_10+4, 15,
@@ -18772,12 +18772,12 @@
             worksheet534.write('G22', 'MAT. WJB.', body)
             worksheet534.write('H22', 'IND', body)
             worksheet534.write('I22', 'ENG', body)
-            worksheet534.write('J22', 'SEJ', body)
+            worksheet534.write('J22', 'GEO', body)
             worksheet534.write('K22', 'JML', body)
             worksheet534.write('L22', 'MAT. WJB.', body)
             worksheet534.write('M22', 'IND', body)
             worksheet534.write('N22', 'ENG', body)
-            worksheet534.write('O22', 'SEJ', body)
+            worksheet534.write('O22', 'GEO', body)
             worksheet534.write('P22', 'JML', body)
 
             worksheet534.conditional_format(22, 0, row534+21, 15,
@@ -18809,12 +18809,12 @@
             worksheet535.write('G5', 'MAT. WJB.', body)
             worksheet535.write('H5', 'IND', body)
             worksheet535.write('I5', 'ENG', body)
-            worksheet535.write('J5', 'SEJ', body)
+            worksheet535.write('J5', 'GEO', body)
             worksheet535.write('K5', 'JML', body)
             worksheet535.write('L5', 'MAT. WJB.', body)
             worksheet535.write('M5', 'IND', body)
             worksheet535.write('N5', 'ENG', body)
-            worksheet535.write('O5', 'SEJ', body)
+            worksheet535.write('O5', 'GEO', body)
             worksheet535.write('P5', 'JML', body)
 
             worksheet535.conditional_format(5, 0, row535_10+4, 15,
@@ -18837,12 +18837,12 @@
             worksheet535.write('G22', 'MAT. WJB.', body)
             worksheet535.write('H22', 'IND', body)
             worksheet535.write('I22', 'ENG', body)
-            worksheet535.write('J22', 'SEJ', body)
+            worksheet535.write('J22', 'GEO', body)
             worksheet535.write('K22', 'JML', body)
             worksheet535.write('L22', 'MAT. WJB.', body)
             worksheet535.write('M22', 'IND', body)
             worksheet535.write('N22', 'ENG', body)
-            worksheet535.write('O22', 'SEJ', body)
+            worksheet535.write('O22', 'GEO', body)
             worksheet535.write('P22', 'JML', body)
 
             worksheet535.conditional_format(22, 0, row535+21, 15,
@@ -18874,12 +18874,12 @@
             worksheet546.write('G5', 'MAT. WJB.', body)
             worksheet546.write('H5', 'IND', body)
             worksheet546.write('I5', 'ENG', body)
-            worksheet546.write('J5', 'SEJ', body)
+            worksheet546.write('J5', 'GEO', body)
             worksheet546.write('K5', 'JML', body)
             worksheet546.write('L5', 'MAT. WJB.', body)
             worksheet546.write('M5', 'IND', body)
             worksheet546.write('N5', 'ENG', body)
-            worksheet546.write('O5', 'SEJ', body)
+            worksheet546.write('O5', 'GEO', body)
             worksheet546.write('P5', 'JML', body)
 
             worksheet546.conditional_format(5, 0, row546_10+4, 15,
@@ -18902,12 +18902,12 @@
             worksheet546.write('G22', 'MAT. WJB.', body)
             worksheet546.write('H22', 'IND', body)
             worksheet546.write('I22', 'ENG', body)
-            worksheet546.write('J22', 'SEJ', body)
+            worksheet546.write('J22', 'GEO', body)
             worksheet546.write('K22', 'JML', body)
             worksheet546.write('L22', 'MAT. WJB.', body)
             worksheet546.write('M22', 'IND', body)
             worksheet546.write('N22', 'ENG', body)
-            worksheet546.write('O22', 'SEJ', body)
+            worksheet546.write('O22', 'GEO', body)
             worksheet546.write('P22', 'JML', body)
 
             worksheet546.conditional_format(22, 0, row546+21, 15,
@@ -18939,12 +18939,12 @@
             worksheet547.write('G5', 'MAT. WJB.', body)
             worksheet547.write('H5', 'IND', body)
             worksheet547.write('I5', 'ENG', body)
-            worksheet547.write('J5', 'SEJ', body)
+            worksheet547.write('J5', 'GEO', body)
             worksheet547.write('K5', 'JML', body)
             worksheet547.write('L5', 'MAT. WJB.', body)
             worksheet547.write('M5', 'IND', body)
             worksheet547.write('N5', 'ENG', body)
-            worksheet547.write('O5', 'SEJ', body)
+            worksheet547.write('O5', 'GEO', body)
             worksheet547.write('P5', 'JML', body)
 
             worksheet547.conditional_format(5, 0, row547_10+4, 15,
@@ -18967,12 +18967,12 @@
             worksheet547.write('G22', 'MAT. WJB.', body)
             worksheet547.write('H22', 'IND', body)
             worksheet547.write('I22', 'ENG', body)
-            worksheet547.write('J22', 'SEJ', body)
+            worksheet547.write('J22', 'GEO', body)
             worksheet547.write('K22', 'JML', body)
             worksheet547.write('L22', 'MAT. WJB.', body)
             worksheet547.write('M22', 'IND', body)
             worksheet547.write('N22', 'ENG', body)
-            worksheet547.write('O22', 'SEJ', body)
+            worksheet547.write('O22', 'GEO', body)
             worksheet547.write('P22', 'JML', body)
 
             worksheet547.conditional_format(22, 0, row547+21, 15,
@@ -19004,12 +19004,12 @@
             worksheet548.write('G5', 'MAT. WJB.', body)
             worksheet548.write('H5', 'IND', body)
             worksheet548.write('I5', 'ENG', body)
-            worksheet548.write('J5', 'SEJ', body)
+            worksheet548.write('J5', 'GEO', body)
             worksheet548.write('K5', 'JML', body)
             worksheet548.write('L5', 'MAT. WJB.', body)
             worksheet548.write('M5', 'IND', body)
             worksheet548.write('N5', 'ENG', body)
-            worksheet548.write('O5', 'SEJ', body)
+            worksheet548.write('O5', 'GEO', body)
             worksheet548.write('P5', 'JML', body)
 
             worksheet548.conditional_format(5, 0, row548_10+4, 15,
@@ -19032,12 +19032,12 @@
             worksheet548.write('G22', 'MAT. WJB.', body)
             worksheet548.write('H22', 'IND', body)
             worksheet548.write('I22', 'ENG', body)
-            worksheet548.write('J22', 'SEJ', body)
+            worksheet548.write('J22', 'GEO', body)
             worksheet548.write('K22', 'JML', body)
             worksheet548.write('L22', 'MAT. WJB.', body)
             worksheet548.write('M22', 'IND', body)
             worksheet548.write('N22', 'ENG', body)
-            worksheet548.write('O22', 'SEJ', body)
+            worksheet548.write('O22', 'GEO', body)
             worksheet548.write('P22', 'JML', body)
 
             worksheet548.conditional_format(22, 0, row548+21, 15,
@@ -19069,12 +19069,12 @@
             worksheet549.write('G5', 'MAT. WJB.', body)
             worksheet549.write('H5', 'IND', body)
             worksheet549.write('I5', 'ENG', body)
-            worksheet549.write('J5', 'SEJ', body)
+            worksheet549.write('J5', 'GEO', body)
             worksheet549.write('K5', 'JML', body)
             worksheet549.write('L5', 'MAT. WJB.', body)
             worksheet549.write('M5', 'IND', body)
             worksheet549.write('N5', 'ENG', body)
-            worksheet549.write('O5', 'SEJ', body)
+            worksheet549.write('O5', 'GEO', body)
             worksheet549.write('P5', 'JML', body)
 
             worksheet549.conditional_format(5, 0, row549_10+4, 15,
@@ -19097,12 +19097,12 @@
             worksheet549.write('G22', 'MAT. WJB.', body)
             worksheet549.write('H22', 'IND', body)
             worksheet549.write('I22', 'ENG', body)
-            worksheet549.write('J22', 'SEJ', body)
+            worksheet549.write('J22', 'GEO', body)
             worksheet549.write('K22', 'JML', body)
             worksheet549.write('L22', 'MAT. WJB.', body)
             worksheet549.write('M22', 'IND', body)
             worksheet549.write('N22', 'ENG', body)
-            worksheet549.write('O22', 'SEJ', body)
+            worksheet549.write('O22', 'GEO', body)
             worksheet549.write('P22', 'JML', body)
 
             worksheet549.conditional_format(22, 0, row549+21, 15,
@@ -19134,12 +19134,12 @@
             worksheet556.write('G5', 'MAT. WJB.', body)
             worksheet556.write('H5', 'IND', body)
             worksheet556.write('I5', 'ENG', body)
-            worksheet556.write('J5', 'SEJ', body)
+            worksheet556.write('J5', 'GEO', body)
             worksheet556.write('K5', 'JML', body)
             worksheet556.write('L5', 'MAT. WJB.', body)
             worksheet556.write('M5', 'IND', body)
             worksheet556.write('N5', 'ENG', body)
-            worksheet556.write('O5', 'SEJ', body)
+            worksheet556.write('O5', 'GEO', body)
             worksheet556.write('P5', 'JML', body)
 
             worksheet556.conditional_format(5, 0, row556_10+4, 15,
@@ -19162,12 +19162,12 @@
             worksheet556.write('G22', 'MAT. WJB.', body)
             worksheet556.write('H22', 'IND', body)
             worksheet556.write('I22', 'ENG', body)
-            worksheet556.write('J22', 'SEJ', body)
+            worksheet556.write('J22', 'GEO', body)
             worksheet556.write('K22', 'JML', body)
             worksheet556.write('L22', 'MAT. WJB.', body)
             worksheet556.write('M22', 'IND', body)
             worksheet556.write('N22', 'ENG', body)
-            worksheet556.write('O22', 'SEJ', body)
+            worksheet556.write('O22', 'GEO', body)
             worksheet556.write('P22', 'JML', body)
 
             worksheet556.conditional_format(22, 0, row556+21, 15,
@@ -19199,12 +19199,12 @@
             worksheet557.write('G5', 'MAT. WJB.', body)
             worksheet557.write('H5', 'IND', body)
             worksheet557.write('I5', 'ENG', body)
-            worksheet557.write('J5', 'SEJ', body)
+            worksheet557.write('J5', 'GEO', body)
             worksheet557.write('K5', 'JML', body)
             worksheet557.write('L5', 'MAT. WJB.', body)
             worksheet557.write('M5', 'IND', body)
             worksheet557.write('N5', 'ENG', body)
-            worksheet557.write('O5', 'SEJ', body)
+            worksheet557.write('O5', 'GEO', body)
             worksheet557.write('P5', 'JML', body)
 
             worksheet557.conditional_format(5, 0, row557_10+4, 15,
@@ -19227,12 +19227,12 @@
             worksheet557.write('G22', 'MAT. WJB.', body)
             worksheet557.write('H22', 'IND', body)
             worksheet557.write('I22', 'ENG', body)
-            worksheet557.write('J22', 'SEJ', body)
+            worksheet557.write('J22', 'GEO', body)
             worksheet557.write('K22', 'JML', body)
             worksheet557.write('L22', 'MAT. WJB.', body)
             worksheet557.write('M22', 'IND', body)
             worksheet557.write('N22', 'ENG', body)
-            worksheet557.write('O22', 'SEJ', body)
+            worksheet557.write('O22', 'GEO', body)
             worksheet557.write('P22', 'JML', body)
 
             worksheet557.conditional_format(22, 0, row557+21, 15,
@@ -19264,12 +19264,12 @@
             worksheet558.write('G5', 'MAT. WJB.', body)
             worksheet558.write('H5', 'IND', body)
             worksheet558.write('I5', 'ENG', body)
-            worksheet558.write('J5', 'SEJ', body)
+            worksheet558.write('J5', 'GEO', body)
             worksheet558.write('K5', 'JML', body)
             worksheet558.write('L5', 'MAT. WJB.', body)
             worksheet558.write('M5', 'IND', body)
             worksheet558.write('N5', 'ENG', body)
-            worksheet558.write('O5', 'SEJ', body)
+            worksheet558.write('O5', 'GEO', body)
             worksheet558.write('P5', 'JML', body)
 
             worksheet558.conditional_format(5, 0, row558_10+4, 15,
@@ -19292,12 +19292,12 @@
             worksheet558.write('G22', 'MAT. WJB.', body)
             worksheet558.write('H22', 'IND', body)
             worksheet558.write('I22', 'ENG', body)
-            worksheet558.write('J22', 'SEJ', body)
+            worksheet558.write('J22', 'GEO', body)
             worksheet558.write('K22', 'JML', body)
             worksheet558.write('L22', 'MAT. WJB.', body)
             worksheet558.write('M22', 'IND', body)
             worksheet558.write('N22', 'ENG', body)
-            worksheet558.write('O22', 'SEJ', body)
+            worksheet558.write('O22', 'GEO', body)
             worksheet558.write('P22', 'JML', body)
 
             worksheet558.conditional_format(22, 0, row558+21, 15,
@@ -19329,12 +19329,12 @@
             worksheet575.write('G5', 'MAT. WJB.', body)
             worksheet575.write('H5', 'IND', body)
             worksheet575.write('I5', 'ENG', body)
-            worksheet575.write('J5', 'SEJ', body)
+            worksheet575.write('J5', 'GEO', body)
             worksheet575.write('K5', 'JML', body)
             worksheet575.write('L5', 'MAT. WJB.', body)
             worksheet575.write('M5', 'IND', body)
             worksheet575.write('N5', 'ENG', body)
-            worksheet575.write('O5', 'SEJ', body)
+            worksheet575.write('O5', 'GEO', body)
             worksheet575.write('P5', 'JML', body)
 
             worksheet575.conditional_format(5, 0, row575_10+4, 15,
@@ -19357,12 +19357,12 @@
             worksheet575.write('G22', 'MAT. WJB.', body)
             worksheet575.write('H22', 'IND', body)
             worksheet575.write('I22', 'ENG', body)
-            worksheet575.write('J22', 'SEJ', body)
+            worksheet575.write('J22', 'GEO', body)
             worksheet575.write('K22', 'JML', body)
             worksheet575.write('L22', 'MAT. WJB.', body)
             worksheet575.write('M22', 'IND', body)
             worksheet575.write('N22', 'ENG', body)
-            worksheet575.write('O22', 'SEJ', body)
+            worksheet575.write('O22', 'GEO', body)
             worksheet575.write('P22', 'JML', body)
 
             worksheet575.conditional_format(22, 0, row575+21, 15,
@@ -19394,12 +19394,12 @@
             worksheet576.write('G5', 'MAT. WJB.', body)
             worksheet576.write('H5', 'IND', body)
             worksheet576.write('I5', 'ENG', body)
-            worksheet576.write('J5', 'SEJ', body)
+            worksheet576.write('J5', 'GEO', body)
             worksheet576.write('K5', 'JML', body)
             worksheet576.write('L5', 'MAT. WJB.', body)
             worksheet576.write('M5', 'IND', body)
             worksheet576.write('N5', 'ENG', body)
-            worksheet576.write('O5', 'SEJ', body)
+            worksheet576.write('O5', 'GEO', body)
             worksheet576.write('P5', 'JML', body)
 
             worksheet576.conditional_format(5, 0, row576_10+4, 15,
@@ -19422,12 +19422,12 @@
             worksheet576.write('G22', 'MAT. WJB.', body)
             worksheet576.write('H22', 'IND', body)
             worksheet576.write('I22', 'ENG', body)
-            worksheet576.write('J22', 'SEJ', body)
+            worksheet576.write('J22', 'GEO', body)
             worksheet576.write('K22', 'JML', body)
             worksheet576.write('L22', 'MAT. WJB.', body)
             worksheet576.write('M22', 'IND', body)
             worksheet576.write('N22', 'ENG', body)
-            worksheet576.write('O22', 'SEJ', body)
+            worksheet576.write('O22', 'GEO', body)
             worksheet576.write('P22', 'JML', body)
 
             worksheet576.conditional_format(22, 0, row576+21, 15,
@@ -19458,12 +19458,12 @@
             worksheet577.write('G5', 'MAT. WJB.', body)
             worksheet577.write('H5', 'IND', body)
             worksheet577.write('I5', 'ENG', body)
-            worksheet577.write('J5', 'SEJ', body)
+            worksheet577.write('J5', 'GEO', body)
             worksheet577.write('K5', 'JML', body)
             worksheet577.write('L5', 'MAT. WJB.', body)
             worksheet577.write('M5', 'IND', body)
             worksheet577.write('N5', 'ENG', body)
-            worksheet577.write('O5', 'SEJ', body)
+            worksheet577.write('O5', 'GEO', body)
             worksheet577.write('P5', 'JML', body)
 
             worksheet577.conditional_format(5, 0, row577_10+4, 15,
@@ -19486,12 +19486,12 @@
             worksheet577.write('G22', 'MAT. WJB.', body)
             worksheet577.write('H22', 'IND', body)
             worksheet577.write('I22', 'ENG', body)
-            worksheet577.write('J22', 'SEJ', body)
+            worksheet577.write('J22', 'GEO', body)
             worksheet577.write('K22', 'JML', body)
             worksheet577.write('L22', 'MAT. WJB.', body)
             worksheet577.write('M22', 'IND', body)
             worksheet577.write('N22', 'ENG', body)
-            worksheet577.write('O22', 'SEJ', body)
+            worksheet577.write('O22', 'GEO', body)
             worksheet577.write('P22', 'JML', body)
 
             worksheet577.conditional_format(22, 0, row577+21, 15,
@@ -19523,12 +19523,12 @@
             worksheet578.write('G5', 'MAT. WJB.', body)
             worksheet578.write('H5', 'IND', body)
             worksheet578.write('I5', 'ENG', body)
-            worksheet578.write('J5', 'SEJ', body)
+            worksheet578.write('J5', 'GEO', body)
             worksheet578.write('K5', 'JML', body)
             worksheet578.write('L5', 'MAT. WJB.', body)
             worksheet578.write('M5', 'IND', body)
             worksheet578.write('N5', 'ENG', body)
-            worksheet578.write('O5', 'SEJ', body)
+            worksheet578.write('O5', 'GEO', body)
             worksheet578.write('P5', 'JML', body)
 
             worksheet578.conditional_format(5, 0, row578_10+4, 15,
@@ -19551,12 +19551,12 @@
             worksheet578.write('G22', 'MAT. WJB.', body)
             worksheet578.write('H22', 'IND', body)
             worksheet578.write('I22', 'ENG', body)
-            worksheet578.write('J22', 'SEJ', body)
+            worksheet578.write('J22', 'GEO', body)
             worksheet578.write('K22', 'JML', body)
             worksheet578.write('L22', 'MAT. WJB.', body)
             worksheet578.write('M22', 'IND', body)
             worksheet578.write('N22', 'ENG', body)
-            worksheet578.write('O22', 'SEJ', body)
+            worksheet578.write('O22', 'GEO', body)
             worksheet578.write('P22', 'JML', body)
 
             worksheet578.conditional_format(22, 0, row578+21, 15,
@@ -19588,12 +19588,12 @@
             worksheet588.write('G5', 'MAT. WJB.', body)
             worksheet588.write('H5', 'IND', body)
             worksheet588.write('I5', 'ENG', body)
-            worksheet588.write('J5', 'SEJ', body)
+            worksheet588.write('J5', 'GEO', body)
             worksheet588.write('K5', 'JML', body)
             worksheet588.write('L5', 'MAT. WJB.', body)
             worksheet588.write('M5', 'IND', body)
             worksheet588.write('N5', 'ENG', body)
-            worksheet588.write('O5', 'SEJ', body)
+            worksheet588.write('O5', 'GEO', body)
             worksheet588.write('P5', 'JML', body)
 
             worksheet588.conditional_format(5, 0, row588_10+4, 15,
@@ -19616,12 +19616,12 @@
             worksheet588.write('G22', 'MAT. WJB.', body)
             worksheet588.write('H22', 'IND', body)
             worksheet588.write('I22', 'ENG', body)
-            worksheet588.write('J22', 'SEJ', body)
+            worksheet588.write('J22', 'GEO', body)
             worksheet588.write('K22', 'JML', body)
             worksheet588.write('L22', 'MAT. WJB.', body)
             worksheet588.write('M22', 'IND', body)
             worksheet588.write('N22', 'ENG', body)
-            worksheet588.write('O22', 'SEJ', body)
+            worksheet588.write('O22', 'GEO', body)
             worksheet588.write('P22', 'JML', body)
 
             worksheet588.conditional_format(22, 0, row588+21, 15,
@@ -19653,12 +19653,12 @@
             worksheet589.write('G5', 'MAT. WJB.', body)
             worksheet589.write('H5', 'IND', body)
             worksheet589.write('I5', 'ENG', body)
-            worksheet589.write('J5', 'SEJ', body)
+            worksheet589.write('J5', 'GEO', body)
             worksheet589.write('K5', 'JML', body)
             worksheet589.write('L5', 'MAT. WJB.', body)
             worksheet589.write('M5', 'IND', body)
             worksheet589.write('N5', 'ENG', body)
-            worksheet589.write('O5', 'SEJ', body)
+            worksheet589.write('O5', 'GEO', body)
             worksheet589.write('P5', 'JML', body)
 
             worksheet589.conditional_format(5, 0, row589_10+4, 15,
@@ -19681,12 +19681,12 @@
             worksheet589.write('G22', 'MAT. WJB.', body)
             worksheet589.write('H22', 'IND', body)
             worksheet589.write('I22', 'ENG', body)
-            worksheet589.write('J22', 'SEJ', body)
+            worksheet589.write('J22', 'GEO', body)
             worksheet589.write('K22', 'JML', body)
             worksheet589.write('L22', 'MAT. WJB.', body)
             worksheet589.write('M22', 'IND', body)
             worksheet589.write('N22', 'ENG', body)
-            worksheet589.write('O22', 'SEJ', body)
+            worksheet589.write('O22', 'GEO', body)
             worksheet589.write('P22', 'JML', body)
 
             worksheet589.conditional_format(22, 0, row589+21, 15,
@@ -19718,12 +19718,12 @@
             worksheet594.write('G5', 'MAT. WJB.', body)
             worksheet594.write('H5', 'IND', body)
             worksheet594.write('I5', 'ENG', body)
-            worksheet594.write('J5', 'SEJ', body)
+            worksheet594.write('J5', 'GEO', body)
             worksheet594.write('K5', 'JML', body)
             worksheet594.write('L5', 'MAT. WJB.', body)
             worksheet594.write('M5', 'IND', body)
             worksheet594.write('N5', 'ENG', body)
-            worksheet594.write('O5', 'SEJ', body)
+            worksheet594.write('O5', 'GEO', body)
             worksheet594.write('P5', 'JML', body)
 
             worksheet594.conditional_format(5, 0, row594_10+4, 15,
@@ -19746,12 +19746,12 @@
             worksheet594.write('G22', 'MAT. WJB.', body)
             worksheet594.write('H22', 'IND', body)
             worksheet594.write('I22', 'ENG', body)
-            worksheet594.write('J22', 'SEJ', body)
+            worksheet594.write('J22', 'GEO', body)
             worksheet594.write('K22', 'JML', body)
             worksheet594.write('L22', 'MAT. WJB.', body)
             worksheet594.write('M22', 'IND', body)
             worksheet594.write('N22', 'ENG', body)
-            worksheet594.write('O22', 'SEJ', body)
+            worksheet594.write('O22', 'GEO', body)
             worksheet594.write('P22', 'JML', body)
 
             worksheet594.conditional_format(22, 0, row594+21, 15,
@@ -19783,12 +19783,12 @@
             worksheet661.write('G5', 'MAT. WJB.', body)
             worksheet661.write('H5', 'IND', body)
             worksheet661.write('I5', 'ENG', body)
-            worksheet661.write('J5', 'SEJ', body)
+            worksheet661.write('J5', 'GEO', body)
             worksheet661.write('K5', 'JML', body)
             worksheet661.write('L5', 'MAT. WJB.', body)
             worksheet661.write('M5', 'IND', body)
             worksheet661.write('N5', 'ENG', body)
-            worksheet661.write('O5', 'SEJ', body)
+            worksheet661.write('O5', 'GEO', body)
             worksheet661.write('P5', 'JML', body)
 
             worksheet661.conditional_format(5, 0, row661_10+4, 15,
@@ -19811,12 +19811,12 @@
             worksheet661.write('G22', 'MAT. WJB.', body)
             worksheet661.write('H22', 'IND', body)
             worksheet661.write('I22', 'ENG', body)
-            worksheet661.write('J22', 'SEJ', body)
+            worksheet661.write('J22', 'GEO', body)
             worksheet661.write('K22', 'JML', body)
             worksheet661.write('L22', 'MAT. WJB.', body)
             worksheet661.write('M22', 'IND', body)
             worksheet661.write('N22', 'ENG', body)
-            worksheet661.write('O22', 'SEJ', body)
+            worksheet661.write('O22', 'GEO', body)
             worksheet661.write('P22', 'JML', body)
 
             worksheet661.conditional_format(22, 0, row661+21, 15,
@@ -19848,12 +19848,12 @@
             worksheet662.write('G5', 'MAT. WJB.', body)
             worksheet662.write('H5', 'IND', body)
             worksheet662.write('I5', 'ENG', body)
-            worksheet662.write('J5', 'SEJ', body)
+            worksheet662.write('J5', 'GEO', body)
             worksheet662.write('K5', 'JML', body)
             worksheet662.write('L5', 'MAT. WJB.', body)
             worksheet662.write('M5', 'IND', body)
             worksheet662.write('N5', 'ENG', body)
-            worksheet662.write('O5', 'SEJ', body)
+            worksheet662.write('O5', 'GEO', body)
             worksheet662.write('P5', 'JML', body)
 
             worksheet662.conditional_format(5, 0, row662_10+4, 15,
@@ -19876,12 +19876,12 @@
             worksheet662.write('G22', 'MAT. WJB.', body)
             worksheet662.write('H22', 'IND', body)
             worksheet662.write('I22', 'ENG', body)
-            worksheet662.write('J22', 'SEJ', body)
+            worksheet662.write('J22', 'GEO', body)
             worksheet662.write('K22', 'JML', body)
             worksheet662.write('L22', 'MAT. WJB.', body)
             worksheet662.write('M22', 'IND', body)
             worksheet662.write('N22', 'ENG', body)
-            worksheet662.write('O22', 'SEJ', body)
+            worksheet662.write('O22', 'GEO', body)
             worksheet662.write('P22', 'JML', body)
 
             worksheet662.conditional_format(22, 0, row662+21, 15,
@@ -19913,12 +19913,12 @@
             worksheet663.write('G5', 'MAT. WJB.', body)
             worksheet663.write('H5', 'IND', body)
             worksheet663.write('I5', 'ENG', body)
-            worksheet663.write('J5', 'SEJ', body)
+            worksheet663.write('J5', 'GEO', body)
             worksheet663.write('K5', 'JML', body)
             worksheet663.write('L5', 'MAT. WJB.', body)
             worksheet663.write('M5', 'IND', body)
             worksheet663.write('N5', 'ENG', body)
-            worksheet663.write('O5', 'SEJ', body)
+            worksheet663.write('O5', 'GEO', body)
             worksheet663.write('P5', 'JML', body)
 
             worksheet663.conditional_format(5, 0, row663_10+4, 15,
@@ -19941,12 +19941,12 @@
             worksheet663.write('G22', 'MAT. WJB.', body)
             worksheet663.write('H22', 'IND', body)
             worksheet663.write('I22', 'ENG', body)
-            worksheet663.write('J22', 'SEJ', body)
+            worksheet663.write('J22', 'GEO', body)
             worksheet663.write('K22', 'JML', body)
             worksheet663.write('L22', 'MAT. WJB.', body)
             worksheet663.write('M22', 'IND', body)
             worksheet663.write('N22', 'ENG', body)
-            worksheet663.write('O22', 'SEJ', body)
+            worksheet663.write('O22', 'GEO', body)
             worksheet663.write('P22', 'JML', body)
 
             worksheet663.conditional_format(22, 0, row663+21, 15,
@@ -19978,12 +19978,12 @@
             worksheet664.write('G5', 'MAT. WJB.', body)
             worksheet664.write('H5', 'IND', body)
             worksheet664.write('I5', 'ENG', body)
-            worksheet664.write('J5', 'SEJ', body)
+            worksheet664.write('J5', 'GEO', body)
             worksheet664.write('K5', 'JML', body)
             worksheet664.write('L5', 'MAT. WJB.', body)
             worksheet664.write('M5', 'IND', body)
             worksheet664.write('N5', 'ENG', body)
-            worksheet664.write('O5', 'SEJ', body)
+            worksheet664.write('O5', 'GEO', body)
             worksheet664.write('P5', 'JML', body)
 
             worksheet664.conditional_format(5, 0, row664_10+4, 15,
@@ -20006,12 +20006,12 @@
             worksheet664.write('G22', 'MAT. WJB.', body)
             worksheet664.write('H22', 'IND', body)
             worksheet664.write('I22', 'ENG', body)
-            worksheet664.write('J22', 'SEJ', body)
+            worksheet664.write('J22', 'GEO', body)
             worksheet664.write('K22', 'JML', body)
             worksheet664.write('L22', 'MAT. WJB.', body)
             worksheet664.write('M22', 'IND', body)
             worksheet664.write('N22', 'ENG', body)
-            worksheet664.write('O22', 'SEJ', body)
+            worksheet664.write('O22', 'GEO', body)
             worksheet664.write('P22', 'JML', body)
 
             worksheet664.conditional_format(22, 0, row664+21, 15,
